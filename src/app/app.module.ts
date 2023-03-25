@@ -20,6 +20,9 @@ import { SkillsComponent } from './components/skills/skills.component';
 import { NegativeNumberPipe } from './services/negativeNumber';
 import { OtherValuesComponent } from './components/other-values/other-values.component';
 import { HeaderComponent } from './components/header/header.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,9 @@ import { HeaderComponent } from './components/header/header.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule    
+    HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth())    
   ],
   providers: [RacesService, ClassesService, ArmorsService, ArmorComponent, JoueurComponent],
   bootstrap: [AppComponent]

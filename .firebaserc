@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "character-sheet-8d9c4": {
+      "hosting": {
+        "angular-charasheet2": [
+          "character-sheet-8d9c4"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "character-sheet-8d9c4"
+  }
+}

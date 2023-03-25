@@ -7,7 +7,7 @@ import { Ispells } from './spells';
   providedIn: 'root'
 })
 export class SpellsService {
-  private _url:string = "/docs/assets/data/spells.json";
+  private _url:string = "/assets/data/spells.json";
   public cantrips  = "";
   public spells  = "";
 

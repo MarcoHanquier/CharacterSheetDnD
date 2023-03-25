@@ -7,8 +7,8 @@ import { Iraces } from './races';
   providedIn: 'root'
 })
 export class RacesService {
-  private _url:string = "./angular-charasheet2/docs/assets/data/races.json";
-  
+  private _url:string = "/assets/data/races.json";
+
   public races = [] as any[];
   public selectedRace = 0;
   public selectedRaceSpeed = 9;
