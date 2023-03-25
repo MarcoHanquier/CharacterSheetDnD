@@ -8,9 +8,9 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
 
-  { path: '', redirectTo: 'characterSheet', pathMatch: 'full'},
-  { path: 'characterSheet', component: AppComponent },
-  { path: 'joueur', component: JoueurComponent },
+  // { path: '', redirectTo: 'characterSheet', pathMatch: 'full'},
+  { path: '', component: AppComponent }
+  // { path: 'joueur', component: JoueurComponent },
 
 ];
 
