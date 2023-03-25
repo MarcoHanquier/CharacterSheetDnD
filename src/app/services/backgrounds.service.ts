@@ -7,9 +7,8 @@ import { Ibackgrounds } from './backgrounds';
   providedIn: 'root'
 })
 export class BackgroundsService {
-  private _url:string = "CharacterSheet/docs/assets/data/backgrounds.json";
-
-
+  private _url:string = "./angular-charasheet2/dist/angular-charasheet2/assets/data/backgrounds.json";
+  
   public selectedBackground = 0;
   public selectedBackgroundSkill = "";
   public selectedBackgroundSkillMasteries = "";
