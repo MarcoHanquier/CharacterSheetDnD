@@ -9,8 +9,8 @@ import { Iarmors } from './armors';
   providedIn: 'root'
 })
 export class ArmorsService {
-  private _url:string = "/assets/data/armors.json";
-
+  private _url:string = "/dist/angular-charasheet2/assets/data/armors.json";
+  
   public selectedArmor = 10;
   public selectedArmorValue = 10;
   public armorType = "Aucune";
