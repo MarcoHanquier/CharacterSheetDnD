@@ -7,7 +7,7 @@ import { Ibackgrounds } from './backgrounds';
   providedIn: 'root'
 })
 export class BackgroundsService {
-  private _url:string = "/assets/data/backgrounds.json";
+  private _url:string = "CharacterSheet/docs/assets/data/backgrounds.json";
 
 
   public selectedBackground = 0;
