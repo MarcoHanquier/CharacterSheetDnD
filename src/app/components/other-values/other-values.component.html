@@ -1,0 +1,74 @@
+<div id="valeurs">
+    <div id="derivated-Values">
+
+    
+<h2 class="title"> Valeurs dérivées</h2>
+    <div id="derivated-Values-Blocs">
+        <div class="border-derivatedValue-proficiency"> 
+        <p class="proficiency">Maîtrise</p>
+        <p class="value-text"> +{{proficiencyInUI()}} </p> 
+        </div>
+
+        <div class="border-derivatedValue-initiative"> 
+            <p class="initiative">Initiative</p>
+            <p class="value-text"> <ng-container *ngIf="updateInitiative() > 0">  +</ng-container> {{updateInitiative()}} </p> 
+        </div>
+
+        <div class="border-derivatedValue-speed"> 
+            <p class="speed">Vitesse</p>
+            <p class="value-text"> {{speedInUI()}} mètres </p> 
+        </div>
+
+        <div class="border-derivatedValue-passivePerception"> 
+            <p class="passivePerception">Perception Pass.</p>
+            <p class="value-text"> {{10+updatePassivePerception()}} </p> 
+        </div>
+
+        <div class="border-derivatedValue-savingThrow"> 
+            <p class="savingThrow">DD Jet de Sauv.</p>
+            <p class="value-text"> +{{proficiencyInUI()}} </p> 
+        </div>
+
+    </div>
+
+</div>
+
+<div id="armorClass">
+<h2 class="title">Classe d'armure </h2>
+<div class="border-armorClass">
+<p class="armorClass"> Classe d'armure</p>
+<p class="value-text">{{updateArmorClass()}}</p>
+
+</div>
+</div>
+
+<div id="pv">
+<h2 class="title"> 	
+&#10084; Points de vie </h2>
+<div id="PV-Grid">
+<div class="border-PV" >
+<p class="PV">PV Actuels</p>
+<p class="value-text">{{updatedPV()}}</p>
+</div>
+
+<div class="border-PV" >
+<p class="PV">PV fixes</p>
+<p class="value-text">{{pvFixe()}}</p>
+</div>
+
+<div class="border-PV" >
+<p class="PV">PV minimum</p>
+<p class="value-text">{{minPV()}} </p>
+</div>
+
+<div class="border-PV" >
+<p class="PV">PV maximum</p>
+<p class="value-text">{{maxPV()}}</p>
+</div>
+
+</div>
+</div>
+
+
+
+</div>

@@ -1,0 +1,82 @@
+[
+    { "id": 0, "type": "Fighter",
+    
+    
+    "level1Slot":  "",
+    "level2Slot":  "",
+    "level3Slot":  "",
+    "level4Slot":  "",
+    "level5Slot":  "",
+    "level6Slot":  "",
+    "level7Slot":  "",
+    "level8Slot":  "",
+    "level9Slot":  "",
+    "level10Slot": "",
+    "level11Slot": "",
+    "level12Slot": "",
+    "level13Slot": "",
+    "level14Slot": "",
+    "level15Slot": "",
+    "level16Slot": "",
+    "level17Slot": "",
+    "level18Slot": "",
+    "level19Slot": "",
+    "level20Slot": ""
+    
+},
+
+{ "id": 1, "type": "Caster",
+
+
+"level1Slot":  "⬤\n⬤",
+"level2Slot":  "⬤\n⬤\n⬤",
+"level3Slot":  "⬤ ⬤\n⬤ ⬤\n⬤ ⬤\n⬤",
+"level4Slot":  "⬤ ⬤\n⬤ ⬤\n⬤ ⬤\n⬤",
+"level5Slot":  "⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤ ⬤\n⬤",
+"level6Slot":  "⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤",
+"level7Slot":  "⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤",
+"level8Slot":  "⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤",
+"level9Slot":  "⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤",
+"level10Slot": "⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤",
+"level11Slot": "⬤ ⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤",
+"level12Slot": "⬤ ⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤ ⬤\n⬤",
+"level13Slot": "⬤ ⬤ ⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤",
+"level14Slot": "⬤ ⬤ ⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤",
+"level15Slot": "⬤ ⬤ ⬤ ⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤",
+"level16Slot": "⬤ ⬤ ⬤ ⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤",
+"level17Slot": "⬤ ⬤ ⬤ ⬤ ⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤",
+"level18Slot": "⬤ ⬤ ⬤ ⬤ ⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤ ⬤\n⬤",
+"level19Slot": "⬤ ⬤ ⬤ ⬤ ⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤ ⬤\n⬤",
+"level20Slot": "⬤ ⬤ ⬤ ⬤ ⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤ ⬤\n⬤"
+
+},
+
+{ "id": 2, "type": "MagFighter",
+
+
+"level1Slot":  "",
+"level2Slot":  "⬤\n⬤",
+"level3Slot":  "⬤\n⬤\n⬤",
+"level4Slot":  "⬤\n⬤\n⬤",
+"level5Slot":  "⬤ ⬤\n⬤ ⬤\n⬤\n⬤",
+"level6Slot":  "⬤ ⬤\n⬤ ⬤\n⬤\n⬤",
+"level7Slot":  "⬤ ⬤\n⬤ ⬤\n⬤ ⬤\n⬤",
+"level8Slot":  "⬤ ⬤\n⬤ ⬤\n⬤ ⬤\n⬤",
+"level9Slot":  "⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤ ⬤\n⬤",
+"level10Slot": "⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤ ⬤\n⬤",
+"level11Slot": "⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤",
+"level12Slot": "⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤",
+"level13Slot": "⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤",
+"level14Slot": "⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤",
+"level15Slot": "⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤",
+"level16Slot": "⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤",
+"level17Slot": "⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤",
+"level18Slot": "⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤",
+"level19Slot": "⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤",
+"level20Slot": "⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤"
+}
+
+
+]
+
+

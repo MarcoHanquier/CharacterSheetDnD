@@ -1,0 +1,44 @@
+
+<div > 
+<h2 class="title"> Sorts </h2> 
+   <div id="spells-blocs">
+
+    <div id="spells-known">
+
+        <div class="border-spells-known" >
+            <p class="spells-known" *ngIf=" this.selectedClass == 'Druide' || this.selectedClass == 'Clerc' || 
+            this.selectedClass == 'Magicien' || this.selectedClass == 'Paladin' ; else elseBlock">Sorts préparés</p>
+
+<ng-template #elseBlock><p class="spells-known" > Sorts connus</p></ng-template>
+            <p class="value-text">{{updateSpellsInUI()}} </p>
+            </div>
+    </div>
+
+    <div id="cantrips">
+        <div class="border-cantrips" >
+            <p class="cantrips">Tours de magie</p>
+            <p class="value-text">{{cantripsKnown}} </p>
+            </div>
+    </div>
+
+    <div id="spells-slots"> 
+        <div class="border-spells"> 
+            <p class="spells">Emplacements de sorts.</p>
+            
+            <div class="spells-levels"> 
+            <span > Niveaux : </span>
+            <span class="spells-levels-text" >1 2 3 4 5 6 7 8 9</span> 
+            </div>
+            
+            <div> 
+            <p class="spells-slots-text">  {{updatedSpellsSlots()}} </p> 
+            </div>
+    
+    </div>
+
+
+   </div>
+
+</div>
+
+</div>

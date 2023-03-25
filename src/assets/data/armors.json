@@ -1,0 +1,20 @@
+[
+    { "id": 0, "name": "Aucune armure", "armorValue": 10, "armorType": "Aucune", "minStrength" : 0},
+    { "id": 1, "name": "Armure matelassée", "armorValue": 11, "armorType": "Armure légère", "minStrength" : 0},
+    { "id": 2, "name": "Armure en cuir", "armorValue": 11, "armorType": "Armure légère", "minStrength" : 0},
+    { "id": 3, "name": "Armure en cuir clouté", "armorValue": 12, "armorType": "Armure légère", "minStrength" : 0},
+
+    { "id": 4, "name": "Armure en peau", "armorValue": 12, "armorType": "Armure intermédiaire", "minStrength" : 0},
+    { "id": 5, "name": "Chemise de mailles", "armorValue": 13, "armorType": "Armure intermédiaire", "minStrength" : 0},
+    { "id": 6, "name": "Armure en écailles", "armorValue": 14, "armorType": "Armure intermédiaire", "minStrength" : 0},
+    { "id": 7, "name": "Cuirasse", "armorValue": 14, "armorType": "Armure intermédiaire", "minStrength" : 0},
+    { "id": 8, "name": "Armure de demi-plate", "armorValue": 15, "armorType": "Armure intermédiaire", "minStrength" : 0},
+
+    { "id": 9, "name": "Broigne", "armorValue": 14, "armorType": "Armure lourde", "minStrength" : 0},
+    { "id": 10, "name": "Cotte de mailles", "armorValue": 16, "armorType": "Armure lourde", "minStrength" : 13},
+    { "id": 11, "name": "Clibanion", "armorValue": 17, "armorType": "Armure lourde" , "minStrength" : 15},
+    { "id": 12, "name": "Harnois", "armorValue": 18, "armorType": "Armure lourde", "minStrength" : 15}
+    
+    
+]
+

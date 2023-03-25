@@ -1,0 +1,358 @@
+
+<div id="caracteristics" > 
+            <div id="caracteristicsBlocs">
+                <h2 class="title"> Caractéristiques</h2>
+
+                <div id="statsBlocs"> 
+                        <div id="forceBloc">
+                            <div class="title-Statbloc for"> FOR.</div>
+
+                            <div id="For"> 
+
+                                <div style="margin-right: 15px;"> 
+                                    <p class="stats-value-text"> {{force}}</p>
+                                    <p style=" text-align: center;"> <button (click)= "forceDown()" > - </button>
+                                        <button (click)= "forceUp()" > + </button>
+                                    </p> 
+                                </div>
+                            </div>
+
+            <div id="ForMod"> 
+                <div class="border-modificateur"> 
+                    <p class="modificateur-text" >Modificateur</p>
+                     <p class="caracs-value-text"> {{calculateModifier(force)}} </p> 
+                </div>
+        </div> 
+
+        <div id="ForSave"> 
+            <div class="border-sauvegarde"> 
+                <p class="sauvegarde-text" >Sauvegarde</p>
+                 <p class="caracs-value-text"> {{checkForce(force)}}  </p> 
+                <p class="sauvegarde-text" ><input type="checkbox" name="isActive" onclick="return false" (change)="checkForce(force)" [(ngModel)]="this.forceCheck"> Maîtrise</p>
+            </div>
+        </div> 
+
+            </div>
+    
+        <div id="dexBloc">
+            <div class="title-Statbloc dex"> DEX.</div>
+
+            <div id="Dex"> 
+                <div style="margin-right: 15px;"> 
+                    <p class="stats-value-text"> {{dexterity}}</p>
+                    <p style=" text-align: center;"> <button (click)= "dexterityDown() ; updateInitiative() ; updateDexterityModifier()" > - </button>
+                        <button (click)= "dexterityUp() ;   updateInitiative() ; updateDexterityModifier()" > + </button>
+                    </p> 
+                </div>
+            </div>
+
+<div id="DexMod"> 
+<div class="border-modificateur"> 
+    <p class="modificateur-text" >Modificateur</p>
+     <p class="caracs-value-text"> {{calculateModifier(dexterity)}} </p> 
+</div>
+</div> 
+
+<div id="DexSave"> 
+<div class="border-sauvegarde"> 
+<p class="sauvegarde-text" >Sauvegarde</p>
+ <p class="caracs-value-text"> {{checkDexterity(dexterity)}}  </p> 
+<p class="sauvegarde-text" ><input type="checkbox" name="isActive" onclick="return false" (change)="checkDexterity(dexterity)" [(ngModel)]="this.dexterityCheck"> Maîtrise</p>
+</div>
+</div> 
+
+</div>
+
+<div id="conBloc">
+    <div class="title-Statbloc con"> CON.</div>
+
+    <div id="Con"> 
+        <div style="margin-right: 15px;"> 
+            <p class="stats-value-text"> {{constitution}}</p>
+            <p style=" text-align: center;"> <button (click)= "constitutionDown() ; updateConstitutionModifier()" > - </button>
+                <button (click)= "constitutionUp()   ; updateConstitutionModifier()" > + </button>
+            </p> 
+        </div>
+    </div>
+
+<div id="ConMod"> 
+<div class="border-modificateur"> 
+<p class="modificateur-text" >Modificateur</p>
+<p class="caracs-value-text"> {{calculateModifier(constitution)}} </p> 
+</div>
+</div> 
+
+<div id="ConSave"> 
+<div class="border-sauvegarde"> 
+<p class="sauvegarde-text" >Sauvegarde</p>
+<p class="caracs-value-text"> {{checkConstitution(constitution)}}  </p> 
+<p class="sauvegarde-text" ><input type="checkbox" name="isActive" onclick="return false" (change)="checkConstitution(constitution)" [(ngModel)]="this.constitutionCheck"> Maîtrise</p>
+</div>
+</div> 
+
+</div>
+
+<div id="intBloc">
+    <div class="title-Statbloc int"> INT.</div>
+
+    <div id="Int"> 
+        <div style="margin-right: 15px;"> 
+            <p class="stats-value-text"> {{intelligence}}</p>
+            <p style=" text-align: center;"> <button (click)= "intelligenceDown() ; updateIntelligenceModifier() " > - </button>
+                <button (click)= "intelligenceUp() ; updateIntelligenceModifier() " > + </button>
+            </p> 
+        </div>
+    </div>
+
+<div id="IntMod"> 
+<div class="border-modificateur"> 
+<p class="modificateur-text" >Modificateur</p>
+<p class="caracs-value-text"> {{calculateModifier(intelligence)}} </p> 
+</div>
+</div> 
+
+<div id="IntSave"> 
+<div class="border-sauvegarde"> 
+<p class="sauvegarde-text" >Sauvegarde</p>
+<p class="caracs-value-text"> {{checkIntelligence(intelligence)}}  </p> 
+<p class="sauvegarde-text" ><input type="checkbox"  name="isActive" onclick="return false" (change)="checkIntelligence(intelligence)" [(ngModel)]="this.intelligenceCheck"> Maîtrise</p>
+</div>
+</div> 
+
+</div> 
+
+
+<div id="wisBloc">
+    <div class="title-Statbloc sag"> SAG.</div>
+
+    <div id="Wis"> 
+        <div style="margin-right: 15px;"> 
+            <p class="stats-value-text"> {{wisdom}}</p>
+            <p style=" text-align: center;">  <button (click)= "wisdomDown() ; updateWisdomModifier()" > - </button>
+                <button (click)= "wisdomUp() ; updateWisdomModifier()" > + </button>
+            </p> 
+        </div>
+    </div>
+
+<div id="WisMod"> 
+<div class="border-modificateur"> 
+<p class="modificateur-text" >Modificateur</p>
+<p class="caracs-value-text"> {{calculateModifier(wisdom)}} </p> 
+</div>
+</div> 
+
+<div id="WisSave"> 
+<div class="border-sauvegarde"> 
+<p class="sauvegarde-text" >Sauvegarde</p>
+<p class="caracs-value-text"> {{checkWisdom(wisdom)}}  </p> 
+<p class="sauvegarde-text" ><input type="checkbox" name="isActive" onclick="return false" (change)="checkWisdom(wisdom)" [(ngModel)]="this.wisdomCheck"> Maîtrise</p>
+</div>
+</div> 
+
+</div>
+
+<div id="chaBloc">
+    <div class="title-Statbloc cha"> CHA.</div>
+
+    <div id="Cha"> 
+        <div style="margin-right: 15px;"> 
+            <p class="stats-value-text"> {{charisma}}</p>
+            <p style=" text-align: center;"> <button (click)= "charismaDown() ; updateCharismaModifier()" > - </button>
+                <button (click)= "charismaUp(); updateCharismaModifier()" > + </button>
+            </p> 
+        </div>
+    </div>
+
+<div id="ChaMod"> 
+<div class="border-modificateur"> 
+<p class="modificateur-text" >Modificateur</p>
+<p class="caracs-value-text"> {{calculateModifier(charisma)}} </p> 
+</div>
+</div> 
+
+<div id="ChaSave"> 
+<div class="border-sauvegarde"> 
+<p class="sauvegarde-text" >Sauvegarde</p>
+<p class="caracs-value-text"> {{checkCharisma(charisma)}}  </p> 
+<p class="sauvegarde-text" ><input type="checkbox" name="isActive" onclick="return false" (change)="checkCharisma(charisma)" [(ngModel)]="this.charismaCheck"> Maîtrise</p>
+</div>
+</div> 
+
+
+</div>
+    
+</div> 
+
+    </div>
+
+
+    <div id="repartition" >
+        <h2 class="title"> Répartition </h2>
+
+        <div > <input
+           type="radio"
+           id="a"
+           name="sample"
+           value=19
+           (change)="onChange($event)"
+           checked /> 
+           <label for="a"> Courageux </label> 
+           
+           <input
+           type="radio"
+           id="b"
+           name="sample"
+           value=27
+           (change)="onChange($event)" />
+           <label for="b"> Heroïque </label>
+         
+           <input
+           type="radio"
+           id="c"
+           name="sample"
+           value=36
+           (change)="onChange($event)" />
+           <label for="c"> Légendaire </label>
+       </div>
+          <div> Points restants : {{selectedPool}} </div>
+       </div>
+
+
+       <div id="skills">
+<h2 class="title"> Compétences </h2>
+
+        <div> 
+            <input type="checkbox" name="isActive" (change)="checkDexterity(dexterity)" [(ngModel)]="acrobatieCheck1">
+            <input type="checkbox" name="isActive" (change)="checkDexterity(dexterity)" [(ngModel)]="acrobatieCheck2">
+             Acrobatie   
+             <span class="right">
+             <span class="dex">DEX </span> 
+             <span class="stat">
+                <ng-container *ngIf="checkAcrobatie(force) > 0">  + </ng-container> 
+                {{checkAcrobatie(dexterity)}}
+            </span>
+        </span>
+        </div>
+        <div> 
+            <input type="checkbox" name="isActive" (change)="checkIntelligence(intelligence)" [(ngModel)]="arcanesCheck1">
+            <input type="checkbox" name="isActive" (change)="checkIntelligence(intelligence)" [(ngModel)]="arcanesCheck2"> Arcanes   <span class="right"> <span class="int">INT </span> <span class="stat">  
+                <ng-container *ngIf="checkArcanes(force) > 0">
+                +
+            </ng-container> {{checkArcanes(intelligence)}} </span> </span>
+        </div>
+        <div> 
+            <input type="checkbox" name="isActive" (change)="checkForce(force)" [(ngModel)]="athletismCheck1">
+            <input type="checkbox" name="isActive" (change)="checkForce(force)" [(ngModel)]="athletismCheck2"> Athlétisme  <span class="right"><span class="for">FOR </span> <span class="stat"> 
+                <ng-container *ngIf="checkAthletisme(force) > 0">
+                +
+            </ng-container>{{checkAthletisme(force)}}</span></span>
+        </div>
+        <div> 
+            <input type="checkbox" name="isActive" (change)="checkDexterity(dexterity)" [(ngModel)]="discretionCheck1">
+            <input type="checkbox" name="isActive" (change)="checkDexterity(dexterity)" [(ngModel)]="discretionCheck2"> Discrétion  <span class="right"><span class="dex">DEX </span> <span class="stat">
+                 <ng-container *ngIf="checkDiscretion(dexterity) > 0">
+                +
+            </ng-container>{{checkDiscretion(dexterity)}}</span></span>
+        </div>
+        <div> 
+            <input type="checkbox" name="isActive" (change)="checkWisdom(wisdom)" [(ngModel)]="dressageCheck1">
+            <input type="checkbox" name="isActive" (change)="checkWisdom(wisdom)" [(ngModel)]="dressageCheck2"> Dressage <span class="right"> <span class="sag">SAG </span> <span class="stat">
+                <ng-container *ngIf="checkDressage(wisdom) > 0">
+                +
+            </ng-container>{{checkDressage(wisdom)}}</span></span>
+        </div>
+        <div> 
+            <input type="checkbox" name="isActive" (change)="checkDexterity(dexterity)" [(ngModel)]="escamotageCheck1">
+            <input type="checkbox" name="isActive" (change)="checkDexterity(dexterity)" [(ngModel)]="escamotageCheck2"> Escamotage  <span class="right"><span class="dex">DEX </span> <span class="stat">
+                <ng-container *ngIf="checkEscamotage(dexterity) > 0">
+                +
+            </ng-container>{{checkEscamotage(dexterity)}}</span></span>
+        </div>
+        <div> 
+            <input type="checkbox" name="isActive" (change)="checkIntelligence(intelligence)" [(ngModel)]="histoireCheck1">
+            <input type="checkbox" name="isActive" (change)="checkIntelligence(intelligence)" [(ngModel)]="histoireCheck2"> Histoire  <span class="right"><span class="int">INT </span> <span class="stat">
+                <ng-container *ngIf="checkHistoire(intelligence) > 0">
+                +
+            </ng-container>{{checkHistoire(intelligence)}}</span></span>
+        </div>
+        <div> 
+            <input type="checkbox" name="isActive" (change)="checkCharisma(charisma)" [(ngModel)]="intimidationCheck1">
+            <input type="checkbox" name="isActive" (change)="checkCharisma(charisma)" [(ngModel)]="intimidationCheck2"> Intimidation  <span class="right"><span class="cha">CHA </span> <span class="stat">
+                <ng-container *ngIf="checkIntimidation(charisma) > 0">
+                +
+            </ng-container>{{checkIntimidation(charisma)}}</span></span>
+        </div>
+        <div> 
+            <input type="checkbox" name="isActive" (change)="checkIntelligence(intelligence)" [(ngModel)]="investigationCheck1">
+            <input type="checkbox" name="isActive" (change)="checkIntelligence(intelligence)" [(ngModel)]="investigationCheck2"> Investigation  <span class="right"><span class="int">INT </span> <span class="stat">
+                <ng-container *ngIf="checkInvestigation(intelligence) > 0">
+                +
+            </ng-container>{{checkInvestigation(intelligence)}}</span></span>
+        </div>
+        <div> 
+            <input type="checkbox" name="isActive" (change)="checkWisdom(wisdom)" [(ngModel)]="medecineCheck1">
+            <input type="checkbox" name="isActive" (change)="checkWisdom(wisdom)" [(ngModel)]="medecineCheck2"> Médecine  <span class="right"><span class="sag">SAG </span> <span class="stat">
+                <ng-container *ngIf="checkMedecine(wisdom) > 0">
+                +
+            </ng-container>{{checkMedecine(wisdom)}}</span></span>
+        </div>
+        <div> 
+            <input type="checkbox" name="isActive" (change)="checkIntelligence(intelligence)" [(ngModel)]="natureCheck1">
+            <input type="checkbox" name="isActive" (change)="checkIntelligence(intelligence)" [(ngModel)]="natureCheck2"> Nature  <span class="right"><span class="int">INT </span> <span class="stat">
+                <ng-container *ngIf="checkNature(intelligence) > 0">
+                +
+            </ng-container>{{checkNature(intelligence)}}</span></span>
+        </div>
+        <div> 
+            <input type="checkbox" name="isActive" (change)="checkWisdom(wisdom)" [(ngModel)]="perceptionCheck1">
+            <input type="checkbox" name="isActive" (change)="checkWisdom(wisdom)" [(ngModel)]="perceptionCheck2"> Perception  <span class="right"><span class="sag">SAG </span> <span class="stat">
+                <ng-container *ngIf="checkPerception(wisdom) > 0">
+                +
+            </ng-container>{{checkPerception(wisdom)}}</span></span>
+        </div>
+        <div> 
+            <input type="checkbox" name="isActive" (change)="checkWisdom(wisdom)" [(ngModel)]="perspicaciteCheck1">
+            <input type="checkbox" name="isActive" (change)="checkWisdom(wisdom)" [(ngModel)]="perspicaciteCheck2"> Perspicacité  <span class="right"><span class="sag">SAG </span> <span class="stat">
+                <ng-container *ngIf="checkPerspicacite(wisdom) > 0">
+                +
+            </ng-container>{{checkPerspicacite(wisdom)}}</span></span>
+        </div>
+        <div> 
+            <input type="checkbox" name="isActive" (change)="checkCharisma(charisma)" [(ngModel)]="persuasionCheck1">
+            <input type="checkbox" name="isActive" (change)="checkCharisma(charisma)" [(ngModel)]="persuasionCheck2"> Persuasion  <span class="right"><span class="cha">CHA </span> <span class="stat">
+                <ng-container *ngIf="checkPersuasion(charisma) > 0">
+                +
+            </ng-container>{{checkPersuasion(charisma)}}</span></span>
+        </div>
+        <div> 
+            <input type="checkbox" name="isActive" (change)="checkIntelligence(intelligence)" [(ngModel)]="religionCheck1">
+            <input type="checkbox" name="isActive" (change)="checkIntelligence(intelligence)" [(ngModel)]="religionCheck2"> Religion  <span class="right"><span class="int">INT </span> <span class="stat">
+                <ng-container *ngIf="checkReligion(intelligence) > 0">
+                +
+            </ng-container>{{checkReligion(intelligence)}}</span></span>
+        </div>
+        <div> 
+            <input type="checkbox" name="isActive" (change)="checkCharisma(charisma)" [(ngModel)]="representationCheck1">
+            <input type="checkbox" name="isActive" (change)="checkCharisma(charisma)" [(ngModel)]="representationCheck2"> Représentation  <span class="right"><span class="cha">CHA </span> <span class="stat">
+                <ng-container *ngIf="checkRepresentation(charisma) > 0">
+                +
+            </ng-container>{{checkRepresentation(charisma)}}</span></span>
+        </div>
+        <div> 
+            <input type="checkbox" name="isActive" (change)="checkCharisma(charisma)" [(ngModel)]="supercherieCheck1">
+            <input type="checkbox" name="isActive" (change)="checkCharisma(charisma)" [(ngModel)]="supercherieCheck2"> Supercherie  <span class="right"><span class="cha">CHA </span> <span class="stat">
+                <ng-container *ngIf="checkSupercherie(charisma) > 0">
+                +
+            </ng-container>{{checkSupercherie(charisma)}}</span></span>
+        </div>
+        <div> 
+            <input type="checkbox" name="isActive" (change)="checkWisdom(wisdom)" [(ngModel)]="survieCheck1">
+            <input type="checkbox" name="isActive" (change)="checkWisdom(wisdom)" [(ngModel)]="survieCheck2"> Survie <span class="right"> <span class="sag">SAG </span> <span class="stat">
+                <ng-container *ngIf="checkSurvie(wisdom) > 0">
+                +
+            </ng-container>{{checkSurvie(wisdom)}}</span></span>
+        </div>
+    </div>
+    
+</div>
+

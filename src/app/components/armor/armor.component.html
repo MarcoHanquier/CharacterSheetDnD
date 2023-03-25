@@ -1,0 +1,30 @@
+
+
+
+<div  >
+
+<div>
+    <h2 class="title"> Equipement </h2> 
+    <div class="equip">
+        <select (change)="update($event)" [(ngModel)]="this.selectedArmor" >
+        <option *ngFor="let armor of armors" [ngValue]="armor.id">{{armor.name}}</option>
+    </select>
+    <span style=" text-align: right;"> Bonus : {{updateArmorBonus()}} <button (click)= "removeArmorBonus()" > - </button>
+        <button (click)= "addArmorBonus()" > + </button>
+    </span>  
+</div>
+    
+ </div>   
+    
+    <div class="equip">
+    <select (change)="update($event)" [(ngModel)]="this.selectedShield" >
+        <option *ngFor="let shield of shields" [ngValue]="shield.id">{{shield.name}}</option>
+    </select>
+    <span style=" text-align: right; padding-left: 40px; "> Bonus : {{updateShieldBonus()}} <button (click)= "removeShieldBonus()" > - </button>
+        <button (click)= "addShieldBonus()" > + </button>
+    </span> 
+ </div>
+ <span  style="font-weight: 700; color:red;">
+    <ng-container *ngIf=" this.currentStrength < this.selectedMinStrength " > Force requise : {{updateRequiredStrength()}} </ng-container>
+ </span>
+</div>

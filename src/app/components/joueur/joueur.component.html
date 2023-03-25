@@ -1,0 +1,142 @@
+<div id="playerInfos">
+    <div id="playerButtons"><button (click)="reset()">Réinitialiser</button><button (click)="randomize()">Perso aléatoire</button></div>
+<form id="nom" > <span class="bold">Nom : </span><input class="input-form"/> </form>
+<form id="description"> <span class="bold">Description : </span> <textarea id="description-textarea"></textarea> </form>
+
+<form id="foi"> <span class="bold">Foi : </span><input class="input-form"/> </form>
+
+
+<div class="col archétype">
+    <p id="archétype"> <span class="bold">Archétype : </span> 
+        <select #alignment (change)="onSelected(alignment.value)">
+            <option default>Neutre</option>
+            <option>Loyal Bon</option>
+            <option>Neutre Bon</option>
+            <option>Chaotique Bon</option>
+            <option>Loyal Neutre</option>
+            <option>Chaotique Neutre</option>
+            <option>Loyal Mauvais</option>
+            <option>Neutre Mauvais</option>
+            <option>Chaotique Mauvais</option>
+        </select>  </p>
+    </div>
+
+
+        <div class="col historique">
+            <p id="historique"> <button (click)="randomizeBackground()" class="randomizerButton">🎲</button><span class="bold">Historique : </span>
+                <select (change)="updateBackground($event)" [(ngModel)]="this.selectedBackground" >
+                    <option *ngFor="let background of backgrounds" [ngValue]="background.id">{{background.name}}</option>
+                </select>  </p>
+            </div>
+
+
+<div class="col playerClass">
+    <p id="playerClass"> <button (click)="randomizeClass()" class="randomizerButton">🎲</button><span class="bold">Classe : </span>  
+        <select  (change)="update($event)" [(ngModel)]="this.selectedClass" >
+            <option *ngFor="let classe of classes" [ngValue]="classe.id">{{classe.name}}</option>
+        </select>  </p>
+    </div>
+
+    
+<div class="col race">
+    <p id="race"> <button (click)="randomizeRace()" class="randomizerButton">🎲</button><span class="bold">Race : </span> 
+        <select (change)="updateRace($event)" [(ngModel)]="this.selectedRace" >
+            <option *ngFor="let race of races" [ngValue]="race.id">{{race.name}}</option>
+        </select>  </p>
+    </div>
+
+
+
+<div class="col alignement">
+    <p id="alignement"><span class="bold">Alignement : </span> 
+        <select #alignment (change)="onSelected(alignment.value)">
+            <option default>Neutre</option>
+            <option>Loyal Bon</option>
+            <option>Neutre Bon</option>
+            <option>Chaotique Bon</option>
+            <option>Loyal Neutre</option>
+            <option>Chaotique Neutre</option>
+            <option>Loyal Mauvais</option>
+            <option>Neutre Mauvais</option>
+            <option>Chaotique Mauvais</option>
+        </select>  </p>
+    </div>
+ 
+    <div id="niveau"><span class="bold">Niveau : {{updatedLevel()}} </span> 
+        <button *ngIf="this.updatedLevel()>1" (click)= "levelDown()" > - </button>
+        <button *ngIf="this.updatedLevel()<20"(click)= "levelUp()" > + </button>
+    </div>
+<div id="picture">
+    <!-- <div><img [src]="url" *ngIf="url" layout-fill></div> -->
+    
+    <input
+    style="display: none"
+    type="file" (change)="selectFile($event)"
+    #fileInput>
+    <!-- <img id="file-ip-1-preview" [src]="url" width="70" height="70" atl="Une Meuf" style="display: block;"> -->
+    <!-- <img src="https://i.pinimg.com/474x/72/33/9d/72339d38def6cf7d7210b43787a781ed.jpg"  *ngIf="url" layout-fill >  -->
+
+    <img (click)="fileInput.click()"  [src]="url" *ngIf="url" layout-fill > 
+    
+  <!-- <div><button (click)="fileInput.click()" >Changer l'image</button></div> -->
+  <!-- <img src="https://i.pinimg.com/474x/72/33/9d/72339d38def6cf7d7210b43787a781ed.jpg" (click)="fileInput.click()" *ngIf="picture"> -->
+  <button class="img-button" (click)="fileInput.click()" *ngIf="picture">+</button>
+
+</div>
+
+<div id="masteries">
+        <h2 class="title"> Maîtrises et Langues </h2>
+<div class="masteries-text"> 
+    
+    <div class="bold"><input type="checkbox" name="isActive"  [(ngModel)]="this.commonWeaponsMastery"> Armes Courantes</div>
+    <div class="bold"><input type="checkbox" name="isActive"  [(ngModel)]="this.warWeaponsMastery"> Armes de Guerre</div>
+    <div class="bold"><input type="checkbox" name="isActive"  [(ngModel)]="this.lightArmorMastery"> Armures Légères</div>
+    <div class="bold"><input type="checkbox" name="isActive"  [(ngModel)]="this.mediumArmorMastery"> Armures Intermédiaires</div>
+    <div class="bold"><input type="checkbox" name="isActive"  [(ngModel)]="this.heavyArmorMastery"> Armures Lourdes</div>
+    <div class="bold"><input type="checkbox" name="isActive"  [(ngModel)]="this.shieldMastery"> Boucliers</div>
+    
+    <p> <span class="bold">Autres armes Maîtrisées : </span> 
+        <span style="color:rgb(37, 156, 224)">{{this.classWeaponMasteries}}</span>
+        <ng-container *ngIf=" this.selectedRace == 6 "><span style="color:rgb(92, 196, 115)">, haches de guerre, hachettes, marteaux légers et marteaux de guerre.</span> </ng-container></p>
+
+
+
+    <p> <span class="bold">Outils Maîtrisées : </span> 
+        <span style="color:rgb(37, 156, 224)">{{this.classToolMasteries}}</span><ng-container *ngIf=" this.backgroundToolMasteries != '' && this.classToolMasteries != '' ">, </ng-container> 
+        <span style="color:rgb(214, 158, 53)">{{this.backgroundToolMasteries}}</span>
+        <ng-container *ngIf=" this.selectedRace == 6 "><span style="color:rgb(92, 196, 115)">, outils d'un artisanat de votre choix parmi : outils de forgeron, matériel de brasseur, outils de maçon.</span> </ng-container></p>
+
+
+        
+    <p> <span class="bold">Compétences Maîtrisées : </span> 
+        <span style="color:rgb(214, 158, 53)">{{this.backgroundSkillMasteries}}</span><ng-container *ngIf=" this.classSkillMasteries != '' ">, </ng-container> 
+        <span style="color:rgb(37, 156, 224)">{{this.classSkillMasteries}}</span><ng-container *ngIf=" this.raceSkillMasteries != '' ">, </ng-container>
+        <span style="color:rgb(92, 196, 115)">{{this.raceSkillMasteries}}</span></p>
+
+        <p> <span class="bold">Langues : </span> 
+            <span style="color:rgb(92, 196, 115)">{{this.raceLanguages}}</span><ng-container *ngIf=" this.backgroundLanguages != '' ">, </ng-container> 
+            <span style="color:rgb(214, 158, 53)">{{this.backgroundLanguages}}</span></p>
+        
+
+            <p> <span class="bold">Aptitude d'Historique : </span> 
+                <span style="color:rgb(214, 158, 53)">{{this.backgroundSkill}}</span></p>
+</div>
+
+        </div>
+
+        <div id="aptitudes" >
+
+            <h2 class="title"> &#9998; Aptitudes</h2>
+            <div> Capacités spéciales : {{updateBonusSkill()}}</div>
+            <div id="features">
+            <span id="featureList"> <ul><li> Rage, Défense sans armure </li></ul> </span>
+            <span id="featureList2"> <ul><li></li></ul> </span>
+            <app-races id="raceFeatures"></app-races>
+
+        </div>
+            </div>
+        
+       
+
+</div>
+

@@ -1,0 +1,25 @@
+export interface Ispells{
+    id: number,
+    type: string,
+    level1Slot: string,
+    level2Slot: string,
+    level3Slot: string,
+    level4Slot: string,
+    level5Slot: string,
+    level6Slot: string,
+    level7Slot: string,
+    level8Slot: string,
+    level9Slot: string,
+    level10Slot: string,
+    level11Slot: string,
+    level12Slot: string,
+    level13Slot: string,
+    level14Slot: string,
+    level15Slot: string,
+    level16Slot: string,
+    level17Slot: string,
+    level18Slot: string,
+    level19Slot: string,
+    level20Slot: string
+
+    }
