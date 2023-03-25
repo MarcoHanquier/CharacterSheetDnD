@@ -6,14 +6,7 @@ import { JoueurComponent } from './components/joueur/joueur.component';
 import { RacesComponent } from './components/races/races.component';
 import { AppComponent } from './app.component';
 
-const routes: Routes = [
-  { path: "", component: AppComponent, pathMatch:"prefix"},
-
-{ path: "joueur", component: JoueurComponent},
-{ path: "caracteristics", component: CaracteristicsComponent},
-// {path: "**", redirectTo: "joueur"}
-
-];
+const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
