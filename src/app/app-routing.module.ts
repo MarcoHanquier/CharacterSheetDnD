@@ -6,7 +6,13 @@ import { JoueurComponent } from './components/joueur/joueur.component';
 import { RacesComponent } from './components/races/races.component';
 import { AppComponent } from './app.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+
+  { path: '', redirectTo: 'characterSheet', pathMatch: 'full'},
+  { path: 'characterSheet', component: AppComponent },
+  { path: 'joueur', component: JoueurComponent },
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

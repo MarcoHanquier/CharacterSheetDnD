@@ -1,0 +1,64 @@
+[
+    
+    { "id": 0, "name": "Barbare", "pvBase": 12, "pvFixe": 7,  "classType": "Fighter", "cantripGroup": "A", 
+    "classWeaponMasteries": "", 
+    "classToolMasteries": "", 
+    "classSkillMasteries" :"Deux parmi Athlétisme, Dressage, Intimidation, Nature, Perception et Survie"},
+
+    { "id": 1, "name": "Barde", "pvBase": 8, "pvFixe": 5,   "classType": "Caster", "cantripGroup": "B", 
+    "classWeaponMasteries": "Arbalète de poing, épée longue, rapière, épée courte", 
+    "classToolMasteries": "Trois instruments de musique de votre choix", 
+    "classSkillMasteries" :"Trois au choix"},
+    
+    { "id": 2, "name": "Clerc", "pvBase": 8, "pvFixe": 5,  "classType": "Caster", "cantripGroup": "C", 
+    "classWeaponMasteries": "", 
+    "classToolMasteries": "", 
+    "classSkillMasteries" :"Deux parmi Histoire, Médecine, Perspicacité, Persuasion et Religion"},
+    
+    { "id": 3, "name": "Druide", "pvBase": 8, "pvFixe": 5,  "classType": "Caster", "cantripGroup": "B", 
+    "classWeaponMasteries": "Gourdins, dagues, fléchettes, javelines, massues, bâtons, cimeterres, serpes, frondes, lances", 
+    "classToolMasteries": "Matériel d'herboriste", 
+    "classSkillMasteries" :"Deux parmi Arcanes, Dressage, Médecine, Nature, Perception, Perspicacité, Religion et Survie"},
+    
+    { "id": 4, "name": "Ensorceleur", "pvBase": 6, "pvFixe": 4,   "classType": "Caster", "cantripGroup": "D", 
+    "classWeaponMasteries": "Dagues, fléchettes, frondes, bâtons, arbalètes légères", 
+    "classToolMasteries": "", 
+    "classSkillMasteries" :"Deux parmi Arcanes, Intimidation, Perspicacité, Persuasion, Religion et Supercherie"},
+    
+    { "id": 5, "name": "Guerrier", "pvBase": 10, "pvFixe": 6, "classType": "Fighter", "cantripGroup": "A", 
+    "classWeaponMasteries": "", 
+    "classToolMasteries": "", 
+    "classSkillMasteries" :"Deux parmi Acrobaties, Athlétisme, Dressage, Histoire, Intimidation, Perception, Perspicacité et Survie"},
+    
+    { "id": 6, "name": "Magicien", "pvBase": 6, "pvFixe": 4,  "classType": "Caster", "cantripGroup": "C", 
+    "classWeaponMasteries": "Dagues, fléchettes, frondes, bâtons, arbalètes légères", 
+    "classToolMasteries": "", 
+    "classSkillMasteries" :"Deux parmi Arcanes, Histoire, Investigation, Médecine, Perspicacité et Religion"},
+    
+    { "id": 7, "name": "Moine", "pvBase": 8, "pvFixe": 5,   "classType": "Fighter", "cantripGroup": "A", 
+    "classWeaponMasteries": "Epées courtes", 
+    "classToolMasteries": "Un type d'outils d'artisan ou un instrument de musique", 
+    "classSkillMasteries" :"Deux parmi Acrobaties, Athlétisme, Discrétion, Histoire, Perspicacité et Religion"},
+    
+    { "id": 8, "name": "Paladin", "pvBase": 10, "pvFixe": 6,  "classType": "MagFighter", "cantripGroup": "A", 
+    "classWeaponMasteries": "", 
+    "classToolMasteries": "", 
+    "classSkillMasteries" :"Deux parmi Athlétisme, Intimidation, Médecine, Perspicacité, Persuasion et Religion"},
+    
+    { "id": 9, "name": "Rôdeur", "pvBase": 10, "pvFixe": 6,  "classType": "MagFighter", "cantripGroup": "A", 
+    "classWeaponMasteries": "", 
+    "classToolMasteries": "", 
+    "classSkillMasteries" :"Trois parmi Athlétisme, Discrétion, Dressage, Investigation, Nature, Perception, Perspicacité et Survie"},
+    
+    { "id": 10, "name": "Roublard", "pvBase": 8, "pvFixe": 5,   "classType": "Fighter", "cantripGroup": "A", 
+    "classWeaponMasteries": "Arbalètes de poing, épées longues, rapières, épées courtes", 
+    "classToolMasteries": "Outils de voleur", 
+    "classSkillMasteries" :"Quatre parmi Acrobaties, Athlétisme, Discrétion, Escamotage, Intimidation, Investigation, Perception, Perspicacité, Persuasion, Représentation et Supercherie"},
+    
+    { "id": 11, "name": "Sorcier", "pvBase": 8, "pvFixe": 5,  "classType": "Fighter", "cantripGroup": "B", 
+    "classWeaponMasteries": "", 
+    "classToolMasteries": "", 
+    "classSkillMasteries" :"Deux parmi Arcanes, Histoire, Intimidation, Investigation, Nature, Religion et Supercherie"}
+    
+    
+]
