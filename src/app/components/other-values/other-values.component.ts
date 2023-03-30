@@ -12,6 +12,7 @@ import { ClassesService } from 'src/app/services/classes.service';
 export class OtherValuesComponent implements OnInit {
   public proficiency = 2;
   public updatedArmorClass = 7;
+  public savingThrowMod = 0;
 
   constructor(
     private _caracteristicsService: CaracteristicsService,
@@ -25,6 +26,11 @@ export class OtherValuesComponent implements OnInit {
   };
 
   speedInUI = () => {
+    if (this._classesService.selectedClassName == 'Barbare' && this._caracteristicsService.level>2 && this._armorsService.armorType != 'Armure lourde') {
+      return this._racesService.selectedRaceSpeed +3;
+    }
+
+
     return this._racesService.selectedRaceSpeed;
   };
 
@@ -34,6 +40,29 @@ export class OtherValuesComponent implements OnInit {
 
   updatePassivePerception = () => {
     return this._caracteristicsService.passivePerception;
+  };
+
+  updateSavingThrow = () => {
+  if (
+    this._classesService.selectedClassName == 'Barde' ||
+    this._classesService.selectedClassName == 'Ensorceleur' ||
+    this._classesService.selectedClassName == 'Paladin' ||
+    this._classesService.selectedClassName == 'Sorcier'
+  ) {
+    this.savingThrowMod =  8 + this._caracteristicsService.proficiency + this._caracteristicsService.charismaModifier;
+
+  } else if (this._classesService.selectedClassName == 'Magicien') {
+    this.savingThrowMod =  8 + this._caracteristicsService.proficiency + this._caracteristicsService.intelligenceModifier;
+
+  } else if (    this._classesService.selectedClassName == 'Clerc' ||
+    this._classesService.selectedClassName == 'Druide' ||
+    this._classesService.selectedClassName == 'Rôdeur'||
+    this._classesService.selectedClassName == 'Moine') {
+      this.savingThrowMod =  8 + this._caracteristicsService.proficiency + this._caracteristicsService.wisdomModifier;
+  } else  {
+    this.savingThrowMod =  0;
+  }
+  return this.savingThrowMod
   };
 
   updateArmorClass = () => {

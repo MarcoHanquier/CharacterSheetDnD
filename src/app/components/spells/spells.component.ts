@@ -11,6 +11,8 @@ import { CaracteristicsService } from 'src/app/services/caracteristics.service';
 export class SpellsComponent implements OnInit {
   public armors = [] as any[];
   public shields = [] as any[];
+  public spellSavingMod = 0;
+  public spellAttackMod = 0;
 
   public selectedArmor = 10;
   public deviceValue = 1;
@@ -81,6 +83,48 @@ export class SpellsComponent implements OnInit {
       } else this.spellsPrepared = this.spellsPrepared;
     }
   };
+
+  updateSpellMod = () => {
+    if (
+      this._classesService.selectedClassName == 'Barde' ||
+      this._classesService.selectedClassName == 'Ensorceleur' ||
+      this._classesService.selectedClassName == 'Paladin' ||
+      this._classesService.selectedClassName == 'Sorcier'
+    ) {
+      this.spellSavingMod =  8 + this._caracteristicsService.proficiency + this._caracteristicsService.charismaModifier;
+      this.spellAttackMod =  this._caracteristicsService.proficiency + this._caracteristicsService.charismaModifier;
+  
+    } else if (this._classesService.selectedClassName == 'Magicien') {
+      this.spellSavingMod =  8 + this._caracteristicsService.proficiency + this._caracteristicsService.intelligenceModifier;
+      this.spellAttackMod =  this._caracteristicsService.proficiency + this._caracteristicsService.intelligenceModifier;
+  
+    } else if (    this._classesService.selectedClassName == 'Clerc' ||
+      this._classesService.selectedClassName == 'Druide' ||
+      this._classesService.selectedClassName == 'Rôdeur') {
+        this.spellSavingMod =  8 + this._caracteristicsService.proficiency + this._caracteristicsService.wisdomModifier;
+        this.spellAttackMod =  this._caracteristicsService.proficiency + this._caracteristicsService.wisdomModifier;
+    } else if (    this._classesService.selectedClassName == 'Moine') {
+      this.spellSavingMod =  8 + this._caracteristicsService.proficiency + this._caracteristicsService.wisdomModifier;
+      this.spellAttackMod =  0;
+  } else  {
+      this.spellSavingMod =  0;
+      this.spellAttackMod =  0;
+    }
+    };
+
+
+    updateSpellSaveModInUI() {
+      this.updateSpellMod();
+      return this.spellSavingMod
+
+    }
+
+    updateSpellAttackModInUI() {
+      this.updateSpellMod();
+      return this.spellAttackMod
+      
+    }
+
 
   updateSpellsKnown = () => {
     if (

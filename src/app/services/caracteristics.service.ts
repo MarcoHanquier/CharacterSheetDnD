@@ -33,6 +33,7 @@ export class CaracteristicsService {
   public wisdomCheck = false;
   public charismaCheck = false;
 
+  public characterName = '';
   public proficiency = 2;
   public initiativeBonus = -1;
   public level = 1;

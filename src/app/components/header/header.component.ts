@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private _racesService: RacesService,
     private _classesService: ClassesService,
-    private JoueurComponent: JoueurComponent,
+    private _joueurComponent: JoueurComponent,
     private _backgroundsService: BackgroundsService
     ) {  }
 
@@ -25,6 +25,10 @@ export class HeaderComponent implements OnInit {
   printThisPage() {
     window.print();
   }
+
+updateNameInUI() {
+  return this._joueurComponent.characterName
+}
 
   reset() {
     this._classesService.selectedClass =
@@ -73,13 +77,13 @@ export class HeaderComponent implements OnInit {
   this._racesService.selectedRace = this._racesService.races[this._racesService.selectedRace].name;
 
       // this._racesService.selectedRace = 0;
-      this._racesService.selectedRaceSpeed = 99;
-      this._racesService.selectedRaceFeatures =
-      "";
-      this._racesService.selectedRaceCaracteristics =
-      "Toutes vos caractéristiques augmentent de 1";
-      this.JoueurComponent.raceSkillMasteries = "maitrises";
-      this.JoueurComponent.raceLanguages = "langue";
+      // this._racesService.selectedRaceSpeed = 99;
+      // this._racesService.selectedRaceFeatures =
+      // "";
+      // this._racesService.selectedRaceCaracteristics =
+      // "Toutes vos caractéristiques augmentent de 1";
+      // this.JoueurComponent.raceSkillMasteries = "maitrises";
+      // this.JoueurComponent.raceLanguages = "langue";
 
     
       

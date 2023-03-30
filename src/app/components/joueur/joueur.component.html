@@ -1,32 +1,85 @@
 <div id="playerInfos">
+    <h1 id="SheetTitle" > Fiche de personnage<ng-container *ngIf=" this.characterName != '' "> - </ng-container> {{this.characterName}}  </h1>
+
     <div id="playerButtons"><button (click)="reset()">Réinitialiser</button><button (click)="randomize()">Perso aléatoire</button></div>
-<form id="nom" > <span class="bold">Nom : </span><input class="input-form"/> </form>
+    <div id="nom">   <label for="name"><span class="bold">Nom : </span> </label>
+        <input  [(ngModel)]="this.characterName"  class="input-form" >   </div>
+<!-- <form id="nom" > <span class="bold">Nom : {{this.characterName}}</span><input class="input-form"  [(ngModel)]="this.characterName" placeholder="name"  /> </form> -->
+<!-- <form id="nom" > <span class="bold">Nom : {{this.characterName}}</span><input class="input-form"  [(ngModel)]="this.characterName" placeholder="name"  /> </form> -->
 <form id="description"> <span class="bold">Description : </span> <textarea id="description-textarea"></textarea> </form>
 
 <form id="foi"> <span class="bold">Foi : </span><input class="input-form"/> </form>
 
 
 <div class="col archétype">
-    <p id="archétype"> <span class="bold">Archétype : </span> 
-        <select #alignment (change)="onSelected(alignment.value)">
-            <option default>Neutre</option>
-            <option>Loyal Bon</option>
-            <option>Neutre Bon</option>
-            <option>Chaotique Bon</option>
-            <option>Loyal Neutre</option>
-            <option>Chaotique Neutre</option>
-            <option>Loyal Mauvais</option>
-            <option>Neutre Mauvais</option>
-            <option>Chaotique Mauvais</option>
-        </select>  </p>
+    <p id="archétype"> 
+        <p> <button (click)="randomizeSubClass()" class="randomizerButton">🎲</button>   
+            <span class="bold" *ngIf=" this.selectedClassName == 'Barbare' " >Voie Primitive : </span> 
+            <span class="bold" *ngIf=" this.selectedClassName == 'Barde' " >Collège Bardique : </span> 
+            <span class="bold" *ngIf=" this.selectedClassName == 'Clerc' " >Domaine Divin : </span> 
+            <span class="bold" *ngIf=" this.selectedClassName == 'Druide' " >Cercle Druidique: </span> 
+            <span class="bold" *ngIf=" this.selectedClassName == 'Ensorceleur' " >Origine Magique : </span> 
+            <span class="bold" *ngIf=" this.selectedClassName == 'Guerrier' " >Archétype Martial : </span> 
+            <span class="bold" *ngIf=" this.selectedClassName == 'Magicien' " >Tradition Arcanique : </span> 
+            <span class="bold" *ngIf=" this.selectedClassName == 'Moine' " >Tradition Monacale : </span> 
+            <span class="bold" *ngIf=" this.selectedClassName == 'Paladin' " >Serment Sacré : </span> 
+            <span class="bold" *ngIf=" this.selectedClassName == 'Rôdeur' " >Archétype de Rôdeur : </span> 
+            <span class="bold" *ngIf=" this.selectedClassName == 'Roublard' " >Archétype de Roublard : </span> 
+            <span class="bold" *ngIf=" this.selectedClassName == 'Sorcier' " >Protecteur d'outre-monde : </span>         
+        
+
+         <select (change)="updateArchetype($event)" [(ngModel)]="this.selectedArchetype" >
+            <ng-container *ngIf=" this.selectedClassName == 'Barbare' ">
+                <option *ngFor="let archetype of barbareArchetypes" [ngValue]="archetype.id">{{archetype.name}}</option>
+            </ng-container>
+            <ng-container *ngIf=" this.selectedClassName == 'Barde' ">
+                <option *ngFor="let archetype of bardeArchetypes" [ngValue]="archetype.id">{{archetype.name}}</option>
+            </ng-container>
+            <ng-container *ngIf=" this.selectedClassName == 'Clerc' ">
+                <option *ngFor="let archetype of clercArchetypes" [ngValue]="archetype.id">{{archetype.name}}</option>
+            </ng-container>
+            <ng-container *ngIf=" this.selectedClassName == 'Druide' ">
+                <option *ngFor="let archetype of druideArchetypes" [ngValue]="archetype.id">{{archetype.name}}</option>
+            </ng-container>
+            <ng-container *ngIf=" this.selectedClassName == 'Ensorceleur' ">
+                <option *ngFor="let archetype of ensorceleurArchetypes" [ngValue]="archetype.id">{{archetype.name}}</option>
+            </ng-container>
+            <ng-container *ngIf=" this.selectedClassName == 'Guerrier' ">
+                <option *ngFor="let archetype of guerrierArchetypes" [ngValue]="archetype.id">{{archetype.name}}</option>
+            </ng-container>
+            <ng-container *ngIf=" this.selectedClassName == 'Magicien' ">
+                <option *ngFor="let archetype of magicienArchetypes" [ngValue]="archetype.id">{{archetype.name}}</option>
+            </ng-container>
+            <ng-container *ngIf=" this.selectedClassName == 'Moine' ">
+                <option *ngFor="let archetype of moineArchetypes" [ngValue]="archetype.id">{{archetype.name}}</option>
+            </ng-container>
+            <ng-container *ngIf=" this.selectedClassName == 'Paladin' ">
+                <option *ngFor="let archetype of paladinArchetypes" [ngValue]="archetype.id">{{archetype.name}}</option>
+            </ng-container>
+            <ng-container *ngIf=" this.selectedClassName == 'Rôdeur' ">
+                <option *ngFor="let archetype of rodeurArchetypes" [ngValue]="archetype.id">{{archetype.name}}</option>
+            </ng-container>
+            <ng-container *ngIf=" this.selectedClassName == 'Roublard' ">
+                <option *ngFor="let archetype of roublardArchetypes" [ngValue]="archetype.id">{{archetype.name}}</option>
+            </ng-container>
+            <ng-container *ngIf=" this.selectedClassName == 'Sorcier' ">
+                <option *ngFor="let archetype of sorcierArchetypes" [ngValue]="archetype.id">{{archetype.name}}</option>
+            </ng-container>
+        </select>  
+    </p>
+    <div class="sourceText"> Source : {{this.subClassSource}} </div>
+
     </div>
 
-
+        <!-- <select (change)="updateArchetype($event)" [(ngModel)]="this.selectedArchetype" >
+            <option *ngFor="let archetype of barbareArchetypes" [ngValue]="archetype.id">{{archetype.name}}</option>
+        </select>   -->
         <div class="col historique">
             <p id="historique"> <button (click)="randomizeBackground()" class="randomizerButton">🎲</button><span class="bold">Historique : </span>
                 <select (change)="updateBackground($event)" [(ngModel)]="this.selectedBackground" >
                     <option *ngFor="let background of backgrounds" [ngValue]="background.id">{{background.name}}</option>
                 </select>  </p>
+                <div class="sourceText"> Source : {{this.backgroundSource}} </div>
             </div>
 
 
@@ -35,14 +88,16 @@
         <select  (change)="update($event)" [(ngModel)]="this.selectedClass" >
             <option *ngFor="let classe of classes" [ngValue]="classe.id">{{classe.name}}</option>
         </select>  </p>
+        <div class="sourceText"> Source : {{this.classSource}} </div>
     </div>
 
     
 <div class="col race">
     <p id="race"> <button (click)="randomizeRace()" class="randomizerButton">🎲</button><span class="bold">Race : </span> 
         <select (change)="updateRace($event)" [(ngModel)]="this.selectedRace" >
-            <option *ngFor="let race of races" [ngValue]="race.id">{{race.name}}</option>
+            <option *ngFor="let race of races" [ngValue]="race.id">{{race.name}} </option>
         </select>  </p>
+        <div class="sourceText"> Source : {{this.raceSource}} </div>
     </div>
 
 
@@ -73,14 +128,29 @@
     style="display: none"
     type="file" (change)="selectFile($event)"
     #fileInput>
+    
+
     <!-- <img id="file-ip-1-preview" [src]="url" width="70" height="70" atl="Une Meuf" style="display: block;"> -->
     <!-- <img src="https://i.pinimg.com/474x/72/33/9d/72339d38def6cf7d7210b43787a781ed.jpg"  *ngIf="url" layout-fill >  -->
+    <!-- <img src="https://i.imgur.com/B9nV0bh.png" > -->
+    <div id="Layer1" >
 
-    <img (click)="fileInput.click()"  [src]="url" *ngIf="url" layout-fill > 
+
+        
+        <picture>
+
+            <source srcset="https://i.imgur.com/Q3GPnoJ.png" media="(min-width: 400px)"/>
+            <img src="https://i.imgur.com/RLiv1S6.png" alt="example"/>
+          </picture>
+
+
+    </div>
+    <!-- <div id="Layer2" style="position:absolute; left:195px; top:110px; width:64px; height:58px; z-index:2"><img name="yyy" src="img2.gif" width="66" height="58" alt=""></div> -->
+    <img class="portrait" (click)="fileInput.click()"  [src]="url" *ngIf="url" layout-fill > 
+    <button class="img-button " (click)="fileInput.click()" *ngIf="picture">+</button>
     
   <!-- <div><button (click)="fileInput.click()" >Changer l'image</button></div> -->
   <!-- <img src="https://i.pinimg.com/474x/72/33/9d/72339d38def6cf7d7210b43787a781ed.jpg" (click)="fileInput.click()" *ngIf="picture"> -->
-  <button class="img-button" (click)="fileInput.click()" *ngIf="picture">+</button>
 
 </div>
 
@@ -96,26 +166,31 @@
     <div class="bold"><input type="checkbox" name="isActive"  [(ngModel)]="this.shieldMastery"> Boucliers</div>
     
     <p> <span class="bold">Autres armes Maîtrisées : </span> 
-        <span style="color:rgb(37, 156, 224)">{{this.classWeaponMasteries}}</span>
-        <ng-container *ngIf=" this.selectedRace == 6 "><span style="color:rgb(92, 196, 115)">, haches de guerre, hachettes, marteaux légers et marteaux de guerre.</span> </ng-container></p>
+        <span style="color:rgb(37, 156, 224)">{{this.classWeaponMasteries}}</span> <ng-container *ngIf=" this.raceWeaponMasteries != ''  ">, </ng-container> 
+        <span style="color:rgb(92, 196, 115)">{{this.raceWeaponMasteries}}</span>  <ng-container *ngIf=" this.subClassWeaponMasteries != '' ">, </ng-container>
+        <span style="color:rgb(226, 96, 87)" >{{this.subClassWeaponMasteries}}</span></p>
 
 
 
     <p> <span class="bold">Outils Maîtrisées : </span> 
         <span style="color:rgb(37, 156, 224)">{{this.classToolMasteries}}</span><ng-container *ngIf=" this.backgroundToolMasteries != '' && this.classToolMasteries != '' ">, </ng-container> 
-        <span style="color:rgb(214, 158, 53)">{{this.backgroundToolMasteries}}</span>
-        <ng-container *ngIf=" this.selectedRace == 6 "><span style="color:rgb(92, 196, 115)">, outils d'un artisanat de votre choix parmi : outils de forgeron, matériel de brasseur, outils de maçon.</span> </ng-container></p>
+        <span style="color:rgb(214, 158, 53)">{{this.backgroundToolMasteries}}</span><ng-container *ngIf=" this.backgroundToolMasteries != '' && this.raceToolMasteries != '' ">, </ng-container> 
+        <span style="color:rgb(92, 196, 115)">{{this.raceToolMasteries}}</span><ng-container *ngIf=" this.subClassToolMasteries != '' ">, </ng-container>
+        <span style="color:rgb(226, 96, 87)" >{{this.subClassToolMasteries}}</span></p>
 
 
         
     <p> <span class="bold">Compétences Maîtrisées : </span> 
         <span style="color:rgb(214, 158, 53)">{{this.backgroundSkillMasteries}}</span><ng-container *ngIf=" this.classSkillMasteries != '' ">, </ng-container> 
         <span style="color:rgb(37, 156, 224)">{{this.classSkillMasteries}}</span><ng-container *ngIf=" this.raceSkillMasteries != '' ">, </ng-container>
-        <span style="color:rgb(92, 196, 115)">{{this.raceSkillMasteries}}</span></p>
+        <span style="color:rgb(92, 196, 115)">{{this.raceSkillMasteries}}</span> <ng-container *ngIf=" this.subClassSkillMasteries != '' ">, </ng-container>
+        <span style="color:rgb(226, 96, 87)" >{{this.subClassSkillMasteries}}</span></p>
 
         <p> <span class="bold">Langues : </span> 
-            <span style="color:rgb(92, 196, 115)">{{this.raceLanguages}}</span><ng-container *ngIf=" this.backgroundLanguages != '' ">, </ng-container> 
-            <span style="color:rgb(214, 158, 53)">{{this.backgroundLanguages}}</span></p>
+            <span style="color:rgb(92, 196, 115)">{{this.raceLanguages}}</span><ng-container *ngIf="this.raceLanguages != '' && this.backgroundLanguages != '' ">, </ng-container> 
+            <span style="color:rgb(214, 158, 53)">{{this.backgroundLanguages}}</span><ng-container *ngIf=" this.classLangages != '' ">, </ng-container> 
+            <span style="color:rgb(37, 156, 224)">{{this.classLangages}}</span><ng-container *ngIf="this.classLangages != '' && this.subClassLangages != '' ">, </ng-container> 
+            <span style="color:rgb(226, 96, 87)">{{this.subClassLangages}}</span></p>
         
 
             <p> <span class="bold">Aptitude d'Historique : </span> 
@@ -123,14 +198,53 @@
 </div>
 
         </div>
-
+        
         <div id="aptitudes" >
 
             <h2 class="title"> &#9998; Aptitudes</h2>
-            <div> Capacités spéciales : {{updateBonusSkill()}}</div>
+<div class="bold featureTitle">Aptitudes de Classe et d'Archétype</div>
+           
             <div id="features">
-            <span id="featureList"> <ul><li> Rage, Défense sans armure </li></ul> </span>
-            <span id="featureList2"> <ul><li></li></ul> </span>
+            <!-- <span id="featureList"> <ul><li> Rage, Défense sans armure </li></ul> </span> -->
+            <!-- <span id="featureList2">  </span> -->
+<div id="featureList"> 
+    <div *ngIf=" this.selectedArchetypeName == 'Fou de guerre' " style="color:rgb(189, 20, 8); font-weight: 700;" > Réservé aux Nains</div>
+    <div *ngIf=" this.selectedClassName == 'Barbare'  ||  this.selectedClassName == 'Ensorceleur' ||  this.selectedClassName == 'Moine' 
+    ||  this.selectedClassName == 'Roublard' ||  this.selectedClassName == 'Sorcier'"> {{updateBonusSkill()}}</div>
+    <!-- <div> Capacités spéciales : {{updateBonusSkill()}}</div> -->
+    <div *ngIf=" this.selectedClassName == 'Clerc' && this.updatedLevel()>1 " > <span class="bold">Canalisations d'énergie divine :</span>
+         Renvoi des morts-vivants<ng-container *ngIf=" this.clercCanalisationDivine  != '' && this.updatedLevel()>1">,  <span style="color:rgb(226, 96, 87)">{{this.clercCanalisationDivine}}</span> </ng-container>
+        <ng-container *ngIf=" this.clercCanalisationDivine2  != '' && this.updatedLevel()>5">,  <span style="color:rgb(226, 96, 87)">{{this.clercCanalisationDivine2}}</span> </ng-container> </div>
+    <div *ngIf=" this.selectedClassName == 'Clerc' "> Sorts de domaine : {{updateBonusSkill()}}</div>
+
+    <div *ngIf=" this.selectedClassName == 'Paladin' && this.updatedLevel()>2 " > <span class="bold">Canalisations d'énergie divine : </span> 
+        <span style="color:rgb(226, 96, 87)">{{this.paladinCanalisationDivine}}</span> </div>
+
+    <div class="oddFeature" *ngIf="this.updatedLevel()>0">   {{this.classFeatureLevel1}}<ng-container *ngIf=" this.archetypeFeatureLevel1  != ''  && this.classFeatureLevel1 != '' ">, </ng-container> <span style="color:rgb(226, 96, 87)">{{this.archetypeFeatureLevel1}} </span>  </div>
+    <div class="evenFeature" *ngIf="this.updatedLevel()>1">  {{this.classFeatureLevel2}}<ng-container *ngIf=" this.archetypeFeatureLevel2  != ''  && this.classFeatureLevel2 != '' ">, </ng-container> <span style="color:rgb(226, 96, 87)">{{this.archetypeFeatureLevel2}} </span>  </div>
+    <div class="oddFeature" *ngIf="this.updatedLevel()>2">   {{this.classFeatureLevel3}}<ng-container *ngIf=" this.archetypeFeatureLevel3  != ''  && this.classFeatureLevel3 != '' ">, </ng-container> <span style="color:rgb(226, 96, 87)">{{this.archetypeFeatureLevel3}} </span>  </div>
+    <div class="evenFeature" *ngIf="this.updatedLevel()>3">  {{this.classFeatureLevel4}}<ng-container *ngIf=" this.archetypeFeatureLevel4  != ''  && this.classFeatureLevel4 != '' ">, </ng-container> <span style="color:rgb(226, 96, 87)">{{this.archetypeFeatureLevel4}} </span>  </div>
+    <div class="oddFeature" *ngIf="this.updatedLevel()>4">   {{this.classFeatureLevel5}}<ng-container *ngIf=" this.archetypeFeatureLevel5  != ''  && this.classFeatureLevel5 != '' ">, </ng-container> <span style="color:rgb(226, 96, 87)">{{this.archetypeFeatureLevel5}} </span>  </div>
+    <div class="evenFeature" *ngIf="this.updatedLevel()>5">  {{this.classFeatureLevel6}}<ng-container *ngIf=" this.archetypeFeatureLevel6  != ''  && this.classFeatureLevel6 != '' ">, </ng-container> <span style="color:rgb(226, 96, 87)">{{this.archetypeFeatureLevel6}} </span>  </div>
+    <div class="oddFeature" *ngIf="this.updatedLevel()>6">   {{this.classFeatureLevel7}}<ng-container *ngIf=" this.archetypeFeatureLevel7  != ''  && this.classFeatureLevel7 != '' ">, </ng-container> <span style="color:rgb(226, 96, 87)">{{this.archetypeFeatureLevel7}} </span>  </div>
+    <div class="evenFeature" *ngIf="this.updatedLevel()>7">  {{this.classFeatureLevel8}}<ng-container *ngIf=" this.archetypeFeatureLevel8  != ''  && this.classFeatureLevel8 != '' ">, </ng-container> <span style="color:rgb(226, 96, 87)">{{this.archetypeFeatureLevel8}} </span>  </div>
+    <div class="oddFeature" *ngIf="this.updatedLevel()>8">   {{this.classFeatureLevel9}}<ng-container *ngIf=" this.archetypeFeatureLevel9  != ''  && this.classFeatureLevel9 != '' ">, </ng-container> <span style="color:rgb(226, 96, 87)">{{this.archetypeFeatureLevel9}} </span>  </div>
+    <div class="evenFeature" *ngIf="this.updatedLevel()>9">  {{this.classFeatureLevel10}}<ng-container *ngIf=" this.archetypeFeatureLevel10 != '' && this.classFeatureLevel10 != ''  ">, </ng-container> <span style="color:rgb(226, 96, 87)">{{this.archetypeFeatureLevel10}}</span>   </div>
+    <div class="oddFeature" *ngIf="this.updatedLevel()>10">  {{this.classFeatureLevel11}}<ng-container *ngIf=" this.archetypeFeatureLevel11 != '' && this.classFeatureLevel11 != ''  ">, </ng-container> <span style="color:rgb(226, 96, 87)">{{this.archetypeFeatureLevel11}}</span>   </div>
+    <div class="evenFeature" *ngIf="this.updatedLevel()>11"> {{this.classFeatureLevel12}}<ng-container *ngIf=" this.archetypeFeatureLevel12 != '' && this.classFeatureLevel12 != ''  ">, </ng-container> <span style="color:rgb(226, 96, 87)">{{this.archetypeFeatureLevel12}}</span>   </div>
+    <div class="oddFeature" *ngIf="this.updatedLevel()>12">  {{this.classFeatureLevel13}}<ng-container *ngIf=" this.archetypeFeatureLevel13 != '' && this.classFeatureLevel13 != ''  ">, </ng-container> <span style="color:rgb(226, 96, 87)">{{this.archetypeFeatureLevel13}}</span>   </div>
+    <div class="evenFeature" *ngIf="this.updatedLevel()>13"> {{this.classFeatureLevel14}}<ng-container *ngIf=" this.archetypeFeatureLevel14 != '' && this.classFeatureLevel14 != ''  ">, </ng-container> <span style="color:rgb(226, 96, 87)">{{this.archetypeFeatureLevel14}}</span>   </div>
+    <div class="oddFeature" *ngIf="this.updatedLevel()>14">  {{this.classFeatureLevel15}}<ng-container *ngIf=" this.archetypeFeatureLevel15 != '' && this.classFeatureLevel15 != ''  ">, </ng-container> <span style="color:rgb(226, 96, 87)">{{this.archetypeFeatureLevel15}}</span>   </div>
+    <div class="evenFeature" *ngIf="this.updatedLevel()>15"> {{this.classFeatureLevel16}}<ng-container *ngIf=" this.archetypeFeatureLevel16 != '' && this.classFeatureLevel16 != ''  ">, </ng-container> <span style="color:rgb(226, 96, 87)">{{this.archetypeFeatureLevel16}}</span>   </div>
+    <div class="oddFeature" *ngIf="this.updatedLevel()>16">  {{this.classFeatureLevel17}}<ng-container *ngIf=" this.archetypeFeatureLevel17 != '' && this.classFeatureLevel17 != ''  ">, </ng-container> <span style="color:rgb(226, 96, 87)">{{this.archetypeFeatureLevel17}}</span>   </div>
+    <div class="evenFeature" *ngIf="this.updatedLevel()>17"> {{this.classFeatureLevel18}}<ng-container *ngIf=" this.archetypeFeatureLevel18 != '' && this.classFeatureLevel18 != ''  ">, </ng-container> <span style="color:rgb(226, 96, 87)">{{this.archetypeFeatureLevel18}}</span>   </div>
+    <div class="oddFeature" *ngIf="this.updatedLevel()>18">  {{this.classFeatureLevel19}}<ng-container *ngIf=" this.archetypeFeatureLevel19 != '' && this.classFeatureLevel19 != ''  ">, </ng-container> <span style="color:rgb(226, 96, 87)">{{this.archetypeFeatureLevel19}}</span>   </div>
+    <div class="evenFeature" *ngIf="this.updatedLevel()>19"> {{this.classFeatureLevel20}}<ng-container *ngIf=" this.archetypeFeatureLevel20 != '' && this.classFeatureLevel20 != ''">, </ng-container> <span style="color:rgb(226, 96, 87)">{{this.archetypeFeatureLevel20}}</span>   </div>
+
+
+</div>
+<div id="featureList2"> </div>
+            
             <app-races id="raceFeatures"></app-races>
 
         </div>

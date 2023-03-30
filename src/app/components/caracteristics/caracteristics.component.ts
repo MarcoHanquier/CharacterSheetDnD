@@ -102,6 +102,38 @@ export class CaracteristicsComponent implements OnInit {
     private _classesService: ClassesService
   ) {}
 
+updateForceInUI() {
+    if (this._classesService.selectedClassName == 'Barbare' && this._caracteristicsService.level>19) {
+    this.barbareChampionPrimitif();
+  return this.force+4
+  } else return this.force
+}
+
+updateConstitutionInUI() {
+  if (this._classesService.selectedClassName == 'Barbare' && this._caracteristicsService.level>19) {
+return this.constitution+4
+} else return this.constitution
+}
+
+barbareChampionPrimitif() {
+  let newForceMod = this.force +4;
+  let newConMod = this.constitution +4;
+  this.forceModifier = this.calculateModifier(newForceMod);
+  this.constitutionModifier = this.calculateModifier(newConMod);
+}
+
+updateForceModifierInUI() {
+  if (this._classesService.selectedClassName == 'Barbare' && this._caracteristicsService.level>19) {
+return this.forceModifier
+} else return this.calculateModifier(this.force)
+}
+
+updateConstitutionModifierInUI() {
+  if (this._classesService.selectedClassName == 'Barbare' && this._caracteristicsService.level>19) {
+return this.constitutionModifier
+} else return this.calculateModifier(this.constitution)
+}
+
   forceUp = () => {
     this.force++;
     this._caracteristicsService.force = this.force;
@@ -220,8 +252,18 @@ export class CaracteristicsComponent implements OnInit {
       return 3;
     } else if (x < 20) {
       return 4;
+    } else if (x < 22) {
+      return 5;
+    } else if (x < 24) {
+      return 6;
+    } else if (x < 26) {
+      return 7;
+    } else if (x < 28) {
+      return 8;
+    } else if (x < 30) {
+      return 9;
     }
-    return 5;
+    return 10;
   };
 
   calculateDexterityModifier = (x: number) => {
@@ -247,8 +289,16 @@ export class CaracteristicsComponent implements OnInit {
       this._caracteristicsService.dexterityModifier = 3;
     } else if (x < 20) {
       this._caracteristicsService.dexterityModifier = 4;
-    }
-    this._caracteristicsService.dexterityModifier = 5;
+    } else if (x < 22) {
+      this._caracteristicsService.dexterityModifier = 5;
+    } else if (x < 24) {
+      this._caracteristicsService.dexterityModifier = 6;
+    } else if (x < 26) {
+      this._caracteristicsService.dexterityModifier = 7;
+    } else if (x < 28) {
+      this._caracteristicsService.dexterityModifier = 8;
+    } 
+    this._caracteristicsService.dexterityModifier = 9;
   };
 
   updateArmorClass = () => {
@@ -345,6 +395,8 @@ export class CaracteristicsComponent implements OnInit {
       this.charisma
     );
   };
+
+
 
   checkForce = (x: any) => {
     this.forceCheck = this._caracteristicsService.forceCheck;

@@ -9,8 +9,8 @@
 
                             <div id="For"> 
 
-                                <div style="margin-right: 15px;"> 
-                                    <p class="stats-value-text"> {{force}}</p>
+                                <div class="statblocsValue"> 
+                                    <p class="stats-value-text"> {{updateForceInUI()}}</p>
                                     <p style=" text-align: center;"> <button (click)= "forceDown()" > - </button>
                                         <button (click)= "forceUp()" > + </button>
                                     </p> 
@@ -20,7 +20,7 @@
             <div id="ForMod"> 
                 <div class="border-modificateur"> 
                     <p class="modificateur-text" >Modificateur</p>
-                     <p class="caracs-value-text"> {{calculateModifier(force)}} </p> 
+                     <p class="caracs-value-text"> <ng-container *ngIf="updateForceModifierInUI() > 0">+</ng-container>{{updateForceModifierInUI()}} </p> 
                 </div>
         </div> 
 
@@ -38,7 +38,7 @@
             <div class="title-Statbloc dex"> DEX.</div>
 
             <div id="Dex"> 
-                <div style="margin-right: 15px;"> 
+                <div class="statblocsValue"> 
                     <p class="stats-value-text"> {{dexterity}}</p>
                     <p style=" text-align: center;"> <button (click)= "dexterityDown() ; updateInitiative() ; updateDexterityModifier()" > - </button>
                         <button (click)= "dexterityUp() ;   updateInitiative() ; updateDexterityModifier()" > + </button>
@@ -49,7 +49,7 @@
 <div id="DexMod"> 
 <div class="border-modificateur"> 
     <p class="modificateur-text" >Modificateur</p>
-     <p class="caracs-value-text"> {{calculateModifier(dexterity)}} </p> 
+     <p class="caracs-value-text"><ng-container *ngIf="calculateModifier(dexterity) > 0">+</ng-container>{{calculateModifier(dexterity)}} </p> 
 </div>
 </div> 
 
@@ -67,8 +67,8 @@
     <div class="title-Statbloc con"> CON.</div>
 
     <div id="Con"> 
-        <div style="margin-right: 15px;"> 
-            <p class="stats-value-text"> {{constitution}}</p>
+        <div class="statblocsValue"> 
+            <p class="stats-value-text"> {{updateConstitutionInUI()}}</p>
             <p style=" text-align: center;"> <button (click)= "constitutionDown() ; updateConstitutionModifier()" > - </button>
                 <button (click)= "constitutionUp()   ; updateConstitutionModifier()" > + </button>
             </p> 
@@ -78,7 +78,7 @@
 <div id="ConMod"> 
 <div class="border-modificateur"> 
 <p class="modificateur-text" >Modificateur</p>
-<p class="caracs-value-text"> {{calculateModifier(constitution)}} </p> 
+<p class="caracs-value-text"><ng-container *ngIf="updateConstitutionModifierInUI() > 0">+</ng-container>{{updateConstitutionModifierInUI()}} </p> 
 </div>
 </div> 
 
@@ -96,7 +96,7 @@
     <div class="title-Statbloc int"> INT.</div>
 
     <div id="Int"> 
-        <div style="margin-right: 15px;"> 
+        <div class="statblocsValue"> 
             <p class="stats-value-text"> {{intelligence}}</p>
             <p style=" text-align: center;"> <button (click)= "intelligenceDown() ; updateIntelligenceModifier() " > - </button>
                 <button (click)= "intelligenceUp() ; updateIntelligenceModifier() " > + </button>
@@ -107,7 +107,7 @@
 <div id="IntMod"> 
 <div class="border-modificateur"> 
 <p class="modificateur-text" >Modificateur</p>
-<p class="caracs-value-text"> {{calculateModifier(intelligence)}} </p> 
+<p class="caracs-value-text"> <ng-container *ngIf="calculateModifier(intelligence) > 0">+</ng-container>{{calculateModifier(intelligence)}} </p> 
 </div>
 </div> 
 
@@ -126,7 +126,7 @@
     <div class="title-Statbloc sag"> SAG.</div>
 
     <div id="Wis"> 
-        <div style="margin-right: 15px;"> 
+        <div class="statblocsValue"> 
             <p class="stats-value-text"> {{wisdom}}</p>
             <p style=" text-align: center;">  <button (click)= "wisdomDown() ; updateWisdomModifier()" > - </button>
                 <button (click)= "wisdomUp() ; updateWisdomModifier()" > + </button>
@@ -137,7 +137,7 @@
 <div id="WisMod"> 
 <div class="border-modificateur"> 
 <p class="modificateur-text" >Modificateur</p>
-<p class="caracs-value-text"> {{calculateModifier(wisdom)}} </p> 
+<p class="caracs-value-text"><ng-container *ngIf="calculateModifier(wisdom) > 0">+</ng-container>{{calculateModifier(wisdom)}} </p> 
 </div>
 </div> 
 
@@ -155,7 +155,7 @@
     <div class="title-Statbloc cha"> CHA.</div>
 
     <div id="Cha"> 
-        <div style="margin-right: 15px;"> 
+        <div class="statblocsValue"> 
             <p class="stats-value-text"> {{charisma}}</p>
             <p style=" text-align: center;"> <button (click)= "charismaDown() ; updateCharismaModifier()" > - </button>
                 <button (click)= "charismaUp(); updateCharismaModifier()" > + </button>
@@ -166,7 +166,7 @@
 <div id="ChaMod"> 
 <div class="border-modificateur"> 
 <p class="modificateur-text" >Modificateur</p>
-<p class="caracs-value-text"> {{calculateModifier(charisma)}} </p> 
+<p class="caracs-value-text"><ng-container *ngIf="calculateModifier(charisma) > 0">+</ng-container>{{calculateModifier(charisma)}} </p> 
 </div>
 </div> 
 

@@ -21,6 +21,21 @@
             </div>
     </div>
 
+    <div id="spellSavingMod">
+        <div class="border-spellSavingMod" >
+            <p class="spellSavingMod" *ngIf=" this.selectedClass == 'Moine' ; else spellMod">DD Sauv. contre le ki</p>
+            <ng-template #spellMod><p class="spellSavingMod" > DD Jet de Sauv.</p></ng-template>
+            <p class="value-text">+{{updateSpellSaveModInUI()}} </p>
+            </div>
+    </div>
+
+    <div id="spellAttackMod">
+        <div class="border-spellAttackMod" >
+            <p class="spellAttackMod">Modif. de sort</p>
+            <p class="value-text">+{{updateSpellAttackModInUI()}} </p>
+            </div>
+    </div>
+
     <div id="spells-slots"> 
         <div class="border-spells"> 
             <p class="spells">Emplacements de sorts.</p>

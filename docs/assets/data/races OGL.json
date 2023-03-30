@@ -1,0 +1,72 @@
+[
+    { "id": 0, "name": "Humain", "speed": 9, "raceFeatures" : "",  
+    "caracteristics": "Toutes vos caractéristiques augmentent de 1",
+"languages": "Commun et une au choix",
+"raceSkillMasteries": ""},
+    
+    { "id": 1, "name": "Demi-elfe", "speed": 9,"raceFeatures" : "Vision dans le noir, Ascendance féerique, Polyvalence", 
+    "caracteristics": "Charisme +2, deux autres caractéristiques +1",
+"languages": "Commun, Elfe, une au choix",
+"raceSkillMasteries": "Deux au choix"},
+    
+    { "id": 2, "name": "Demi-orc", "speed": 9, "raceFeatures" : "Vision dans le noir, Menaçant, Acharnement, Sauvagerie",  
+    "caracteristics": "Force +2, Constitution +1",
+"languages": "Orc",
+"raceSkillMasteries": "Intimidation"},
+    
+    { "id": 3, "name": "Elfe", "speed": 9, "raceFeatures" : "Vision dans le noir, Sens aiguisés (maîtrise Perception), Ascendance féerique, Transe",  
+    "caracteristics": "Dextérité +2",
+"languages": "Elfe",
+"raceSkillMasteries": "Perception"},
+    
+    { "id": 4, "name": "Gnome", "speed": 7.5, "raceFeatures" : "Vision dans le noir, Ruse gnome",  
+    "caracteristics": "Intelligence +2",
+"languages": "Gnome",
+"raceSkillMasteries": ""},
+    
+    { "id": 5, "name": "Halfelin", "speed": 7.5, "raceFeatures" : "Chanceux, Brave, Agilité halfeline",  
+    "caracteristics": "Dextérité +2",
+"languages": "Halfelin",
+"raceSkillMasteries": ""},
+    
+    { "id": 6, "name": "Nain", "speed": 7.5, "raceFeatures" : "Vision dans le noir, Résistance naine, Connaissance de la pierre",  
+    "caracteristics": "Constitution +2",
+"languages": "Commun, Nain",
+"raceSkillMasteries": ""},
+    
+    { "id": 7, "name": "Aasimar", "speed": 9, "raceFeatures" : "Vision dans le noir, Aura céleste (caractéristique d'incantation : Charisme), Résistance céleste",  
+    "caracteristics": "Charisme +2, Sagesse +1",
+"languages": "Commun, Céleste",
+"raceSkillMasteries": ""},
+    
+    { "id": 8, "name": "Demi-ogre", "speed": 9, "raceFeatures" : "Vision dans le noir, Effrayant, Cuir épais, Problème de taille, Paria",  
+    "caracteristics": "Force +2, Constitution +2",
+"languages": "Commun, Géant",
+"raceSkillMasteries": ""},
+    
+    { "id": 9, "name": "Demi-ogre (Sorcereux)", "speed": 9, "raceFeatures" : "Vision dans le noir, Effrayant, Volonté de fer , Problème de taille, Paria",  
+    "caracteristics": "Charisme +2, Constitution +1, Sagesse +1",
+"languages": "Commun, Géant",
+"raceSkillMasteries": ""},
+    
+    { "id": 10, "name": "Félys", "speed": 12, "raceFeatures" : "Vision dans le noir, Sixième sens, Agilité féline, Griffes du fauve, Toujours sur ses pattes, Difficile à croire",  
+    "caracteristics": "Dextérité +2, Sagesse +1",
+"languages": "Commun et une au choix",
+"raceSkillMasteries": ""},
+    
+    { "id": 11, "name": "Homme serpent", "speed": 9, "raceFeatures" : "Vision dans le noir, Métamorphe, Hypnose, Regard dérangeant, Sang froid",  
+    "caracteristics": "Sagesse +2, Charisme +1",
+"languages": "Commun, Sseslish",
+"raceSkillMasteries": "Intimidation ou Persuasion"},
+    
+    { "id": 12, "name": "Sangdragon", "speed": 9, "raceFeatures" : "Ascendance, Souffle, Résistance aux dégâts (selon l'Ascendance)",  
+    "caracteristics": "Force +2, Charisme +1",
+"languages": "Commun, Draconique",
+"raceSkillMasteries": ""},
+    
+    { "id": 13, "name": "Tieffelin", "speed": 9, "raceFeatures" : "Vision dans le noir, Résistance infernale, Ascendance infernale (caractéristique d'incantation : Charisme)",  
+    "caracteristics": "Charisme +2, Intelligence +1",
+"languages": "Commun, Infernal",
+"raceSkillMasteries": ""}
+   
+]
