@@ -32,23 +32,79 @@
     <div id="spellAttackMod">
         <div class="border-spellAttackMod" >
             <p class="spellAttackMod">Modif. de sort</p>
-            <p class="value-text">+{{updateSpellAttackModInUI()}} </p>
+            <p class="value-text">+{{updateSpellAttackModInUI()}} {{refresh()}} </p>
             </div>
     </div>
 
     <div id="spells-slots"> 
         <div class="border-spells"> 
-            <p class="spells">Emplacements de sorts.</p>
-            
-            <div class="spells-levels"> 
+            <p class="spells">Emplacements de sorts </p>
+            <!-- <div class="spells-levels"> 
             <span > Niveaux : </span>
             <span class="spells-levels-text" >1 2 3 4 5 6 7 8 9</span> 
             </div>
             
             <div> 
             <p class="spells-slots-text">  {{updatedSpellsSlots()}} </p> 
-            </div>
-    
+            </div> -->
+
+            <table mat-table [dataSource]="dataSourceFighter "
+            class="mat-elevation-z8" class="no-spacing" cellspacing="0">
+     
+       <ng-container matColumnDef="position">
+         <th mat-header-cell *matHeaderCellDef><span >Niveau</span></th>
+         <td mat-cell *matCellDef="let element">  </td>
+       </ng-container>
+     
+       <ng-container matColumnDef="slot1" class="slot">
+         <th mat-header-cell *matHeaderCellDef >1</th>
+         <td mat-cell *matCellDef="let element"> {{element.slot1}} </td>
+       </ng-container>
+     
+       <ng-container matColumnDef="slot2" >
+         <th mat-header-cell *matHeaderCellDef class="slot">2</th>
+         <td mat-cell *matCellDef="let element"> {{element.slot2}} </td>
+       </ng-container>
+     
+       <ng-container matColumnDef="slot3">
+         <th mat-header-cell *matHeaderCellDef>3</th>
+         <td mat-cell *matCellDef="let element"> {{element.slot3}} </td>
+       </ng-container>
+     
+       <ng-container matColumnDef="slot4">
+         <th mat-header-cell *matHeaderCellDef >4</th>
+         <td mat-cell *matCellDef="let element"> {{element.slot4}} </td>
+       </ng-container>
+     
+       <ng-container matColumnDef="slot5">
+         <th mat-header-cell *matHeaderCellDef >5</th>
+         <td mat-cell *matCellDef="let element"> {{element.slot5}} </td>
+       </ng-container>
+     
+       <ng-container matColumnDef="slot6">
+         <th mat-header-cell *matHeaderCellDef >6</th>
+         <td mat-cell *matCellDef="let element"> {{element.slot6}} </td>
+       </ng-container>
+     
+       <ng-container matColumnDef="slot7">
+         <th mat-header-cell *matHeaderCellDef >7</th>
+         <td mat-cell *matCellDef="let element"> {{element.slot7}} </td>
+       </ng-container>
+     
+       <ng-container matColumnDef="slot8">
+         <th mat-header-cell *matHeaderCellDef >8</th>
+         <td mat-cell *matCellDef="let element"> {{element.slot8}} </td>
+       </ng-container>
+     
+       <ng-container matColumnDef="slot9">
+         <th mat-header-cell *matHeaderCellDef >9</th>
+         <td mat-cell *matCellDef="let element"> {{element.slot9}} </td>
+       </ng-container>
+     
+       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+     </table>
+
     </div>
 
 

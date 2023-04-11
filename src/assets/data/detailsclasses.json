@@ -55,7 +55,7 @@
     "classToolMasteries": "Outils de voleur", 
     "classSkillMasteries" :"Quatre parmi Acrobaties, Athlétisme, Discrétion, Escamotage, Intimidation, Investigation, Perception, Perspicacité, Persuasion, Représentation et Supercherie"},
     
-    { "id": 11, "source": "Manuel des Joueurs", "name": "Sorcier", "pvBase": 8, "pvFixe": 5,  "classType": "Fighter", "cantripGroup": "B", 
+    { "id": 11, "source": "Manuel des Joueurs", "name": "Sorcier", "pvBase": 8, "pvFixe": 5,  "classType": "Sorcier", "cantripGroup": "B", 
     "classWeaponMasteries": "", 
     "classToolMasteries": "", 
     "classSkillMasteries" :"Deux parmi Arcanes, Histoire, Intimidation, Investigation, Nature, Religion et Supercherie"}

@@ -1,4 +1,7 @@
 {
+  "projects": {
+    "default": "character-sheet-8d9c4"
+  },
   "targets": {
     "character-sheet-8d9c4": {
       "hosting": {
@@ -6,9 +9,14 @@
           "character-sheet-8d9c4"
         ]
       }
+    },
+    "charasheetdnd": {
+      "hosting": {
+        "angular-charasheet2": [
+          "charasheetdnd"
+        ]
+      }
     }
   },
-  "projects": {
-    "default": "character-sheet-8d9c4"
-  }
+  "etags": {}
 }

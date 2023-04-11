@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
+import { MatTableModule } from '@angular/material/table';  
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { JoueurComponent } from './components/joueur/joueur.component';
+import { JoueurComponent, About } from './components/joueur/joueur.component';
 
 import { RacesService } from './services/races.service';
 import { ClassdetailsComponent } from './components/classdetails/classdetails.component';
@@ -23,6 +27,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -36,15 +41,23 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     SkillsComponent,
     NegativeNumberPipe,
     OtherValuesComponent,
-    HeaderComponent
+    HeaderComponent,
+    About
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    MatTableModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatTooltipModule,
+    MatDialogModule,
+
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth())    
+    provideAuth(() => getAuth()),
+    BrowserAnimationsModule    
   ],
   providers: [RacesService, ClassesService, ArmorsService, ArmorComponent, JoueurComponent],
   bootstrap: [AppComponent]

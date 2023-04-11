@@ -41,5 +41,6 @@ export class CaracteristicsService {
   public currentPV = 7;
   public passivePerception = 9;
 
+  public dwarfPV = 0;
   constructor() {}
 }

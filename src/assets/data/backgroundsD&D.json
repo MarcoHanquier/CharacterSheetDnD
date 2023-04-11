@@ -1,0 +1,238 @@
+[
+    { "id": 0, "source": "La Côte des Épées", "name": "Académicien Cloîtré",
+    "backgroundSkill": "Accès à la bibliothèque",
+    "backgroundSkillMasteries": "Histoire, une parmi Arcanes, Nature et Religion",
+    "backgroundLanguages": "Deux langues au choix",
+    "backgroundOrigin": "",
+    "backgroundTools": ""},
+
+    { "id": 1, "source": "Manuel des Joueurs", "name": "Acolyte",
+    "backgroundSkill": "Abri des croyants",
+    "backgroundSkillMasteries": "Perspicacité, Religion",
+    "backgroundLanguages": "Deux langues au choix",
+    "backgroundOrigin": "",
+    "backgroundTools": ""},
+    
+    { "id": 2, "source": "La Côte des Épées", "name": "Agent de faction",
+    "backgroundSkill": "Refuge",
+    "backgroundSkillMasteries": "Perspicacité, une compétence liée à Intelligence, la Sagesse ou le Charisme et adaptée à votre faction",
+    "backgroundLanguages": "Deux langues au choix",
+    "backgroundOrigin": "",
+    "backgroundTools": ""},
+
+    { "id": 3, "source": "La Côte des Épées", "name": "Artisan de clan",
+    "backgroundSkill": "Respect du robuste peuple",
+    "backgroundSkillMasteries": "Histoire, Perspicacité",
+    "backgroundLanguages": "",
+    "backgroundOrigin": "",
+    "backgroundTools": "Un type d'outils d'artisan"},
+
+    { "id": 4, "source": "Manuel des Joueurs", "name": "Artisan de guilde",
+    "backgroundSkill": "Membre de guilde",
+    "backgroundSkillMasteries": "Perspicacité, Persuasion",
+    "backgroundLanguages": "Une langue au choix",
+    "backgroundOrigin": "",
+    "backgroundTools": "Un type d'outils d'artisan"},
+
+    { "id": 5, "source": "Manuel des Joueurs", "name": "• Marchand de guilde",
+    "backgroundSkill": "Enfant de la rue",
+    "backgroundSkillMasteries": "Acrobaties ou Athlétisme, Discrétion",
+    "backgroundLanguages": "",
+    "backgroundOrigin": "",
+    "backgroundTools": "Outils de voleur, accessoires de déguisement"},
+
+    { "id": 6, "source": "Manuel des Joueurs", "name": "Artiste",
+    "backgroundSkill": "A la demande du public",
+    "backgroundSkillMasteries": "Acrobaties, Représentation",
+    "backgroundLanguages": "",
+    "backgroundOrigin": "",
+    "backgroundTools": "Accessoires de déguisement, un type d'instrument de musique"},
+
+    { "id": 7, "source": "Manuel des Joueurs", "name": "• Gladiateur",
+    "backgroundSkill": "A la demande du public",
+    "backgroundSkillMasteries": "Acrobaties, Représentation",
+    "backgroundLanguages": "",
+    "backgroundOrigin": "",
+    "backgroundTools": "Accessoires de déguisement, un type d'instrument de musique"},
+
+    { "id": 8, "source": "Manuel des Joueurs", "name": "Charlatan",
+    "backgroundSkill": "Fausse identité",
+    "backgroundSkillMasteries": "Escamotage, Supercherie",
+    "backgroundLanguages": "",
+    "backgroundOrigin": "",
+    "backgroundTools": "Accessoires de déguisement, Matériel de contrefaçon"},
+
+    { "id": 9, "source": "La Côte des Épées", "name": "Chasseur de primes urbain",
+    "backgroundSkill": "A l'écoute",
+    "backgroundSkillMasteries": "Deux parmi Supercherie, Perspicacité, Persuasion et Discrétion",
+    "backgroundLanguages": "",
+    "backgroundOrigin": "",
+    "backgroundTools": "Deux parmi un type de boite de jeux, d'instrument de musique et outils de voleur"},
+
+    { "id": 10, "source": "La Côte des Épées", "name": "Chevalier de l'ordre",
+    "backgroundSkill": "Respect des chevaliers",
+    "backgroundSkillMasteries": "Persuasion, et une parmi Arcanes, Histoire, Nature et Religion",
+    "backgroundLanguages": "",
+    "backgroundOrigin": "",
+    "backgroundTools": "Un type de boite de jeux ou d'instrument de musique"},
+
+    { "id": 11, "source": "La Côte des Épées", "name": "Courtisan",
+    "backgroundSkill": "Fonctionnaire de la cour",
+    "backgroundSkillMasteries": "Perspicacité, Persuasion",
+    "backgroundLanguages": "Deux langues au choix",
+    "backgroundOrigin": "",
+    "backgroundTools": ""},
+
+    { "id": 12, "source": "Manuel des Joueurs", "name": "Criminel",
+    "backgroundSkill": "Contact criminel",
+    "backgroundSkillMasteries": "Discretion, Supercherie",
+    "backgroundLanguages": "",
+    "backgroundOrigin": "",
+    "backgroundTools": "Un type de boite de jeux, outils de voleur"},
+
+    { "id": 13, "source": "Manuel des Joueurs", "name": "• Espion",
+    "backgroundSkill": "Contact criminel",
+    "backgroundSkillMasteries": "Discretion, Supercherie",
+    "backgroundLanguages": "",
+    "backgroundOrigin": "",
+    "backgroundTools": "Un type de boite de jeux, outils de voleur"},
+
+    { "id": 14, "source": "Manuel des Joueurs", "name": "Enfant des rues",
+    "backgroundSkill": "Secrets de la ville",
+    "backgroundSkillMasteries": "Discrétion, Escamotage",
+    "backgroundLanguages": "",
+    "backgroundOrigin": "",
+    "backgroundTools": "Accessoires de déguisement, outils de voleur"},
+
+    { "id": 15, "source": "Manuel des Joueurs", "name": "Ermite",
+    "backgroundSkill": "Découverte",
+    "backgroundSkillMasteries": "Médecine, Religion",
+    "backgroundLanguages": "Une langue au choix",
+    "backgroundOrigin": "",
+    "backgroundTools": "Matériel d'herboriste"},
+
+    { "id": 16, "source": "La Côte des Épées", "name": "Grand voyageur",
+    "backgroundSkill": "Au centre de l'attention",
+    "backgroundSkillMasteries": "Perspicacité, Perception",
+    "backgroundLanguages": "Une langue au choix",
+    "backgroundOrigin": "",
+    "backgroundTools": "Un type de boite de jeux ou d'instrument de musique"},
+
+    { "id": 17, "source": "La Côte des Épées", "name": "Héritier",
+    "backgroundSkill": "Héritage",
+    "backgroundSkillMasteries": "Survie et une parmi Arcanes, Histoire et Religion",
+    "backgroundLanguages": "Une langue au choix",
+    "backgroundOrigin": "",
+    "backgroundTools": "Un type de boite de jeux ou d'instrument de musique"},
+
+    { "id": 18, "source": "Manuel des Joueurs", "name": "Héros du peuple",
+    "backgroundSkill": "Hospitalité rustique",
+    "backgroundSkillMasteries": "Dressage, Survie",
+    "backgroundLanguages": "",
+    "backgroundOrigin": "",
+    "backgroundTools": "Un ensemble d'outils d'artisan au choix, véhicules terrestres"},
+
+    { "id": 19, "source": "Manuel des Joueurs", "name": "Marin",
+    "backgroundSkill": "Place à bord",
+    "backgroundSkillMasteries": "Athlétisme, Perception",
+    "backgroundLanguages": "",
+    "backgroundOrigin": "",
+    "backgroundTools": "Instruments de navigation, véhicules (marins)"},
+
+    { "id": 20, "source": "Manuel des Joueurs", "name": "• Pirate",
+    "backgroundSkill": "Mauvaise réputation",
+    "backgroundSkillMasteries": "Athlétisme, Perception",
+    "backgroundLanguages": "",
+    "backgroundOrigin": "",
+    "backgroundTools": "Instruments de navigation, véhicules (marins)"},
+
+    { "id": 21, "source": "La Côte des Épées", "name": "Tribu d'Uthgardts",
+    "backgroundSkill": "Origines Uthgardtes",
+    "backgroundSkillMasteries": "Athlétisme, Survie",
+    "backgroundLanguages": "Une langue au choix",
+    "backgroundOrigin": "",
+    "backgroundTools": "Un type de boite de jeux ou d'instrument de musique"},
+
+    { "id": 22, "source": "La Côte des Épées", "name": "Membre du guet",
+    "backgroundSkill": "L'oeil du guetteur",
+    "backgroundSkillMasteries": "Athlétisme, Perspicacité",
+    "backgroundLanguages": "Deux langues au choix",
+    "backgroundOrigin": "",
+    "backgroundTools": ""},
+
+    { "id": 23, "source": "La Côte des Épées", "name": "• Enquêteur",
+    "backgroundSkill": "L'oeil du guetteur",
+    "backgroundSkillMasteries": "Investigation, Perspicacité",
+    "backgroundLanguages": "Deux langues au choix",
+    "backgroundOrigin": "",
+    "backgroundTools": ""},
+
+    { "id": 24, "source": "La Côte des Épées", "name": "Mercenaire vétéran",
+    "backgroundSkill": "Vie de mercenaire",
+    "backgroundSkillMasteries": "Athlétisme, Persuasion",
+    "backgroundLanguages": "",
+    "backgroundOrigin": "",
+    "backgroundTools": "Un type de boite de jeux, véhicules terrestres"},
+
+    { "id": 25, "source": "Manuel des Joueurs", "name": "Noble",
+    "backgroundSkill": "Privilégié ou Domestiques",
+    "backgroundSkillMasteries": "Histoire, Persuasion",
+    "backgroundLanguages": "",
+    "backgroundOrigin": "",
+    "backgroundTools": "Un type de boite de jeux"},
+
+    { "id": 26, "source": "Manuel des Joueurs", "name": "• Chevalier",
+    "backgroundSkill": "Domestiques",
+    "backgroundSkillMasteries": "Histoire, Persuasion",
+    "backgroundLanguages": "",
+    "backgroundOrigin": "",
+    "backgroundTools": "Un type de boite de jeux"},
+
+    { "id": 27, "source": "La Côte des Épées", "name": "Noble waterdhavien",
+    "backgroundSkill": "Entretenu",
+    "backgroundSkillMasteries": "Histoire, Persuasion",
+    "backgroundLanguages": "Une langue au choix",
+    "backgroundOrigin": "",
+    "backgroundTools": "Un type de boite de jeux ou d'instrument de musique"},
+
+    { "id": 28, "source": "Manuel des Joueurs", "name": "Sage",
+    "backgroundSkill": "Chercheur",
+    "backgroundSkillMasteries": "Arcanes, Histoires",
+    "backgroundLanguages": "Deux langues au choix",
+    "backgroundOrigin": "",
+    "backgroundTools": ""},
+
+    { "id": 29, "source": "Manuel des Joueurs", "name": "Sauvageon",
+    "backgroundSkill": "Vagabond",
+    "backgroundSkillMasteries": "Athlétisme, Survie",
+    "backgroundLanguages": "Une langue au choix",
+    "backgroundOrigin": "Signe du destin",
+    "backgroundTools": "Un instrument de musique"},
+
+    { "id": 30, "source": "Manuel des Joueurs", "name": "Soldat",
+    "backgroundSkill": "Grade Militaire",
+    "backgroundSkillMasteries": "Athlétisme, Intimidation",
+    "backgroundLanguages": "",
+    "backgroundOrigin": "",
+    "backgroundTools": "Un type de boite de jeux, véhicules terrestres"}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]

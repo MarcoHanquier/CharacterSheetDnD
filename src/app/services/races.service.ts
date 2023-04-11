@@ -11,6 +11,7 @@ export class RacesService {
 
   public races = [] as any[];
   public selectedRace = 0;
+  public selectedRaceName = "";
   public selectedRaceSpeed = 9;
   public selectedRaceFeatures = '';
   public selectedRaceCaracteristics =

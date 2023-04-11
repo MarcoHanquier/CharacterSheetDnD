@@ -1,20 +1,32 @@
 <div id="playerInfos">
-    <h1 id="SheetTitle" > Fiche de personnage<ng-container *ngIf=" this.characterName != '' "> - </ng-container> {{this.characterName}}  </h1>
+    <h1 id="SheetTitle" > Fiche de personnage<ng-container *ngIf=" this.characterName != '' " > - </ng-container> {{this.characterName}}  </h1>
 
-    <div id="playerButtons"><button (click)="reset()">Réinitialiser</button><button (click)="randomize()">Perso aléatoire</button></div>
-    <div id="nom">   <label for="name"><span class="bold">Nom : </span> </label>
-        <input  [(ngModel)]="this.characterName"  class="input-form" >   </div>
-<!-- <form id="nom" > <span class="bold">Nom : {{this.characterName}}</span><input class="input-form"  [(ngModel)]="this.characterName" placeholder="name"  /> </form> -->
-<!-- <form id="nom" > <span class="bold">Nom : {{this.characterName}}</span><input class="input-form"  [(ngModel)]="this.characterName" placeholder="name"  /> </form> -->
+    <div id="playerButtons"><button (click)="reset()">Réinitialiser</button><button (click)="randomize()">Perso aléatoire</button>  
+        <button mat-button (click)="openDialog()" >À propos</button>  </div>
+    <div id="nom">   <label for="name"> <button (click)="randomizeName()" class="randomizerButton">🎲</button>  <span class="bold">Nom : </span> </label>
+        <input  [(ngModel)]="this.characterName" maxlength="20"  class="input-form" >   </div>
 <form id="description"> <span class="bold">Description : </span> <textarea id="description-textarea"></textarea> </form>
 
-<form id="foi"> <span class="bold">Foi : </span><input class="input-form"/> </form>
+<!-- <mat-form-field appearance="fill" id="nom">
+    <mat-label for="name" >Nom</mat-label>
+    <input [(ngModel)]="this.characterName"  class=""   matInput>
+  </mat-form-field>
+
+<mat-form-field appearance="fill" id="description">
+    <mat-label>Description</mat-label>
+    <textarea matInput></textarea>
+  </mat-form-field> -->
+
+
+<form id="foi">  <span class="bold">Foi : </span><input class="input-form"/> </form>
 
 
 <div class="col archétype">
     <p id="archétype"> 
-        <p> <button (click)="randomizeSubClass()" class="randomizerButton">🎲</button>   
-            <span class="bold" *ngIf=" this.selectedClassName == 'Barbare' " >Voie Primitive : </span> 
+        <p> <button class="lockBtn" *ngIf=" this.subClassLock == false" (click)="lockSubClass()"> <span >🔓</span></button> 
+            <button class="lockBtn" *ngIf=" this.subClassLock == true" (click)="lockSubClass()"> <span >🔒</span></button> 
+             <button (click)="randomizeSubClass()" class="randomizerButton">🎲</button> 
+            <span class="bold" *ngIf=" this.selectedClassName == 'Barbare' "  matTooltip="Info about the action" matTooltipPosition="above">Voie Primitive : </span> 
             <span class="bold" *ngIf=" this.selectedClassName == 'Barde' " >Collège Bardique : </span> 
             <span class="bold" *ngIf=" this.selectedClassName == 'Clerc' " >Domaine Divin : </span> 
             <span class="bold" *ngIf=" this.selectedClassName == 'Druide' " >Cercle Druidique: </span> 
@@ -27,7 +39,7 @@
             <span class="bold" *ngIf=" this.selectedClassName == 'Roublard' " >Archétype de Roublard : </span> 
             <span class="bold" *ngIf=" this.selectedClassName == 'Sorcier' " >Protecteur d'outre-monde : </span>         
         
-
+            
          <select (change)="updateArchetype($event)" [(ngModel)]="this.selectedArchetype" >
             <ng-container *ngIf=" this.selectedClassName == 'Barbare' ">
                 <option *ngFor="let archetype of barbareArchetypes" [ngValue]="archetype.id">{{archetype.name}}</option>
@@ -71,11 +83,12 @@
 
     </div>
 
-        <!-- <select (change)="updateArchetype($event)" [(ngModel)]="this.selectedArchetype" >
-            <option *ngFor="let archetype of barbareArchetypes" [ngValue]="archetype.id">{{archetype.name}}</option>
-        </select>   -->
+
         <div class="col historique">
-            <p id="historique"> <button (click)="randomizeBackground()" class="randomizerButton">🎲</button><span class="bold">Historique : </span>
+            <p id="historique">  
+                <button class="lockBtn" *ngIf=" this.backgroundLock == false" (click)="lockBackground()"> <span >🔓</span></button> 
+                <button class="lockBtn" *ngIf=" this.backgroundLock == true" (click)="lockBackground()"> <span >🔒</span></button>  
+                <button (click)="randomizeBackground()" class="randomizerButton" matTooltip="Info about the action" matTooltipPosition="above">🎲</button><span class="bold">Historique : </span>
                 <select (change)="updateBackground($event)" [(ngModel)]="this.selectedBackground" >
                     <option *ngFor="let background of backgrounds" [ngValue]="background.id">{{background.name}}</option>
                 </select>  </p>
@@ -84,7 +97,10 @@
 
 
 <div class="col playerClass">
-    <p id="playerClass"> <button (click)="randomizeClass()" class="randomizerButton">🎲</button><span class="bold">Classe : </span>  
+    <p id="playerClass"> 
+        <button class="lockBtn" *ngIf=" this.classLock == false" (click)="lockClass()"> <span >🔓</span></button> 
+        <button class="lockBtn" *ngIf=" this.classLock == true" (click)="lockClass()"> <span >🔒</span></button> 
+        <button (click)="randomizeClass()" class="randomizerButton">🎲</button><span class="bold">Classe : </span>  
         <select  (change)="update($event)" [(ngModel)]="this.selectedClass" >
             <option *ngFor="let classe of classes" [ngValue]="classe.id">{{classe.name}}</option>
         </select>  </p>
@@ -93,7 +109,10 @@
 
     
 <div class="col race">
-    <p id="race"> <button (click)="randomizeRace()" class="randomizerButton">🎲</button><span class="bold">Race : </span> 
+    <p id="race">        
+        <button class="lockBtn" *ngIf=" this.raceLock == false" (click)="lockRace()"> <span >🔓</span></button> 
+        <button class="lockBtn" *ngIf=" this.raceLock == true" (click)="lockRace()"> <span >🔒</span></button>  
+        <button (click)="randomizeRace()" class="randomizerButton">🎲</button><span class="bold">Race : </span> 
         <select (change)="updateRace($event)" [(ngModel)]="this.selectedRace" >
             <option *ngFor="let race of races" [ngValue]="race.id">{{race.name}} </option>
         </select>  </p>
@@ -118,8 +137,8 @@
     </div>
  
     <div id="niveau"><span class="bold">Niveau : {{updatedLevel()}} </span> 
-        <button *ngIf="this.updatedLevel()>1" (click)= "levelDown()" > - </button>
-        <button *ngIf="this.updatedLevel()<20"(click)= "levelUp()" > + </button>
+        <button *ngIf="this.updatedLevel()>1" (click)= "levelDown(); " > - </button>
+        <button *ngIf="this.updatedLevel()<20"(click)= "levelUp(); refresh();" > + </button>
     </div>
 <div id="picture">
     <!-- <div><img [src]="url" *ngIf="url" layout-fill></div> -->
@@ -130,32 +149,31 @@
     #fileInput>
     
 
-    <!-- <img id="file-ip-1-preview" [src]="url" width="70" height="70" atl="Une Meuf" style="display: block;"> -->
-    <!-- <img src="https://i.pinimg.com/474x/72/33/9d/72339d38def6cf7d7210b43787a781ed.jpg"  *ngIf="url" layout-fill >  -->
-    <!-- <img src="https://i.imgur.com/B9nV0bh.png" > -->
     <div id="Layer1" >
 
 
         
         <picture>
 
-            <source srcset="https://i.imgur.com/Q3GPnoJ.png" media="(min-width: 400px)"/>
+            <!-- <img class="imgA1" src="https://i.imgur.com/Q3GPnoJ.png"> -->
+            <!-- <img class="imgB1" src="https://i.imgur.com/P93HdM6.png"> -->
+            <source srcset="https://i.imgur.com/Q3GPnoJ.png" media="(min-width: 400px)" style="z-index:1;"/>
+
+            <!-- <source srcset="https://i.imgur.com/P93HdM6.png" media="(min-width: 400px)" style="z-index:2;"/> -->
+
             <img src="https://i.imgur.com/RLiv1S6.png" alt="example"/>
           </picture>
 
 
     </div>
-    <!-- <div id="Layer2" style="position:absolute; left:195px; top:110px; width:64px; height:58px; z-index:2"><img name="yyy" src="img2.gif" width="66" height="58" alt=""></div> -->
     <img class="portrait" (click)="fileInput.click()"  [src]="url" *ngIf="url" layout-fill > 
     <button class="img-button " (click)="fileInput.click()" *ngIf="picture">+</button>
     
-  <!-- <div><button (click)="fileInput.click()" >Changer l'image</button></div> -->
-  <!-- <img src="https://i.pinimg.com/474x/72/33/9d/72339d38def6cf7d7210b43787a781ed.jpg" (click)="fileInput.click()" *ngIf="picture"> -->
 
 </div>
 
 <div id="masteries">
-        <h2 class="title"> Maîtrises et Langues </h2>
+        <h2 class="title">Maîtrises et Langues </h2>
 <div class="masteries-text"> 
     
     <div class="bold"><input type="checkbox" name="isActive"  [(ngModel)]="this.commonWeaponsMastery"> Armes Courantes</div>
@@ -166,7 +184,7 @@
     <div class="bold"><input type="checkbox" name="isActive"  [(ngModel)]="this.shieldMastery"> Boucliers</div>
     
     <p> <span class="bold">Autres armes Maîtrisées : </span> 
-        <span style="color:rgb(37, 156, 224)">{{this.classWeaponMasteries}}</span> <ng-container *ngIf=" this.raceWeaponMasteries != ''  ">, </ng-container> 
+        <span style="color:rgb(37, 156, 224)">{{this.classWeaponMasteries}}</span> <ng-container *ngIf=" this.raceWeaponMasteries != '' && this.classWeaponMasteries != '' ">, </ng-container> 
         <span style="color:rgb(92, 196, 115)">{{this.raceWeaponMasteries}}</span>  <ng-container *ngIf=" this.subClassWeaponMasteries != '' ">, </ng-container>
         <span style="color:rgb(226, 96, 87)" >{{this.subClassWeaponMasteries}}</span></p>
 
@@ -175,7 +193,7 @@
     <p> <span class="bold">Outils Maîtrisées : </span> 
         <span style="color:rgb(37, 156, 224)">{{this.classToolMasteries}}</span><ng-container *ngIf=" this.backgroundToolMasteries != '' && this.classToolMasteries != '' ">, </ng-container> 
         <span style="color:rgb(214, 158, 53)">{{this.backgroundToolMasteries}}</span><ng-container *ngIf=" this.backgroundToolMasteries != '' && this.raceToolMasteries != '' ">, </ng-container> 
-        <span style="color:rgb(92, 196, 115)">{{this.raceToolMasteries}}</span><ng-container *ngIf=" this.subClassToolMasteries != '' ">, </ng-container>
+        <span style="color:rgb(92, 196, 115)">{{this.raceToolMasteries}}</span><ng-container *ngIf=" this.subClassToolMasteries != '' && this.raceToolMasteries != '' ">, </ng-container>
         <span style="color:rgb(226, 96, 87)" >{{this.subClassToolMasteries}}</span></p>
 
 
@@ -187,10 +205,10 @@
         <span style="color:rgb(226, 96, 87)" >{{this.subClassSkillMasteries}}</span></p>
 
         <p> <span class="bold">Langues : </span> 
-            <span style="color:rgb(92, 196, 115)">{{this.raceLanguages}}</span><ng-container *ngIf="this.raceLanguages != '' && this.backgroundLanguages != '' ">, </ng-container> 
-            <span style="color:rgb(214, 158, 53)">{{this.backgroundLanguages}}</span><ng-container *ngIf=" this.classLangages != '' ">, </ng-container> 
-            <span style="color:rgb(37, 156, 224)">{{this.classLangages}}</span><ng-container *ngIf="this.classLangages != '' && this.subClassLangages != '' ">, </ng-container> 
-            <span style="color:rgb(226, 96, 87)">{{this.subClassLangages}}</span></p>
+            <span style="color:rgb(92, 196, 115)">{{this.raceLanguages}}</span><ng-container *ngIf=" this.backgroundLanguages != '' ">, </ng-container> 
+            <span style="color:rgb(214, 158, 53)">{{this.backgroundLanguages}}</span>
+            <span style="color:rgb(37, 156, 224)"><ng-container *ngIf=" this.classLangages != '' ">, </ng-container> {{this.classLangages}}</span>
+            <span style="color:rgb(226, 96, 87)"><ng-container *ngIf=" this.subClassLangages != '' ">, </ng-container> {{this.subClassLangages}}</span></p>
         
 
             <p> <span class="bold">Aptitude d'Historique : </span> 
@@ -205,13 +223,10 @@
 <div class="bold featureTitle">Aptitudes de Classe et d'Archétype</div>
            
             <div id="features">
-            <!-- <span id="featureList"> <ul><li> Rage, Défense sans armure </li></ul> </span> -->
-            <!-- <span id="featureList2">  </span> -->
 <div id="featureList"> 
     <div *ngIf=" this.selectedArchetypeName == 'Fou de guerre' " style="color:rgb(189, 20, 8); font-weight: 700;" > Réservé aux Nains</div>
     <div *ngIf=" this.selectedClassName == 'Barbare'  ||  this.selectedClassName == 'Ensorceleur' ||  this.selectedClassName == 'Moine' 
     ||  this.selectedClassName == 'Roublard' ||  this.selectedClassName == 'Sorcier'"> {{updateBonusSkill()}}</div>
-    <!-- <div> Capacités spéciales : {{updateBonusSkill()}}</div> -->
     <div *ngIf=" this.selectedClassName == 'Clerc' && this.updatedLevel()>1 " > <span class="bold">Canalisations d'énergie divine :</span>
          Renvoi des morts-vivants<ng-container *ngIf=" this.clercCanalisationDivine  != '' && this.updatedLevel()>1">,  <span style="color:rgb(226, 96, 87)">{{this.clercCanalisationDivine}}</span> </ng-container>
         <ng-container *ngIf=" this.clercCanalisationDivine2  != '' && this.updatedLevel()>5">,  <span style="color:rgb(226, 96, 87)">{{this.clercCanalisationDivine2}}</span> </ng-container> </div>

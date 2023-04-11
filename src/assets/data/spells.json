@@ -74,6 +74,31 @@
 "level18Slot": "⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤",
 "level19Slot": "⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤",
 "level20Slot": "⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤"
+},
+
+{ "id": 3, "type": "Sorcier",
+
+
+"level1Slot":  "\u200B⬤",
+"level2Slot":  "\n⬤",
+"level3Slot":  "⬤\n⬤",
+"level4Slot":  "⬤\n⬤\n⬤",
+"level5Slot":  "⬤ ⬤\n⬤ ⬤\n⬤\n⬤",
+"level6Slot":  "⬤ ⬤\n⬤ ⬤\n⬤\n⬤",
+"level7Slot":  "⬤ ⬤\n⬤ ⬤\n⬤ ⬤\n⬤",
+"level8Slot":  "⬤ ⬤\n⬤ ⬤\n⬤ ⬤\n⬤",
+"level9Slot":  "⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤ ⬤\n⬤",
+"level10Slot": "⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤ ⬤\n⬤",
+"level11Slot": "⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤",
+"level12Slot": "⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤",
+"level13Slot": "⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤",
+"level14Slot": "⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤",
+"level15Slot": "⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤",
+"level16Slot": "⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤\n⬤",
+"level17Slot": "⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤",
+"level18Slot": "⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤",
+"level19Slot": "⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤",
+"level20Slot": "⬤ \u200B\u200B\u200B ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤ ⬤\n⬤ ⬤ ⬤ ⬤\n⬤"
 }
 
 

@@ -3,6 +3,7 @@ import { CaracteristicsService } from 'src/app/services/caracteristics.service';
 import { ArmorsService } from 'src/app/services/armors.service';
 import { RacesService } from 'src/app/services/races.service';
 import { ClassesService } from 'src/app/services/classes.service';
+import { ClassFeaturesService } from 'src/app/services/class-features.service';
 
 @Component({
   selector: 'app-caracteristics',
@@ -99,7 +100,8 @@ export class CaracteristicsComponent implements OnInit {
     private _caracteristicsService: CaracteristicsService,
     private _armorsService: ArmorsService,
     private _racesService: RacesService,
-    private _classesService: ClassesService
+    private _classesService: ClassesService,
+    private _classFeaturesService: ClassFeaturesService
   ) {}
 
 updateForceInUI() {
@@ -119,7 +121,8 @@ barbareChampionPrimitif() {
   let newForceMod = this.force +4;
   let newConMod = this.constitution +4;
   this.forceModifier = this.calculateModifier(newForceMod);
-  this.constitutionModifier = this.calculateModifier(newConMod);
+  // this.constitutionModifier = this.calculateModifier(newConMod);
+  this._caracteristicsService.constitutionModifier = this.calculateModifier(newConMod);
 }
 
 updateForceModifierInUI() {
@@ -130,7 +133,7 @@ return this.forceModifier
 
 updateConstitutionModifierInUI() {
   if (this._classesService.selectedClassName == 'Barbare' && this._caracteristicsService.level>19) {
-return this.constitutionModifier
+return this._caracteristicsService.constitutionModifier
 } else return this.calculateModifier(this.constitution)
 }
 
@@ -156,6 +159,7 @@ return this.constitutionModifier
 
   forceDown = () => {
     this.force--;
+    this._caracteristicsService.force = this.force;
     this.selectedPool = this.selectedPool + this.addStatPool(this.force);
   };
 
@@ -297,9 +301,49 @@ return this.constitutionModifier
       this._caracteristicsService.dexterityModifier = 7;
     } else if (x < 28) {
       this._caracteristicsService.dexterityModifier = 8;
+    } else if (x < 30) {
+      this._caracteristicsService.dexterityModifier = 9;
     } 
-    this._caracteristicsService.dexterityModifier = 9;
+    this._caracteristicsService.dexterityModifier = 10;
   };
+
+  calculateConstitutionModifier = (x: number) => {
+    if (x < 2) {
+      this._caracteristicsService.constitutionModifier = -5;
+    } else if (x < 4) {
+      this._caracteristicsService.constitutionModifier = -4;
+    } else if (x < 6) {
+      this._caracteristicsService.constitutionModifier = -3;
+    } else if (x < 8) {
+      this._caracteristicsService.constitutionModifier = -2;
+    } else if (x < 10) {
+      this._caracteristicsService.constitutionModifier = -1;
+    }
+
+    if (x < 12) {
+      this._caracteristicsService.constitutionModifier = 0;
+    } else if (x < 14) {
+      this._caracteristicsService.constitutionModifier = 1;
+    } else if (x < 16) {
+      this._caracteristicsService.constitutionModifier = 2;
+    } else if (x < 18) {
+      this._caracteristicsService.constitutionModifier = 3;
+    } else if (x < 20) {
+      this._caracteristicsService.constitutionModifier = 4;
+    } else if (x < 22) {
+      this._caracteristicsService.constitutionModifier = 5;
+    } else if (x < 24) {
+      this._caracteristicsService.constitutionModifier = 6;
+    } else if (x < 26) {
+      this._caracteristicsService.constitutionModifier = 7;
+    } else if (x < 28) {
+      this._caracteristicsService.constitutionModifier = 8;
+    } else if (x < 28) {
+      this._caracteristicsService.constitutionModifier = 9;
+    } 
+    this._caracteristicsService.constitutionModifier = 10;
+  };
+
 
   updateArmorClass = () => {
     let dexterityModifier = this._caracteristicsService.dexterityModifier;
@@ -311,6 +355,12 @@ return this.constitutionModifier
             dexterityModifier +
             this._caracteristicsService.constitutionModifier +
             this._armorsService.selectedShieldValue;
+        } else if (this._classFeaturesService.selectedArchetypeName == 'Lignée draconique' || this._classFeaturesService.selectedArchetypeName == 'Homme-Lézard') {
+          this.updatedArmorClass =
+          13 +
+          dexterityModifier +
+          this._caracteristicsService.constitutionModifier +
+          this._armorsService.selectedShieldValue;
         } else if (
           this._classesService.selectedClassName == 'Moine' &&
           this._armorsService.selectedShieldName == 'Aucun bouclier'

@@ -12,6 +12,8 @@ import { SpellsComponent } from '../spells/spells.component';
 import { ClassFeaturesService } from 'src/app/services/class-features.service';
 import { CaracteristicsComponent } from '../caracteristics/caracteristics.component';
 import { BackgroundsService } from 'src/app/services/backgrounds.service';
+import { MatDialog } from '@angular/material/dialog';
+import { RandomizerService } from 'src/app/services/randomizer.service';
 
 @Component({
   selector: 'app-joueur',
@@ -76,7 +78,7 @@ public selectedArchetypeName = "Voie du Berserker";
   public raceSource = 'Manuel des Joueurs';
   public classSource = 'Manuel des Joueurs';
   public subClassSource = 'Manuel des Joueurs';
-  public backgroundSource = 'Manuel des Joueurs';
+  public backgroundSource = 'La Côte des Épées';
 
   public classFeatureLevel1 = "Rage, Défense sans armure";
   public classFeatureLevel2 = "Témérité, Sens du danger";
@@ -132,12 +134,12 @@ public selectedArchetypeName = "Voie du Berserker";
   public raceSkillMasteries = '';
   public subClassSkillMasteries = '';
 
-  public backgroundSkill = 'Signes de piste';
-  public backgroundSkillMasteries = 'Discrétion, Survie';
+  public backgroundSkill = 'Accès à la bibliothèque';
+  public backgroundSkillMasteries = 'Histoire, une parmi Arcanes, Nature et Religion';
   public backgroundToolMasteries =
-    'Véhicules (terrestres), un type de jeu au choix';
+    '';
   public backgroundOrigin = '';
-  public backgroundLanguages = '';
+  public backgroundLanguages = 'Deux langues au choix';
 
   public subClassToolMasteries = '';
   public raceLanguages = 'Commun et une au choix';
@@ -164,6 +166,13 @@ public classLangages = "";
   public cantripsKnown = '0';
   public spellsSlots = '';
   public spellsPrepared = 0;
+
+  public classLock = false;
+  public subClassLock = false;
+  public raceLock = false;
+  public backgroundLock = false;
+
+
 
   onSelected(value: any): void {}
   update(e: any) {
@@ -195,6 +204,7 @@ public classLangages = "";
       this.classes[this.selectedClass].classSkillMasteries;
 
       this.classSource = this.classes[this.selectedClass].source;
+      
 
 this.updateClassFeatures();
 this.selectedClassName = this.classes[this.selectedClass].name;
@@ -209,8 +219,12 @@ this.selectedClassName = this.classes[this.selectedClass].name;
     this._caracteristicsService.proficiency = 2;
     this.updateClass();
     this.updateLevel();
-  }
+    this._spellsService.selectedClassName = this.classes[this.selectedClass].name;
+    this._spellsService.level = this._caracteristicsService.level;
 
+    this._spellsService.updateSpellLevelTable();
+    this.updateDwarfArmorMasteries();
+  }
 
 
 updateClassName() {
@@ -222,41 +236,113 @@ updateClassName() {
 // }
 
 reset() {
+
   this.selectedClass = 0;
 
-  this._classesService.selectedClassName =
-    this.classes[this.selectedClass].name;
-  this._classesService.selectedClassBasePv =
-    this.classes[this.selectedClass].pvBase;
-  this._classesService.selectedClassBonusSkill1 =
-    this.classes[this.selectedClass].bonusSkill1;
-  this._classesService.selectedClassBonusSkill2 =
-    this.classes[this.selectedClass].bonusSkill2;
-  this._classesService.selectedClassBonusSkill3 =
-    this.classes[this.selectedClass].bonusSkill3;
-  this._classesService.selectedClassType =
-    this.classes[this.selectedClass].classType;
+  // this.updateSubClassFeatures();
 
-  this._classesService.selectedCantripGroup =
-    this.classes[this.selectedClass].cantripGroup;
-
-  this._classesService.selectedClass = this.classes[this.selectedClass].id;
-
-  this.classWeaponMasteries =
-    this.classes[this.selectedClass].classWeaponMasteries;
-  this.classToolMasteries =
-    this.classes[this.selectedClass].classToolMasteries;
-  this.classSkillMasteries =
-    this.classes[this.selectedClass].classSkillMasteries;
-
-  this.updateSpellsInUI;
-
+    // this.selectedClass = Math.floor(Math.random() * 12) ;
+    this._classesService.selectedClass = this.selectedClass;
+  
+    this._classesService.selectedClassName =  this.classes[this.selectedClass].name;
+    this.selectedClassName = this.classes[this.selectedClass].name;
+    this.classSource = this.classes[this.selectedClass].source;
+  
+    this.selectedArchetype = 0;
+    this.updateSubClassFeatures();
+  // Attribution des compétences d'archétype selon this.selectedClassName
+  
+  this._classesService.selectedClassBasePv =  this.classes[this.selectedClass].pvBase;
+  this._classesService.selectedClassBonusSkill1 =  this.classes[this.selectedClass].bonusSkill1;
+  this._classesService.selectedClassBonusSkill2 =  this.classes[this.selectedClass].bonusSkill2;
+  this._classesService.selectedClassBonusSkill3 =  this.classes[this.selectedClass].bonusSkill3;
+  
+  this._classesService.selectedClassType =  this.classes[this.selectedClass].classType;
+  this._classesService.selectedCantripGroup =  this.classes[this.selectedClass].cantripGroup;
+  
+  this.classWeaponMasteries =  this.classes[this.selectedClass].classWeaponMasteries;
+  this.classToolMasteries =  this.classes[this.selectedClass].classToolMasteries;
+  this.classSkillMasteries =  this.classes[this.selectedClass].classSkillMasteries;
+  
+  
+  this.updateClassFeatures();
+  // Attribution des compétences de classe selon this._classesService.selectedClass
+  
+  
   this._caracteristicsService.level = 1;
   this.currentProficiency = 2;
   this._caracteristicsService.proficiency = 2;
+  
   this.updateClass();
+  // Maitrises et sauvegardes
+  
+  
   this.updateLevel();
-  this.updateSubClassFeatures();
+
+  this._spellsService.selectedClassName = this.classes[this.selectedClass].name;
+  this._spellsService.level = this._caracteristicsService.level;
+
+  this._spellsService.updateSpellLevelTable();
+  
+this.updateDwarfArmorMasteries();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // this._classesService.selectedClassName =
+  //   this.classes[this.selectedClass].name;
+  // this._classesService.selectedClassBasePv =
+  //   this.classes[this.selectedClass].pvBase;
+  // this._classesService.selectedClassBonusSkill1 =
+  //   this.classes[this.selectedClass].bonusSkill1;
+  // this._classesService.selectedClassBonusSkill2 =
+  //   this.classes[this.selectedClass].bonusSkill2;
+  // this._classesService.selectedClassBonusSkill3 =
+  //   this.classes[this.selectedClass].bonusSkill3;
+  // this._classesService.selectedClassType =
+  //   this.classes[this.selectedClass].classType;
+
+  // this._classesService.selectedCantripGroup =
+  //   this.classes[this.selectedClass].cantripGroup;
+
+  // this._classesService.selectedClass = this.classes[this.selectedClass].id;
+
+  // this.classWeaponMasteries =
+  //   this.classes[this.selectedClass].classWeaponMasteries;
+  // this.classToolMasteries =
+  //   this.classes[this.selectedClass].classToolMasteries;
+  // this.classSkillMasteries =
+  //   this.classes[this.selectedClass].classSkillMasteries;
+
+  // this.updateSpellsInUI;
+
+  // this._caracteristicsService.level = 1;
+  // this.currentProficiency = 2;
+  // this._caracteristicsService.proficiency = 2;
+  // this.selectedClassName = "Barbare";
+
+  // this.updateClass();
+  // this.updateLevel();
+  // this.selectedArchetype = 0;
+
+  // this.updateSubClassFeatures();
 
   this.selectedRace = 0;
   this._racesService.selectedRace = this.races[this.selectedRace].name;
@@ -291,108 +377,193 @@ this.randomizeClass();
 this.randomizeSubClass();
 
 this.randomizeBackground();
+this.randomizeName();
 }
 
+randomizeName(){
+  this._randomizerService.selectedClassName = this.selectedClassName;
+  this._randomizerService.playerRace = this.races[this.selectedRace].name;
+  this._randomizerService.randomizeName();
+this.characterName = this._randomizerService.randomizedCharacterName;
+}
+
+
 randomizeClass() {
-  this.selectedClass = Math.floor(Math.random() * 12) ;
-  this._classesService.selectedClass = this.selectedClass;
+  if (this.classLock == false) {
 
-  this._classesService.selectedClassName =  this.classes[this.selectedClass].name;
-  this.selectedClassName = this.classes[this.selectedClass].name;
-  this.classSource = this.classes[this.selectedClass].source;
+    // this.selectedClass = Math.floor(Math.random() * 12) ;
+    this._randomizerService.randomizeClass();
+    this.selectedClass = this._randomizerService.randomizedClass;
+    this._classesService.selectedClass = this.selectedClass;
+  
+    this._classesService.selectedClassName =  this.classes[this.selectedClass].name;
+    this.selectedClassName = this.classes[this.selectedClass].name;
+    this.classSource = this.classes[this.selectedClass].source;
+  
+    this.selectedArchetype = 0;
+    this.updateSubClassFeatures();
+  // Attribution des compétences d'archétype selon this.selectedClassName
+  
+  this._classesService.selectedClassBasePv =  this.classes[this.selectedClass].pvBase;
+  this._classesService.selectedClassBonusSkill1 =  this.classes[this.selectedClass].bonusSkill1;
+  this._classesService.selectedClassBonusSkill2 =  this.classes[this.selectedClass].bonusSkill2;
+  this._classesService.selectedClassBonusSkill3 =  this.classes[this.selectedClass].bonusSkill3;
+  
+  this._classesService.selectedClassType =  this.classes[this.selectedClass].classType;
+  this._classesService.selectedCantripGroup =  this.classes[this.selectedClass].cantripGroup;
+  
+  this.classWeaponMasteries =  this.classes[this.selectedClass].classWeaponMasteries;
+  this.classToolMasteries =  this.classes[this.selectedClass].classToolMasteries;
+  this.classSkillMasteries =  this.classes[this.selectedClass].classSkillMasteries;
+  
+  
+  this.updateClassFeatures();
+  // Attribution des compétences de classe selon this._classesService.selectedClass
+  
+  
+  this._caracteristicsService.level = 1;
+  this.currentProficiency = 2;
+  this._caracteristicsService.proficiency = 2;
+  
+  this.updateClass();
+  // Maitrises et sauvegardes
+  
+  
+  this.updateLevel();
 
-  this.selectedArchetype = 0;
-  this.updateSubClassFeatures();
-// Attribution des compétences d'archétype selon this.selectedClassName
+  this._spellsService.selectedClassName = this.classes[this.selectedClass].name;
+  this._spellsService.level = this._caracteristicsService.level;
 
-this._classesService.selectedClassBasePv =  this.classes[this.selectedClass].pvBase;
-this._classesService.selectedClassBonusSkill1 =  this.classes[this.selectedClass].bonusSkill1;
-this._classesService.selectedClassBonusSkill2 =  this.classes[this.selectedClass].bonusSkill2;
-this._classesService.selectedClassBonusSkill3 =  this.classes[this.selectedClass].bonusSkill3;
+  this._spellsService.updateSpellLevelTable();
+  
+this.updateDwarfArmorMasteries();
 
-this._classesService.selectedClassType =  this.classes[this.selectedClass].classType;
-this._classesService.selectedCantripGroup =  this.classes[this.selectedClass].cantripGroup;
-
-this.classWeaponMasteries =  this.classes[this.selectedClass].classWeaponMasteries;
-this.classToolMasteries =  this.classes[this.selectedClass].classToolMasteries;
-this.classSkillMasteries =  this.classes[this.selectedClass].classSkillMasteries;
+  }
 
 
-this.updateClassFeatures();
-// Attribution des compétences de classe selon this._classesService.selectedClass
 
-
-this._caracteristicsService.level = 1;
-this.currentProficiency = 2;
-this._caracteristicsService.proficiency = 2;
-
-this.updateClass();
-// Maitrises et sauvegardes
-
-
-this.updateLevel();
 
 }
 
 randomizeRace() {
-  this.selectedRace = Math.floor(Math.random() * 14);
-  this._racesService.selectedRace = this.races[this.selectedRace].name;
-  this._racesService.selectedRaceSpeed = this.races[this.selectedRace].speed;
-  this._racesService.selectedRaceFeatures =
-    this.races[this.selectedRace].raceFeatures;
-  this._racesService.selectedRaceCaracteristics =
-    this.races[this.selectedRace].caracteristics;
-  this.raceSkillMasteries = this.races[this.selectedRace].raceSkillMasteries;
-  this.raceLanguages = this.races[this.selectedRace].languages;
-  this.raceSource = this.races[this.selectedRace].source;
-  if (this.selectedRaceName == "Nain des montagnes") {
-    this.lightArmorMastery = true;
-    this.mediumArmorMastery = true;
-  } else
-  this.lightArmorMastery = false;
-  this.mediumArmorMastery = false;
 
+  if (this.raceLock == false) {
+    this._randomizerService.randomizeRace();
+    this.selectedRace = this._randomizerService.randomizedRace;
+    this._racesService.selectedRace = this.races[this.selectedRace].name;
+    this._racesService.selectedRaceSpeed = this.races[this.selectedRace].speed;
+    this._racesService.selectedRaceFeatures =
+      this.races[this.selectedRace].raceFeatures;
+    this._racesService.selectedRaceCaracteristics =
+      this.races[this.selectedRace].caracteristics;
+    this.raceSkillMasteries = this.races[this.selectedRace].raceSkillMasteries;
+    this.raceLanguages = this.races[this.selectedRace].languages;
+    this.raceSource = this.races[this.selectedRace].source;
+    this.updateClass();
+    this.updateSubClassFeatures();
+    this.updateDwarfArmorMasteries();
+    this.updateDwarfPV();
+  }
 }
 
-randomizeBackground() {
-  this.selectedBackground = Math.floor(Math.random() * 63);
-    this._backgroundsService.selectedBackground =
-      this.backgrounds[this.selectedBackground].name;
-    this.backgroundSkill =
-      this.backgrounds[this.selectedBackground].backgroundSkill;
-    this.backgroundSkillMasteries =
-      this.backgrounds[this.selectedBackground].backgroundSkillMasteries;
-    this.backgroundLanguages =
-      this.backgrounds[this.selectedBackground].backgroundLanguages;
-    this.backgroundOrigin =
-      this.backgrounds[this.selectedBackground].backgroundOrigin;
-    this.backgroundToolMasteries =
-      this.backgrounds[this.selectedBackground].backgroundTools;
-      this.backgroundSource = this.backgrounds[this.selectedBackground].source;
 
+
+// notify(){
+//   dlg = null;
+//   dlg = $dialogs.notify('Something Happened!','Something happened that I need to tell you.');
+// }
+
+
+lockClass() {
+  switch(this.classLock) {
+    case true :
+      this.classLock = false;
+      break;
+      case false :
+      this.classLock = true;
+      break;
+  }
+  }  
+
+lockSubClass() {
+switch(this.subClassLock) {
+  case true :
+    this.subClassLock = false;
+    break;
+    case false :
+    this.subClassLock = true;
+    break;
+}
+}  
+      
+lockRace() {
+  switch(this.raceLock) {
+    case true :
+      this.raceLock = false;
+      break;
+      case false :
+      this.raceLock = true;
+      break;
+  }
+  }  
+
+  lockBackground() {
+    switch(this.backgroundLock) {
+      case true :
+        this.backgroundLock = false;
+        break;
+        case false :
+        this.backgroundLock = true;
+        break;
+    }
+    }  
+
+
+
+randomizeBackground() {
+  if (this.backgroundLock == false) {
+  this._randomizerService.randomizeBackground();
+    this.selectedBackground = this._randomizerService.randomizedBackground;
+    this._backgroundsService.selectedBackground =      this.backgrounds[this.selectedBackground].name;
+    this.backgroundSkill =      this.backgrounds[this.selectedBackground].backgroundSkill;
+    this.backgroundSkillMasteries =      this.backgrounds[this.selectedBackground].backgroundSkillMasteries;
+    this.backgroundLanguages =      this.backgrounds[this.selectedBackground].backgroundLanguages;
+    this.backgroundOrigin =      this.backgrounds[this.selectedBackground].backgroundOrigin;
+    this.backgroundToolMasteries =      this.backgrounds[this.selectedBackground].backgroundTools;
+      this.backgroundSource = this.backgrounds[this.selectedBackground].source;
+  }
 }
 
 randomizeSubClass() {
 
+if (this.subClassLock == false) {
+  this._randomizerService.selectedClassName = this.selectedClassName;
+  this._randomizerService.randomizeSubClass();
+  this.selectedArchetype = this._randomizerService.randomizedSubClass;
+  // if (this.selectedClassName == 'Clerc') {
+  //   this.selectedArchetype = Math.floor(Math.random() * 14) ;
+  // } else if (this.selectedClassName == 'Magicien') {
+  //   this.selectedArchetype = Math.floor(Math.random() * 13) ;
+  // } else if (this.selectedClassName == 'Artificier') {
+  //   this.selectedArchetype = Math.floor(Math.random() * 4) ;
+  // } else if (this.selectedClassName == 'Barbare' || this.selectedClassName == 'Barde' || this.selectedClassName == 'Rôdeur' ) {
+  //   this.selectedArchetype = Math.floor(Math.random() * 8) ;
+  // } else if (this.selectedClassName == 'Paladin' || this.selectedClassName == 'Roublard' || this.selectedClassName == 'Sorcier' ) {
+  //   this.selectedArchetype = Math.floor(Math.random() * 9) ;
+  // } else if (this.selectedClassName == 'Druide' || this.selectedClassName == 'Ensorceleur' ) {
+  //   this.selectedArchetype = Math.floor(Math.random() * 7) ;
+  // } else if (this.selectedClassName == 'Guerrier' || this.selectedClassName == 'Moine' ) {
+  //   this.selectedArchetype = Math.floor(Math.random() * 10) ;
+  // }
 
-
-if (this.selectedClassName == 'Clerc') {
-  this.selectedArchetype = Math.floor(Math.random() * 14) ;
-} else if (this.selectedClassName == 'Magicien') {
-  this.selectedArchetype = Math.floor(Math.random() * 13) ;
-} else if (this.selectedClassName == 'Artificier') {
-  this.selectedArchetype = Math.floor(Math.random() * 4) ;
-} else if (this.selectedClassName == 'Barbare' || this.selectedClassName == 'Barde' || this.selectedClassName == 'Rôdeur' ) {
-  this.selectedArchetype = Math.floor(Math.random() * 8) ;
-} else if (this.selectedClassName == 'Paladin' || this.selectedClassName == 'Roublard' || this.selectedClassName == 'Sorcier' ) {
-  this.selectedArchetype = Math.floor(Math.random() * 9) ;
-} else if (this.selectedClassName == 'Druide' || this.selectedClassName == 'Ensorceleur' ) {
-  this.selectedArchetype = Math.floor(Math.random() * 7) ;
-} else if (this.selectedClassName == 'Guerrier' || this.selectedClassName == 'Moine' ) {
-  this.selectedArchetype = Math.floor(Math.random() * 10) ;
+  this.updateSubClassFeatures();
+  this._spellsService.selectedArchetypeName = this.selectedArchetypeName;
+  this._spellsService.level = this._caracteristicsService.level;
+  this._spellsService.updateSpellLevelTable();
+  this.updateDwarfArmorMasteries();
 }
 
-this.updateSubClassFeatures();
+
  
 
 }
@@ -408,8 +579,11 @@ this.updateSubClassFeatures();
   updateRace(e: any) {
     this.raceWeaponMasteries = "";
     this.raceToolMasteries = "";
+    this.raceSkillMasteries = "";
+    this.raceLanguages = "";
     this._racesService.selectedRace = this.races[this.selectedRace].name;
     this.selectedRaceName = this.races[this.selectedRace].name;
+    this._racesService.selectedRaceName = this.races[this.selectedRace].name;
     this._racesService.selectedRaceSpeed = this.races[this.selectedRace].speed;
     this._racesService.selectedRaceFeatures =
       this.races[this.selectedRace].raceFeatures;
@@ -426,7 +600,11 @@ this.updateSubClassFeatures();
     // } else
     // this.lightArmorMastery = false;
     // this.mediumArmorMastery = false;
+    this.updateClass();
+    this.updateSubClassFeatures();
 
+    this.updateDwarfArmorMasteries();
+    this.updateDwarfPV();
 
   }
 
@@ -448,8 +626,11 @@ this.updateSubClassFeatures();
   }
 
   updateArchetype(e: any) {
-    this._classFeaturesService.selectedArchetypeName = this.selectedArchetypeName;
       this.updateSubClassFeatures();
+    this._classFeaturesService.selectedArchetypeName = this.selectedArchetypeName;
+      this._spellsService.level = this._caracteristicsService.level;
+      this._spellsService.selectedArchetypeName = this.selectedArchetypeName;
+      this._spellsService.updateSpellLevelTable();
   }
 
   constructor(
@@ -461,7 +642,9 @@ this.updateSubClassFeatures();
     private _caracteristicsService: CaracteristicsService,
     private _spellsService: SpellsService,
     private _classFeaturesService: ClassFeaturesService,
-    private _backgroundsService: BackgroundsService
+    private _backgroundsService: BackgroundsService,
+    private _randomizerService: RandomizerService,
+    public dialog: MatDialog
   ) {
     // this.level = 1;
 
@@ -475,12 +658,24 @@ this.updateSubClassFeatures();
     // this.currentProficiency = 5;
   }
 
+
+  openDialog() {
+    const dialogRef = this.dialog.open(About);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
   levelUp = () => {
     this._caracteristicsService.level++;
     pvRoll =
       Math.floor(Math.random() * this._classesService.selectedClassBasePv) + 1;
     this._caracteristicsService.currentPV =
       this._caracteristicsService.currentPV + pvRoll;
+      
+        // this._spellsService.buttonClickEventTrack.next(event);
+        
     // console.log(this.selectedPlayerClass);
     // this.updateClass();
     // this.updateArmorClass();
@@ -491,8 +686,22 @@ this.updateSubClassFeatures();
     this.updateLevel();
     this.updateClass();
     this.updateSubClassFeatures();
+    this.sendMessage();
+
+    this._spellsService.level = this._caracteristicsService.level;
+
+    this._spellsService.updateSpellLevelTable();
 
   };
+
+  refresh(){
+
+  }
+
+  sendMessage(): void {
+    // send message to subscribers via observable subject
+    this._spellsService.sendUpdate('Message from Sender Component to Receiver Component!');
+}
 
   levelDown = () => {
     this._caracteristicsService.level--;
@@ -510,6 +719,9 @@ this.updateSubClassFeatures();
     this.updateLevel();
     this.updateClass();
     this.updateSubClassFeatures();
+    this._spellsService.level = this._caracteristicsService.level;
+
+    this._spellsService.updateSpellLevelTable();
 
   };
 
@@ -763,9 +975,27 @@ this.classFeatureLevel19 = this.classFeatures[this._classesService.selectedClass
 this.classFeatureLevel20 = this.classFeatures[this._classesService.selectedClass].classFeatureLevel20;
 }
 
+updateDwarfArmorMasteries() {
+  if (this._racesService.selectedRaceName == "Nain des montagnes") {
+    this.lightArmorMastery = true;
+    this.mediumArmorMastery = true;
+  }
+
+}
+
+updateDwarfPV() {
+  if (this._racesService.selectedRaceName == "Nain des collines") {
+    this._caracteristicsService.dwarfPV = 1;
+  } else {
+    this._caracteristicsService.dwarfPV = 0;
+  }
+}
+
 updateSubClassFeatures = () => {
   this.subClassLangages = "";
   this.subClassSkillMasteries = "";
+  this.subClassToolMasteries = "";
+  this.subClassWeaponMasteries = "";
   switch (this.selectedClassName) {
     case 'Barbare':
       this.selectedArchetypeName   =  this.barbareArchetypes[this.selectedArchetype].name;   
@@ -1312,7 +1542,9 @@ bardSkills = () => {
     }
   };
 
+//   updateSpellLevelTable(){
 
+// }
 
 
 
@@ -2367,6 +2599,7 @@ bardSkills = () => {
       this.roublardArchetypes = this._classFeaturesService.getRoublardArchetypes();
       this.sorcierArchetypes = this._classFeaturesService.getSorcierArchetypes();
     this.updateClass();
+    this._randomizerService.getNames().subscribe((data) => (this._randomizerService.names = data));
 
     // this.updateLevel();
     this.updatedArmorClass = 9;
@@ -2390,11 +2623,13 @@ bardSkills = () => {
 
   ngAfterViewInit(): void {
     this.updateSpellsKnown = this.child.updateSpellsKnown();
+    // this.updateSpellLevelTable = this.child.updateSpellLevelTable();
     // this.updateSpellsKnown = this.child.updateSpellsKnown()
     this.updateSpellLevel = this.child.updateSpellLevel();
     // this.calculatePreparedSpells = this.child.calculatePreparedSpells();
     // this.updatedSpellsSlots = this.child.updatedSpellsSlots();
     this.updateSpellsInUI = this.child.updateSpellsInUI();
+    // this.refresh = this.child.refresh();
   }
 }
 
@@ -2406,3 +2641,10 @@ let currentProficiency = 2;
 let currentPv = 5;
 let levelFeatures = '';
 let updatedArmorClass = 1;
+
+
+@Component({
+  selector: 'about',
+  templateUrl: 'about.html',
+})
+export class About {}

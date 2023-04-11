@@ -44,7 +44,35 @@ margin-left: 0px;
   
 } */
 
+.lockBtn {
+  /* width:20px; */
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  padding: 0px;
+  /* width: 80%; */
+  /* transform: scale(0.7); */
+  /* position: relative; */
+/* left:0px; */
+/* top:0px; */
+}
 
+/* .material-icons {
+  width:10px;
+  height: 10px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  padding: 0px;
+  width: 80%;
+  transform: scale(1);
+} */
 
 .portrait {
   object-fit: cover;
@@ -66,8 +94,8 @@ margin-left: 0px;
   /* src:"https://i.imgur.com/CMPG0oM.png"; */
   position:absolute;
    left:5px; 
-   top:85px; 
-   z-index:1
+   top:125px; 
+   /* z-index:1; */
 }
 
 .img-button{
@@ -83,7 +111,7 @@ margin-left: 0px;
   transition: all 0.2s ease;
   border-radius: 50%;
   pointer-events:auto;
-  position:absolute; left:70px; top:180px;
+  position:absolute; left:70px; top:220px;
 }
 
 #playerInfos>#picture {
@@ -103,7 +131,17 @@ margin-left: 0px;
   pointer-events:none;  
 }
 
-
+/* img {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+} */
+.imgA1 {
+  z-index: 1;
+}
+.imgB1 {
+  z-index: 3;
+}
 
 
 
@@ -318,6 +356,7 @@ button {
   
   grid-area: SheetTitle;
   border-radius: 5px;
+  height: 80px;
   min-height: 40px;
   max-height: auto;
   margin: 5px;
@@ -1677,10 +1716,10 @@ min-height: 90px;
         "picture     nom "
         "picture     description "
         "picture     niveau "
-        "picture     playerClass "
-        "picture         archétype "
-        "race historique "
-        "alignement foi  "
+        "picture     race "
+        "picture         historique "
+        "playerClass  alignement"
+        "archétype foi  "
         "masteries  masteries "
         "aptitudes   aptitudes ";
 
@@ -2152,7 +2191,7 @@ margin-right: 0px;
   border-radius: 2%;
   position:absolute;
    left:5px; 
-   top:85px; 
+   top:125px; 
    z-index:1
 }
 
@@ -2169,12 +2208,103 @@ margin-right: 0px;
   transition: all 0.2s ease;
   border-radius: 50%;
   pointer-events:auto;
-  position:absolute; left:45px; top:180px;
+  position:absolute; left:45px; top:220px;
+}
 }
 
 
-}
+
 
 #header {
   /* background-color: white; */
 }
+/* html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+
+
+
+.mat-table {
+  border: none !important;
+  width: 5px;
+  height: 10px !important;
+
+}
+
+.mat-mdc-table thead {
+  padding: 0px;
+  width: 250px !important;
+
+}
+
+.mat-mdc-table {
+  table-layout: auto;
+  white-space: normal;
+  /* height: 70px; */
+  /* background-color: #ffffff; */
+  /* border-radius: 150px !important; */
+}
+
+td.mat-mdc-cell{
+   border: none;
+   padding: 0px;
+  width: 5px !important;
+  height: 5px !important;
+
+ }
+
+ .mat-mdc-row, mdc-data-table__row {
+  height: 2px !important;
+    height: 0px !important;
+  /* padding: 0px !important; */
+  padding-right: 3px !important;
+  /* background-color: #006699 !important; */
+
+}
+
+th.mat-mdc-header-cell{ 
+  border: none;
+  width: 5px;
+  height: 5px !important;
+  text-justify: auto !important;
+  padding-left: 2px !important;
+  /* margin-left: 2px; */
+
+}
+
+.mdc-data-table__cell, .mdc-data-table__header-cell {
+  padding: 0px !important;
+  width: 5px !important;
+}
+
+.mdc-data-table__header-row {
+  padding-top: 5px !important;
+  height: 10px !important;
+  padding-left: 5px !important;
+
+}
+
+
+.mdc-data-table__table {
+  min-height: 5% !important;
+  height: 30px !important;
+  /* min-height: 30px !important; */
+  /* min-width: 5% !important; */
+
+}
+
+.mat-column-position {
+  width: 0px !important;
+  text-align: center !important;
+/* background-color: #00c410 !important; */
+/* height: 200px !important; */
+}
+
+table.no-spacing {
+  border-spacing:0; /* Removes the cell spacing via CSS */
+  border-collapse: collapse;  /* Optional - if you don't want to have double border where cells touch */
+  line-height: 0px !important;
+}
+
+
+
+
