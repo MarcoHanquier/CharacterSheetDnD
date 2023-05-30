@@ -1,51 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
-/* @import url('https://fr.allfont.net/allfont.css?fonts=lucida-console'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); */
+
 @import url('https://fonts.cdnfonts.com/css/times-new-roman');
 @import url('https://fonts.cdnfonts.com/css/lucida-console');
 
 html, body, title, form, fieldset, table, tr, td, img {
-  /* margin: 0; */
-  /* padding: 0; */
   font:  "Times New Roman",helvetica,sans-serif;
 }
 
 body {
-  /* background-color: #b8b5b5; */
-  /* font-family: "Times New Roman"; */
 margin-left: 0px;
   background: #D0E4F5 url("https://png.pngtree.com/thumb_back/fh260/background/20210501/pngtree-background-with-the-texture-of-burnt-old-parchment-image_699215.jpg") repeat scroll 0 0;
 }
 
 
 
-/* .img-button{
-  background-color: #6d8ea0;
-  color: white;
-  border: none;
-  padding: 5px;
-  font-size: 31px;
-  height: 100px;
-  width: 100px;
-  box-shadow: 0 2px 4px darkslategray;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border-radius: 50%;
-  pointer-events:auto;
-}
-
-.portrait {
-  object-fit: cover;
-  width: 222px;
-  height: 285px;
-  max-height: 285px;
-  pointer-events:auto;
-  border-radius: 2%;
-  
-} */
 
 .lockBtn {
-  /* width:20px; */
   background-color: transparent;
   background-repeat: no-repeat;
   border: none;
@@ -53,26 +22,7 @@ margin-left: 0px;
   overflow: hidden;
   outline: none;
   padding: 0px;
-  /* width: 80%; */
-  /* transform: scale(0.7); */
-  /* position: relative; */
-/* left:0px; */
-/* top:0px; */
 }
-
-/* .material-icons {
-  width:10px;
-  height: 10px;
-  background-color: transparent;
-  background-repeat: no-repeat;
-  border: none;
-  cursor: pointer;
-  overflow: hidden;
-  outline: none;
-  padding: 0px;
-  width: 80%;
-  transform: scale(1);
-} */
 
 .portrait {
   object-fit: cover;
@@ -84,18 +34,12 @@ margin-left: 0px;
 }
 
 #Layer1 {
-  /* object-fit: cover; */
-  /* width: 150px; */
   height: 350px;
   max-height: 300px;
-  /* pointer-events:auto; */
   border-radius: 2%;
-
-  /* src:"https://i.imgur.com/CMPG0oM.png"; */
   position:absolute;
    left:5px; 
    top:125px; 
-   /* z-index:1; */
 }
 
 .img-button{
@@ -121,21 +65,13 @@ margin-left: 0px;
   height: 300px;
   border-radius: 5px;
   margin: 5px;
-  /* border: 5px dashed #708796; */
   display: flex;
   justify-content: center;
   align-items: center;
   background:  url("https://i.imgur.com/P93HdM6.png") no-repeat scroll 0 0;
-
-  /* background:  url("https://i.imgur.com/QgvgOvY.png") no-repeat scroll 0 0; */
   pointer-events:none;  
 }
 
-/* img {
-  position: absolute;
-  top: 25px;
-  left: 25px;
-} */
 .imgA1 {
   z-index: 1;
 }
@@ -157,10 +93,7 @@ margin-left: 0px;
   font-size: 20px;
   margin-top: 0%;
   margin-bottom: 2%;
-  /* padding-top: 5px;
-  padding-bottom: 5px; */
   height: 30px;
-  /* width: 100%; */
 
 }
 
@@ -184,11 +117,6 @@ margin-left: 0px;
   min-height: 50px;
   border: 2px solid #1C6EA4;
   border-radius: 5px;
-
-
-  /* max-width: 130px; */
-  /* height: 70%; */
-/* margin-left: 5px; */
 }
 
 #playerInfos {
@@ -219,7 +147,6 @@ margin-left: 0px;
 
 #container {
   display: grid;
-  /* grid-auto-flow: dense; */
   width: auto;
   height: auto;
   grid-template-areas:
@@ -237,14 +164,12 @@ margin-left: 0px;
   grid-auto-flow: dense;
   width: auto;
   height: auto;
-/* background-color: #00c410; */
   grid-template-areas:
     "derivated-Values "
     "pv  "
     "armorClass ";
   grid-template-rows: auto;
   grid-template-columns: auto  ;
-  /* text-align: center; */
 }
 
 #caracteristics {
@@ -252,7 +177,6 @@ margin-left: 0px;
   display: grid;
   border-radius: 47px;
   width: 100%;
-/* background-color: #00c410; */
   height: auto;
   grid-template-columns: 460px auto  ;
   grid-template-rows: auto;
@@ -292,13 +216,11 @@ margin-left: 0px;
     grid-auto-flow: dense;
     width: auto;
     height: auto;
-  /* background-color: #00c410; */
     grid-template-areas:
       "derivated-Values derivated-Values "
       "pv armorClass ";
     grid-template-rows: auto;
     grid-template-columns: auto  ;
-    /* text-align: center; */
   }
 
  
@@ -308,7 +230,6 @@ margin-left: 0px;
     grid-auto-flow: dense;
     width: auto;
     height: auto;
-    /* background-color: #00c410; */
   
     grid-template-areas:
     "caracteristiques caracteristiques"
@@ -318,7 +239,6 @@ margin-left: 0px;
     ;
     grid-template-rows: auto;
     grid-template-columns: auto  ;
-    /* text-align: center; */
   }
 
 
@@ -357,9 +277,6 @@ button {
   grid-area: playerButtons;
   align-items: start;
   display: flex;
-  /* align-items: start; */
-  /* justify-content: start; */
-
 }
 
 
@@ -374,8 +291,6 @@ button {
   min-height: 40px;
   max-height: auto;
   margin: 5px;
-  /* background-color: white; */
-  /* border: 2px solid #1C6EA4; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -403,7 +318,6 @@ button {
 
 
 #playerInfos>#foi {
-  /* height: 30px; */
   height: auto;
   grid-area: foi;
   border-radius: 5px;
@@ -426,7 +340,6 @@ button {
 
 #playerInfos>.race {
   grid-area: race;
-  /* min-height: 80px; */
   border-radius: 5px;
   margin: 5px;
   background-color: rgb(92, 196, 115);
@@ -452,8 +365,6 @@ button {
 
 #playerInfos>.archétype {  
     grid-area: archétype;
-  /* min-height: 80px; */
-
     border-radius: 5px;
     margin: 5px;
     background-color:rgb(226, 96, 87);
@@ -477,7 +388,6 @@ button {
 #playerInfos>#masteries {
   grid-area: masteries;
   min-width: 350px;
-  /* min-height: 550px; */
   border-radius: 5px;
   margin: 5px;
   background-color: rgb(255, 255, 255);
@@ -487,9 +397,7 @@ button {
 .masteries-text {
   text-align: left;
 padding-left: 5px;
-/* margin-right: 5px; */
 padding-right: 5px;
-/* text-align: right; */
 justify-content: space-evenly;
 line-height: 1em;
 }
@@ -533,19 +441,15 @@ text-align: right;
 
 #playerInfos>#aptitudes>#features {
   display: grid;
-  /* width: 450px; */
   height: 150px;
   margin-left: 10px;
   margin-right: 10px;
   align-items: center;
-  /* background-color: #00ADED; */
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   grid-template-areas:
   "featureList  "
   "raceFeatures  "
-  /* "featureList featureList2"
-  "raceFeatures raceFeatures" */
   ;
 }
 
@@ -554,19 +458,15 @@ text-align: right;
 #playerInfos>#aptitudes>#features>#featureList {
   grid-area: featureList;
   white-space: pre-line;
-  /* text-align: left; */
 }
 
 #playerInfos>#aptitudes>#features>#featureList2 {
   grid-area: featureList2;
   white-space: pre-line;
-/* background-color: #00ADED; */
-  /* text-align: right; */
 }
 
 #playerInfos>#aptitudes>#features>#raceFeatures {
   grid-area: raceFeatures;
-  /* font-weight: 700; */
 }
 
 hr.pen-alt {
@@ -589,7 +489,6 @@ hr.pen-alt {
 
 #valeurs>#derivated-Values>#derivated-Values-Blocs {
   display: grid;
-  /* margin-top: 0%; */
   grid-template-columns: auto auto  ;
 
 }
@@ -599,12 +498,9 @@ hr.pen-alt {
 #valeurs>#derivated-Values {
   grid-area: derivated-Values;
   display: grid;
-  /* align-items: center; */
-  /* min-width: 320px; */
   min-width: 380px;
   width: auto;
   height: auto;
-  /* grid-auto-flow: dense; */
   background-color: #ffffff;
   border-radius: 10px;
   margin: 5px;
@@ -616,7 +512,6 @@ hr.pen-alt {
   margin: 5px;
   background-color: white;
   min-width: 260px;
-  /* width: 200px; */
 }
 
 .border-armorClass {
@@ -644,7 +539,6 @@ hr.pen-alt {
 
 #pv {
   grid-area: pv;
-  /* min-width: 300px; */
   min-width: 300px;
   border-radius: 10px;
   margin: 5px;
@@ -855,8 +749,6 @@ hr.pen-alt {
   min-width: 300px;
   width: auto;
   min-height: 110px;
-  /* width: 100%; */
-  /* height: 130px; */
   border-radius: 10px;
   margin: 5px;
 }
@@ -870,25 +762,18 @@ hr.pen-alt {
 
 
 #spells {
-  /* display: grid; */
   grid-area: spells;
   background-color: #ffffff;
   min-width: 380px;
 width: auto;
-/* height: 300px; */
   border-radius: 10px;
   margin: 5px;
-  /* grid-template-areas:
-  "spells-known cantrips"
-    "spells-slots spells-slots "; */
 }
 
 #spells-blocs {
   display: grid;
-  /* background-color: #e42424; */
   min-width: 250px;
   border-radius: 10px;
-  /* margin: 5px; */
   grid-template-areas:
   "spells-slots spells-known   spells-known   cantrips cantrips"
   "spells-slots spellSavingMod spellSavingMod spellAttackMod spellAttackMod";
@@ -917,7 +802,6 @@ width: auto;
 }
 
 .spells-known {
-  /* grid-area: spells-known; */
   background-color: #113ea0;
   color: white;
   text-align: center;
@@ -941,7 +825,6 @@ width: auto;
 }
 
 .cantrips {
-  /* grid-area: cantrips; */
   background-color: #113ea0;
   color: white;
   text-align: center;
@@ -965,7 +848,6 @@ width: auto;
 }
 
 .spellAttackMod {
-  /* grid-area: cantrips; */
   background-color: #a7279c;
   color: white;
   text-align: center;
@@ -989,7 +871,6 @@ width: auto;
 }
 
 .spellSavingMod {
-  /* grid-area: cantrips; */
   background-color: #a7279c;
   color: white;
   text-align: center;
@@ -1013,7 +894,6 @@ width: auto;
 }
 
 .spells {
-  /* grid-area: spells; */
   background-color: #8700c5;
   color: white;
   text-align: center;
@@ -1531,12 +1411,10 @@ margin-left: 5px;
 
 #caracteristics>#caracteristicsBlocs>#statsBlocs {
   display: grid;
-  /* width: 450px; */
   height: 150px;
   margin-left: 15px;
   margin-right: 15px;
   align-items: center;
-  /* background-color: #00ADED; */
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
   grid-template-areas:
@@ -1579,7 +1457,6 @@ margin-left: 5px;
   min-width: 380px;
 height: auto;
 min-height: 90px;
-  /* min-width: 450px; */
   grid-area: repartition;
   background-color: white;
 }
@@ -1674,17 +1551,9 @@ min-height: 90px;
     grid-template-columns:  250px auto;
     text-align: center;
   }
-/* 
-  body{
-    zoom: 90%;
-  } */
-
   #spells-blocs {
     display: grid;
-    /* background-color: #e42424; */
-    /* min-width: 250px; */
     border-radius: 10px;
-    /* margin: 5px; */
     grid-template-areas:
     "spells-slots       spells-known   spells-known   "
       "spells-slots     cantrips       cantrips        "
@@ -1721,7 +1590,6 @@ min-height: 90px;
     ;
     grid-template-rows: auto;
     grid-template-columns: auto  ;
-    /* text-align: center; */
   }
 
   #caracteristics {
@@ -1786,18 +1654,6 @@ min-height: 90px;
     width: auto;
     height: auto;
     grid-template-areas:
-      /* "SheetTitle SheetTitle"
-      "playerButtons playerButtons  "
-        "picture     nom "
-        "picture     description "
-        "picture     niveau "
-        "picture     race "
-        "picture         historique "
-        "playerClass  alignement"
-        "archétype foi  "
-        "masteries  masteries "
-        "aptitudes   aptitudes "; */
-
         "SheetTitle SheetTitle"
         "playerButtons playerButtons  "
           "picture     race "
@@ -1932,10 +1788,7 @@ min-height: 90px;
   margin-right: -70px;
   background-color: white;
   display: flex;
-  
-  /* margin-left: 40px; */
   justify-content:left;
-  /* align-items: center; */
   border: 2px solid #cf0a3b;
   border-radius: 5px;
 }
@@ -2251,7 +2104,6 @@ margin-right: 0px;
   height: 300px;
   border-radius: 5px;
   margin: 5px;
-  /* border: 5px dashed #708796; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2263,17 +2115,13 @@ margin-right: 0px;
   object-fit: cover;
   width: 173px;
   height: 290px;
-  /* max-height: 285px; */
   pointer-events:auto;
   border-radius: 2%;
 }
 
 #Layer1 {
-  /* object-fit: cover; */
-  /* width: 150px; */
   height: 30px;
   max-height: auto;
-  /* pointer-events:auto; */
   border-radius: 2%;
   position:absolute;
    left:5px; 
@@ -2319,9 +2167,6 @@ margin-right: 0px;
 .mat-mdc-table {
   table-layout: auto;
   white-space: normal;
-  /* height: 70px; */
-  /* background-color: #ffffff; */
-  /* border-radius: 150px !important; */
 }
 
 td.mat-mdc-cell{
@@ -2335,9 +2180,7 @@ td.mat-mdc-cell{
  .mat-mdc-row, mdc-data-table__row {
   height: 2px !important;
     height: 0px !important;
-  /* padding: 0px !important; */
   padding-right: 3px !important;
-  /* background-color: #006699 !important; */
 
 }
 
@@ -2347,7 +2190,6 @@ th.mat-mdc-header-cell{
   height: 5px !important;
   text-justify: auto !important;
   padding-left: 2px !important;
-  /* margin-left: 2px; */
 
 }
 
@@ -2367,16 +2209,12 @@ th.mat-mdc-header-cell{
 .mdc-data-table__table {
   min-height: 5% !important;
   height: 30px !important;
-  /* min-height: 30px !important; */
-  /* min-width: 5% !important; */
 
 }
 
 .mat-column-position {
   width: 0px !important;
   text-align: center !important;
-/* background-color: #00c410 !important; */
-/* height: 200px !important; */
 }
 
 table.no-spacing {
@@ -2385,11 +2223,7 @@ table.no-spacing {
   line-height: 0px !important;
 }
 
-
-
-
 .mat-form-field-label {
-  /* font-size: 0.8em!important; */
   font: "Times New Roman",helvetica,sans-serif !important;
 }
 
