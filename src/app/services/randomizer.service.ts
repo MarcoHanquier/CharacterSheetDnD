@@ -9,10 +9,6 @@ import { Inames } from './names';
 export class RandomizerService {
   private _url: string = '/assets/data/names.json';
 
-  // public classLock = false;
-  // public subClassLock = false;
-  // public raceLock = false;
-  // public backgroundLock = false;
   public randomizedBackground = 0;
   public randomizedSubClass = 0;
   public selectedClassName = "";
@@ -28,7 +24,6 @@ export class RandomizerService {
   public playerClass = "Barbare";
   public playerRace = "Humain";
   public names = [] as any[];
-  public namesGenasi = [] as any[];
 
   public id = 0;
   public humanName = "";
@@ -63,25 +58,6 @@ export class RandomizerService {
   public waterGenasiName2 = "";
 
 
-
-
-  getNamesGenasi() {
-    return [
-      {id:0, earthGenasiName: "Acker", earthGenasiName2: "Abeba"},
-      {id:1, earthGenasiName: "Amber", earthGenasiName2: "Aleswallow"},
-      {id:2, earthGenasiName: "Argil", earthGenasiName2: "Astario"},
-      {id:3, earthGenasiName: "Arlo",  earthGenasiName2: "Augosto"},
-      {id:4, earthGenasiName: "Ash",   earthGenasiName2: "Blackwood"},
-      {id:5, earthGenasiName: "Avani", earthGenasiName2: "Bomani"},
-      {id:6, earthGenasiName: "Bhumi", earthGenasiName2: "Boulderfall"},
-      {id:7, earthGenasiName: "Bluff", earthGenasiName2: "Bretik"},
-      {id:8, earthGenasiName: "Brick", earthGenasiName2: "Buzayue"},
-      {id:9, earthGenasiName: "Bryn",  earthGenasiName2: "Chara"},
-      {id:10, earthGenasiName: "Canyon",earthGenasiName2: "Clevertail"},
-      {id:11, earthGenasiName: "Clay",  earthGenasiName2: "Copperhide"},
-      {id:12, earthGenasiName: "Clod",  earthGenasiName2: "Crystalspire"}
-    ]
-  }
   
 
 
@@ -148,7 +124,7 @@ export class RandomizerService {
       this.randomizedCharacterNamePart1 =   this.names[this.randomizedCharacterID].koboldName;
       this.randomizedCharacterNamePart2 = "";
 
-    }   else if (this.playerRace == "Aaracokra") {
+    }   else if (this.playerRace == "Aarakocra") {
       this.randomizedCharacterNamePart1 =   this.names[this.randomizedCharacterID].aaracokraName;
       this.randomizedCharacterNamePart2 = "";
 
@@ -269,17 +245,11 @@ export class RandomizerService {
       this.randomizedCharacterNamePart2 = "";
 
     } else {
-      this.randomizedCharacterNamePart1 = "Professor";
-      this.randomizedCharacterNamePart2 = "Professorson";
+      this.randomizedCharacterNamePart1 = "John";
+      this.randomizedCharacterNamePart2 = "Doe";
     }
 
-    this.randomizedCharacterName = this.randomizedCharacterNamePart1 + " " + this.randomizedCharacterNamePart2 + "";
-
-
-
-
-    // this.randomizedCharacterNamePart2 =  this.names[0].earthGenasiName;
-
+    this.randomizedCharacterName = this.randomizedCharacterNamePart1 + " " + this.randomizedCharacterNamePart2;
 
   }
 
@@ -330,7 +300,6 @@ getNames(): Observable<Inames[]> {
 
 ngOnInit(): void {
   this.getNames().subscribe((data) => (this.names = data));
-  this.namesGenasi = this.getNamesGenasi();
 
 }
 

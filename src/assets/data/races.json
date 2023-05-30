@@ -4,7 +4,7 @@
 "languages": "Commun et une au choix",
 "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
-{ "id": 1, "source": "Les Monstres du Multivers", "name": "Aaracokra", "speed": 9, "flyingSpeed": 9, "raceFeatures" : "Vol, Serres, Wind Caller", "caracteristics": "Dextérité +2, Sagesse +1", "languages": "Aarakocra, Auran et Commun", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 1, "source": "Les Monstres du Multivers", "name": "Aarakocra", "speed": 9, "flyingSpeed": 9, "raceFeatures" : "Vol, Serres, Wind Caller", "caracteristics": "Dextérité +2, Sagesse +1", "languages": "Aarakocra, Auran et Commun", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
 { "id": 2, "source": "Les Monstres du Multivers", "name": "Aasimar (D&D)", "speed": 9, "raceFeatures" : "Résistance céleste, Vision dans le noir, Mains guérisseuses, Porteur de lumière, Révélation céleste", "caracteristics": "Force +2, Charisme +1", "languages": "Commun, Céleste", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 

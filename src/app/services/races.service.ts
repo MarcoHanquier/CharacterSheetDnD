@@ -13,6 +13,8 @@ export class RacesService {
   public selectedRace = 0;
   public selectedRaceName = "";
   public selectedRaceSpeed = 9;
+  public selectedRaceFlyingSpeed = 0;
+  public selectedRaceSwimmingSpeed = 0;
   public selectedRaceFeatures = '';
   public selectedRaceCaracteristics =
     'Toutes vos caractéristiques augmentent de 1';

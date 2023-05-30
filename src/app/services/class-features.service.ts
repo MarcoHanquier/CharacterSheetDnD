@@ -91,6 +91,8 @@ getClassFeatures(): Observable<IclassFeatures[]> {
   return this.http.get<IclassFeatures[]>(this._url);
 }
 
+// Met à jour les aptitudes en fonction de l'archétype choisi
+
 getBarbareArchetypes() {
   return [
     {id: 0, source:"Manuel des Joueurs", name:"Berserker", archetypeFeatureLevel3: "Frénésie", archetypeFeatureLevel6: "Rage aveugle", archetypeFeatureLevel10: "Présence intimidante", archetypeFeatureLevel14: "Représailles"},

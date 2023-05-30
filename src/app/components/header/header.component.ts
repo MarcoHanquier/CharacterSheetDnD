@@ -37,12 +37,6 @@ updateNameInUI() {
       "Barbare";
     this._classesService.selectedClassBasePv =
       12;
-    this._classesService.selectedClassBonusSkill1 =
-    "Rages : 2, Dégâts de rage : +2";
-    // this._classesService.selectedClassBonusSkill2 =
-    //   this.classes[this.selectedClass].bonusSkill2;
-    // this._classesService.selectedClassBonusSkill3 =
-    //   this.classes[this.selectedClass].bonusSkill3;
 
     this._classesService.selectedClassType =
       "Fighter";
@@ -60,48 +54,22 @@ updateNameInUI() {
   this._classesService.shieldMastery = false;
 
 
-    // this.classWeaponMasteries =
-    //   this.classes[this.selectedClass].classWeaponMasteries;
-    // this.classToolMasteries =
-    //   this.classes[this.selectedClass].classToolMasteries;
     this._classesService.classSkillMasteries =
       "Deux parmi Athlétisme, Dressage, Intimidation, Nature, Perception et Survie";
 
 
-
-      // this.JoueurComponent.selectedRace = 0;
-  // this.JoueurComponent.cantest1 = "56341";
-
   this._racesService.selectedRace = 0;
-  // this._racesService.selectedRace = this.JoueurComponent.races[0].name;
   this._racesService.selectedRace = this._racesService.races[this._racesService.selectedRace].name;
 
-      // this._racesService.selectedRace = 0;
-      // this._racesService.selectedRaceSpeed = 99;
-      // this._racesService.selectedRaceFeatures =
-      // "";
-      // this._racesService.selectedRaceCaracteristics =
-      // "Toutes vos caractéristiques augmentent de 1";
-      // this.JoueurComponent.raceSkillMasteries = "maitrises";
-      // this.JoueurComponent.raceLanguages = "langue";
-
-    
       
   }
 
   @Input() randomizer() {
-    // this._classesService.selectedId = Math.floor(Math.random() * 11) + 1;
-    // this._backgroundsService.selectedBackground = Math.floor(Math.random() * 62) + 1;
-    // this._racesService.selectedRace = Math.floor(Math.random() * 13) + 1;
-// this.JoueurComponent.randomize();
   }
 
   getRandomInt(max: number) {
     return Math.floor(Math.random() * max + 1);
   }
 
-  // ngAfterViewInit(): void {
-  //   this.randomizer() = this.child.updateSpellsKnown();
-  // }
 
 }

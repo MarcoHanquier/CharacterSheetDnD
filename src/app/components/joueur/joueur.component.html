@@ -3,23 +3,25 @@
 
     <div id="playerButtons"><button (click)="reset()">Réinitialiser</button><button (click)="randomize()">Perso aléatoire</button>  
         <button mat-button (click)="openDialog()" >À propos</button>  </div>
-    <div id="nom">   <label for="name"> <button (click)="randomizeName()" class="randomizerButton">🎲</button>  <span class="bold">Nom : </span> </label>
-        <input  [(ngModel)]="this.characterName" maxlength="20"  class="input-form" >   </div>
-<form id="description"> <span class="bold">Description : </span> <textarea id="description-textarea"></textarea> </form>
-
-<!-- <mat-form-field appearance="fill" id="nom">
-    <mat-label for="name" >Nom</mat-label>
-    <input [(ngModel)]="this.characterName"  class=""   matInput>
-  </mat-form-field>
-
-<mat-form-field appearance="fill" id="description">
-    <mat-label>Description</mat-label>
-    <textarea matInput></textarea>
-  </mat-form-field> -->
 
 
-<form id="foi">  <span class="bold">Foi : </span><input class="input-form"/> </form>
+    <button (click)="randomizeName()" class="randomizerNameButton">🎲</button>
+    <mat-form-field appearance="fill" id="nom">
+        <mat-label for="name" >Nom</mat-label>
+        <textarea [(ngModel)]="this.characterName" maxlength="40" subscriptSizing="dynamic"   matInput style="resize: none;"></textarea>
+        <mat-hint>40 caractères maximum</mat-hint>
+      </mat-form-field>
 
+    <mat-form-field appearance="fill" subscriptSizing="dynamic" id="description">
+        <mat-label>Description</mat-label>
+        <textarea matInput></textarea>
+      </mat-form-field>
+
+
+ <mat-form-field appearance="fill" id="foi" subscriptSizing="dynamic">
+        <mat-label for="name" >Foi</mat-label>
+        <input  maxlength="30"  matInput>
+      </mat-form-field>
 
 <div class="col archétype">
     <p id="archétype"> 
@@ -138,11 +140,10 @@
  
     <div id="niveau"><span class="bold">Niveau : {{updatedLevel()}} </span> 
         <button *ngIf="this.updatedLevel()>1" (click)= "levelDown(); " > - </button>
-        <button *ngIf="this.updatedLevel()<20"(click)= "levelUp(); refresh();" > + </button>
+        <button *ngIf="this.updatedLevel()<20"(click)= "levelUp(); " > + </button>
     </div>
 <div id="picture">
-    <!-- <div><img [src]="url" *ngIf="url" layout-fill></div> -->
-    
+
     <input
     style="display: none"
     type="file" (change)="selectFile($event)"
@@ -155,11 +156,8 @@
         
         <picture>
 
-            <!-- <img class="imgA1" src="https://i.imgur.com/Q3GPnoJ.png"> -->
-            <!-- <img class="imgB1" src="https://i.imgur.com/P93HdM6.png"> -->
             <source srcset="https://i.imgur.com/Q3GPnoJ.png" media="(min-width: 400px)" style="z-index:1;"/>
 
-            <!-- <source srcset="https://i.imgur.com/P93HdM6.png" media="(min-width: 400px)" style="z-index:2;"/> -->
 
             <img src="https://i.imgur.com/RLiv1S6.png" alt="example"/>
           </picture>
@@ -230,7 +228,7 @@
     <div *ngIf=" this.selectedClassName == 'Clerc' && this.updatedLevel()>1 " > <span class="bold">Canalisations d'énergie divine :</span>
          Renvoi des morts-vivants<ng-container *ngIf=" this.clercCanalisationDivine  != '' && this.updatedLevel()>1">,  <span style="color:rgb(226, 96, 87)">{{this.clercCanalisationDivine}}</span> </ng-container>
         <ng-container *ngIf=" this.clercCanalisationDivine2  != '' && this.updatedLevel()>5">,  <span style="color:rgb(226, 96, 87)">{{this.clercCanalisationDivine2}}</span> </ng-container> </div>
-    <div *ngIf=" this.selectedClassName == 'Clerc' "> Sorts de domaine : {{updateBonusSkill()}}</div>
+    <!-- <div *ngIf=" this.selectedClassName == 'Clerc' "> Sorts de domaine : {{updateBonusSkill()}}</div> -->
 
     <div *ngIf=" this.selectedClassName == 'Paladin' && this.updatedLevel()>2 " > <span class="bold">Canalisations d'énergie divine : </span> 
         <span style="color:rgb(226, 96, 87)">{{this.paladinCanalisationDivine}}</span> </div>

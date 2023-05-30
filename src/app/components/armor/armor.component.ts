@@ -1,10 +1,7 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { lastValueFrom } from 'rxjs';
 import { ArmorsService } from 'src/app/services/armors.service';
 import { CaracteristicsService } from 'src/app/services/caracteristics.service';
 import { ShieldsService } from 'src/app/services/shields.service';
-import { JoueurComponent } from '../joueur/joueur.component';
 
 @Component({
   selector: 'app-armor',
@@ -23,24 +20,15 @@ export class ArmorComponent implements OnInit {
   public selectedArmorType = '';
   public selectedMinStrength = 0;
   public currentStrength = 0;
-public testValue = 0;
-public test2 = 0;
 
-  
-
-  onSelected(ngValue:number): void {
-    this.selectedArmor = ngValue;
-  }
-
-  onChange(ngValue:number) {
-    this.selectedArmor = ngValue;
-}
 
   updateAClass = (ngValue:number) => {
-    updatedArmorClass = this.selectedArmor;
+    let updatedArmorClass = this.selectedArmor;
     return updatedArmorClass;
     }
 
+    
+// Récupère la force requise et la valeur de force 
 updateRequiredStrength = () => {
   return this._armorsService.selectedMinStrength
 }
@@ -49,6 +37,7 @@ currentStrengths = () => {
   return this._caracteristicsService.force
 }
 
+// Gère les bonus d'armure et de bouclier
 addArmorBonus = () => {
   this._armorsService.armorBonus++
 }
@@ -73,15 +62,11 @@ updateShieldBonus = () => {
   return this._armorsService.shieldBonus
 }
 
-
+// Met à jour les propriétés relatives à l'armure et au bouclier à chaque changement
 update(e:any) {
-  
     this._armorsService.selectedShieldName = this.shields[this.selectedShield].name;
     this._armorsService.selectedShieldValue = this.shields[this.selectedShield].armorValue;
-
     this._armorsService.selectedMinStrength = this.armors[this.selectedArmor].minStrength;
-
-
     this._armorsService.selectedArmorValue = this.armors[this.selectedArmor].armorValue;
     this._armorsService.armorType = this.armors[this.selectedArmor].armorType;
     this.currentStrength = this._caracteristicsService.force;
@@ -101,6 +86,3 @@ update(e:any) {
   }
 
 }
-
-
-let updatedArmorClass = 1;

@@ -177,6 +177,20 @@ margin-left: 0px;
   align-items: center;
 }
 
+
+#description-textarea {
+  width: 230px;
+  min-width: 230px;
+  min-height: 50px;
+  border: 2px solid #1C6EA4;
+  border-radius: 5px;
+
+
+  /* max-width: 130px; */
+  /* height: 70%; */
+/* margin-left: 5px; */
+}
+
 #playerInfos {
   display: grid;
   grid-auto-flow: dense;
@@ -383,13 +397,6 @@ button {
 
 
 
-#description-textarea {
-  width: 130px;
-  max-width: 130px;
-  height: 70%;
-margin-left: 5px;
-}
-
 
 
 
@@ -500,7 +507,7 @@ line-height: 1em;
   border: 2px solid #1C6EA4;
 }
 
-.evenFeature {
+.oddFeature {
   background-color: #ebebeb;
 }
 
@@ -513,6 +520,16 @@ line-height: 1em;
   font-size: 10px;
   font-weight: 700;
 }
+
+.detailText {
+  color: #363636;
+  font-size: 10px;
+  font-weight: 700;
+margin-top: -5px;
+margin-right: 5px;
+text-align: right;
+}
+
 
 #playerInfos>#aptitudes>#features {
   display: grid;
@@ -698,6 +715,24 @@ hr.pen-alt {
   border: 3px solid #9c3e12;
 }
 
+.border-derivatedValue-flyingSpeed {
+  min-width: 140px;
+  height: 70px;
+  border-radius: 10px;
+  margin: 5px;
+  background-color: white;
+  border: 3px solid#5d81c5;
+}
+
+.border-derivatedValue-swimmingSpeed {
+  min-width: 140px;
+  height: 70px;
+  border-radius: 10px;
+  margin: 5px;
+  background-color: white;
+  border: 3px solid #0d50ce;
+}
+
 .border-derivatedValue-passivePerception {
   min-width: 140px;
   height: 70px;
@@ -746,6 +781,34 @@ hr.pen-alt {
 
 .speed {
   background-color: #9c3e12;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 30px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  height: 30px;
+}
+
+.flyingSpeed {
+  background-color: #5d81c5;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 30px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  height: 30px;
+}
+
+.swimmingSpeed {
+  background-color: #0d50ce;
   color: white;
   text-align: center;
   vertical-align: middle;
@@ -1545,6 +1608,19 @@ min-height: 90px;
   padding: 0%;
 }
 
+.randomizerNameButton {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  padding: 0%;
+  position:absolute;
+  left:2px; 
+   top:440px; 
+   z-index: 1;
+}
 
 .right {
   float: right;
@@ -1585,17 +1661,16 @@ min-height: 90px;
     grid-template-areas:
       "SheetTitle SheetTitle"
       "playerButtons playerButtons  "
-        "picture     nom "
-        "picture     description "
-        "picture     niveau "
+        "picture     race "
         "picture     playerClass "
-        "picture         archétype "
-        "race historique "
-        "alignement foi  "
+        "picture     archétype "
+        "nom         historique "
+        "description alignement "
+        "niveau foi  "
         "masteries  masteries "
         "aptitudes   aptitudes ";
 
-    grid-template-rows:  auto auto auto auto auto auto auto auto auto auto 650px;
+    grid-template-rows:  auto auto auto auto auto auto auto auto auto  650px;
     grid-template-columns:  250px auto;
     text-align: center;
   }
@@ -1711,7 +1786,7 @@ min-height: 90px;
     width: auto;
     height: auto;
     grid-template-areas:
-      "SheetTitle SheetTitle"
+      /* "SheetTitle SheetTitle"
       "playerButtons playerButtons  "
         "picture     nom "
         "picture     description "
@@ -1721,10 +1796,21 @@ min-height: 90px;
         "playerClass  alignement"
         "archétype foi  "
         "masteries  masteries "
-        "aptitudes   aptitudes ";
+        "aptitudes   aptitudes "; */
 
-    grid-template-rows:  auto auto auto auto auto auto auto auto auto auto 700px;
-    grid-template-columns:  200px auto;
+        "SheetTitle SheetTitle"
+        "playerButtons playerButtons  "
+          "picture     race "
+          "picture     playerClass "
+          "picture     archétype "
+          "nom         historique "
+          "description alignement "
+          "niveau foi  "
+          "masteries  masteries "
+          "aptitudes   aptitudes ";
+
+    grid-template-rows:  auto auto auto auto auto auto auto auto auto  700px;
+    grid-template-columns:  198px auto;
     text-align: center;
   }
   
@@ -2215,12 +2301,6 @@ margin-right: 0px;
 
 
 
-#header {
-  /* background-color: white; */
-}
-/* html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
-
 
 
 .mat-table {
@@ -2306,5 +2386,11 @@ table.no-spacing {
 }
 
 
+
+
+.mat-form-field-label {
+  /* font-size: 0.8em!important; */
+  font: "Times New Roman",helvetica,sans-serif !important;
+}
 
 

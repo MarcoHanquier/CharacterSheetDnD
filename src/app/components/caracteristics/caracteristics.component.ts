@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CaracteristicsService } from 'src/app/services/caracteristics.service';
-import { ArmorsService } from 'src/app/services/armors.service';
-import { RacesService } from 'src/app/services/races.service';
 import { ClassesService } from 'src/app/services/classes.service';
-import { ClassFeaturesService } from 'src/app/services/class-features.service';
 
 @Component({
   selector: 'app-caracteristics',
@@ -98,12 +95,11 @@ export class CaracteristicsComponent implements OnInit {
 
   constructor(
     private _caracteristicsService: CaracteristicsService,
-    private _armorsService: ArmorsService,
-    private _racesService: RacesService,
-    private _classesService: ClassesService,
-    private _classFeaturesService: ClassFeaturesService
+    private _classesService: ClassesService
   ) {}
 
+
+  // Met à jour la force et la constitution en prenant en compte le niveau 20 du Barbare 
 updateForceInUI() {
     if (this._classesService.selectedClassName == 'Barbare' && this._caracteristicsService.level>19) {
     this.barbareChampionPrimitif();
@@ -117,11 +113,11 @@ return this.constitution+4
 } else return this.constitution
 }
 
+// Gère la capacité niveau 20 du Barbare qui rajoute +4 en force et en constitution, actualise la valeur et le modificateur
 barbareChampionPrimitif() {
   let newForceMod = this.force +4;
   let newConMod = this.constitution +4;
   this.forceModifier = this.calculateModifier(newForceMod);
-  // this.constitutionModifier = this.calculateModifier(newConMod);
   this._caracteristicsService.constitutionModifier = this.calculateModifier(newConMod);
 }
 
@@ -137,24 +133,17 @@ return this._caracteristicsService.constitutionModifier
 } else return this.calculateModifier(this.constitution)
 }
 
+// Met à jour le bonus d'initiative selon le modificateur de dextérité
+updateInitiative = () => {
+  this._caracteristicsService.initiativeBonus = this.calculateModifier(
+    this.dexterity
+  );
+};
+
   forceUp = () => {
     this.force++;
     this._caracteristicsService.force = this.force;
     this.selectedPool = this.selectedPool - this.removeStatPool(this.force);
-  };
-
-  proficiencyInUI = () => {
-    return this._caracteristicsService.proficiency;
-  };
-
-  speedInUI = () => {
-    return this._racesService.selectedRaceSpeed;
-  };
-
-  updateInitiative = () => {
-    this._caracteristicsService.initiativeBonus = this.calculateModifier(
-      this.dexterity
-    );
   };
 
   forceDown = () => {
@@ -215,6 +204,8 @@ return this._caracteristicsService.constitutionModifier
     this.selectedPool = this.selectedPool + this.addStatPool(this.charisma);
   };
 
+
+  // Ajoute et soustrait les points de répartition à chaque gain ou perte de point de compétence
   addStatPool = (x: number) => {
     if (x < 13) {
       return 1;
@@ -233,6 +224,8 @@ return this._caracteristicsService.constitutionModifier
     return 1;
   };
 
+
+  // Calcule les modificateurs en fonction de la valeur de la statistique
   calculateModifier = (x: number) => {
     if (x < 2) {
       return -5;
@@ -345,74 +338,6 @@ return this._caracteristicsService.constitutionModifier
   };
 
 
-  updateArmorClass = () => {
-    let dexterityModifier = this._caracteristicsService.dexterityModifier;
-    switch (this._armorsService.armorType) {
-      case 'Aucune':
-        if (this._classesService.selectedClassName == 'Barbare') {
-          this.updatedArmorClass =
-            10 +
-            dexterityModifier +
-            this._caracteristicsService.constitutionModifier +
-            this._armorsService.selectedShieldValue;
-        } else if (this._classFeaturesService.selectedArchetypeName == 'Lignée draconique' || this._classFeaturesService.selectedArchetypeName == 'Homme-Lézard') {
-          this.updatedArmorClass =
-          13 +
-          dexterityModifier +
-          this._caracteristicsService.constitutionModifier +
-          this._armorsService.selectedShieldValue;
-        } else if (
-          this._classesService.selectedClassName == 'Moine' &&
-          this._armorsService.selectedShieldName == 'Aucun bouclier'
-        ) {
-          this.updatedArmorClass =
-            10 + dexterityModifier + this._caracteristicsService.wisdomModifier;
-        } else
-          this.updatedArmorClass =
-            10 + dexterityModifier + this._armorsService.selectedShieldValue;
-
-        break;
-      case 'Armure légère':
-        this.updatedArmorClass =
-          this._armorsService.selectedArmorValue +
-          dexterityModifier +
-          this._armorsService.selectedShieldValue +
-          this._armorsService.armorBonus +
-          this._armorsService.shieldBonus;
-        break;
-      case 'Armure intermédiaire':
-        if (dexterityModifier > 2) {
-          this.updatedArmorClass =
-            this._armorsService.selectedArmorValue +
-            2 +
-            this._armorsService.selectedShieldValue +
-            this._armorsService.armorBonus +
-            this._armorsService.shieldBonus;
-        } else {
-          this.updatedArmorClass =
-            this._armorsService.selectedArmorValue +
-            dexterityModifier +
-            this._armorsService.selectedShieldValue +
-            this._armorsService.armorBonus +
-            this._armorsService.shieldBonus;
-        }
-        break;
-      case 'Armure lourde':
-        this.updatedArmorClass =
-          this._armorsService.selectedArmorValue +
-          this._armorsService.selectedShieldValue +
-          this._armorsService.armorBonus +
-          this._armorsService.shieldBonus;
-        break;
-    }
-    this._armorsService.selectedArmor = this.updatedArmorClass;
-    return this._armorsService.selectedArmor;
-  };
-
-  armorClass = () => {
-    return this._armorsService.selectedArmorValue;
-  };
-
   updateDexterityModifier = () => {
     this._caracteristicsService.dexterityModifier = this.calculateModifier(
       this.dexterity
@@ -447,7 +372,7 @@ return this._caracteristicsService.constitutionModifier
   };
 
 
-
+// Gère les sauvegardes de caractéristiques
   checkForce = (x: any) => {
     this.forceCheck = this._caracteristicsService.forceCheck;
     if (this._caracteristicsService.forceCheck) {
@@ -524,6 +449,8 @@ return this._caracteristicsService.constitutionModifier
       return this.calculateModifier(this.charisma);
     }
   };
+
+  // Gère les maitrises de compétences
   checkAcrobatie = (x: any) => {
     if (this.acrobatieCheck1 && this.acrobatieCheck2) {
       return (
@@ -806,51 +733,6 @@ return this._caracteristicsService.constitutionModifier
     }
   };
 
-  updatedPV = () => {
-    if (this._caracteristicsService.level === 1) {
-      this._caracteristicsService.currentPV =
-        this._classesService.selectedClassBasePv;
-    }
-    return (
-      this._caracteristicsService.currentPV +
-      this._caracteristicsService.constitutionModifier *
-        this._caracteristicsService.level
-    );
-  };
-
-  getRandomInt(max: number) {
-    return Math.floor(Math.random() * max + 1);
-  }
-
-  minPV = () => {
-    return (
-      this._classesService.selectedClassBasePv +
-      this._caracteristicsService.constitutionModifier *
-        this._caracteristicsService.level +
-      (this._caracteristicsService.level - 1) * 1
-    );
-  };
-
-  maxPV = () => {
-    return (
-      this._classesService.selectedClassBasePv +
-      this._caracteristicsService.constitutionModifier *
-        this._caracteristicsService.level +
-      (this._caracteristicsService.level - 1) *
-        this._classesService.selectedClassBasePv
-    );
-  };
-  pvFixe = () => {
-    return (
-      this._classesService.selectedClassBasePv +
-      this._caracteristicsService.constitutionModifier *
-        this._caracteristicsService.level +
-      (this._caracteristicsService.level - 1) *
-        (this._classesService.selectedClassBasePv / 2 + 1)
-    );
-  };
 
   ngOnInit(): void {}
 }
-
-let pv = 1;

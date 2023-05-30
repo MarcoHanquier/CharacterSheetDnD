@@ -18,6 +18,7 @@ export class OtherValuesComponent implements OnInit {
   public subClass = "";
   public malusArmureLourde = 0;
   public warforgedACBonus = 0;
+  public speedBonus = 0;
 
   constructor(
     private _caracteristicsService: CaracteristicsService,
@@ -32,19 +33,36 @@ export class OtherValuesComponent implements OnInit {
   };
 
   speedInUI = () => {
-    // this.updateArmorClass();
     if (this._classesService.selectedClassName == 'Barbare' && this._caracteristicsService.level>2 && this._armorsService.armorType != 'Armure lourde') {
-      return this._racesService.selectedRaceSpeed +3;
+      this.speedBonus = 3;
+      return this._racesService.selectedRaceSpeed + this.speedBonus;
     } else if (this._armorsService.armorType == 'Armure lourde' && (this._caracteristicsService.force < this._armorsService.selectedMinStrength) 
     && (this._racesService.selectedRaceName == "Nain des collines" || this._racesService.selectedRaceName == "Nain des montagnes" )) {
+      this.speedBonus = 0;
       return this._racesService.selectedRaceSpeed;
     }  else if (this._armorsService.armorType == 'Armure lourde' && (this._caracteristicsService.force < this._armorsService.selectedMinStrength) ) {
+      this.speedBonus = -3;
       return this._racesService.selectedRaceSpeed -3;
     }
-    return this._racesService.selectedRaceSpeed;
+    this.speedBonus = 0;
+    return this._racesService.selectedRaceSpeed + this.speedBonus;
   };
 
+  flyingSpeedInUI = () => {
+ if (this._racesService.selectedRaceName == "Aarakocra" || this._racesService.selectedRaceName == "Fadette" || this._racesService.selectedRaceName == "Hiboulin") {
+    return this._racesService.selectedRaceSpeed + this.speedBonus;
+    }
+    return 0;
+  };
 
+  swimmingSpeedInUI = () => {
+    if (this._classFeaturesService.selectedArchetypeName == "Insondable") {
+        return 12;
+        } else if (this._racesService.selectedRaceName == "Génasi de l'eau" || this._racesService.selectedRaceName == "Elfe des mers" || this._racesService.selectedRaceName == "Triton" ) {
+          return this._racesService.selectedRaceSpeed + this.speedBonus;
+          }
+    return 0;
+  };
 
   updateInitiative = () => {
 
@@ -199,9 +217,6 @@ export class OtherValuesComponent implements OnInit {
         break;
       case 'Armure lourde':
         this.updatedArmorClass = this._armorsService.selectedArmorValue + this._armorsService.selectedShieldValue + this._armorsService.armorBonus + this._armorsService.shieldBonus + this.warforgedACBonus;
-        // if (this._caracteristicsService.force < this._armorsService.selectedMinStrength) {
-        //   this.malusArmureLourde = -3;
-        // } else {this.malusArmureLourde = -0; }
         break;
     }
     this._armorsService.selectedArmor = this.updatedArmorClass;

@@ -7,28 +7,40 @@
         <div class="border-derivatedValue-proficiency"> 
         <p class="proficiency">Maîtrise</p>
         <p class="value-text"> +{{proficiencyInUI()}} </p> 
+        <p class="detailText"> En fonction du niveau </p>
+
         </div>
 
         <div class="border-derivatedValue-initiative"> 
             <p class="initiative">Initiative</p>
             <p class="value-text"> <ng-container *ngIf="updateInitiative() > 0">  +</ng-container>{{updateInitiative()}} </p> 
-        </div>
+        <p class="detailText"> Modificateur DEX </p>
 
-        <div class="border-derivatedValue-speed"> 
-            <p class="speed">Vitesse</p>
-            <p class="value-text"> {{speedInUI()}} mètres </p> 
         </div>
 
         <div class="border-derivatedValue-passivePerception"> 
             <p class="passivePerception">Perception Pass.</p>
             <p class="value-text"> {{10+updatePassivePerception()}} </p> 
+        <p class="detailText"> 10 + Bonus Perception </p>
+    </div>
+
+        <div class="border-derivatedValue-speed"> 
+            <p class="speed">Vitesse au sol</p>
+            <p class="value-text"> {{speedInUI()}} mètres </p> 
+        <p class="detailText"> En fonction de la Race et de l'équipement </p>
         </div>
 
-        <!-- <div class="border-derivatedValue-savingThrow"> 
-            <p class="savingThrow">DD Jet de Sauv.</p>
-            <p class="value-text"> +{{updateSavingThrow()}} </p> 
-        </div> -->
+        <div class="border-derivatedValue-flyingSpeed"> 
+            <p class="flyingSpeed">Vitesse de vol</p>
+            <p class="value-text"> {{flyingSpeedInUI()}} mètres </p> 
+        <p class="detailText"> En fonction de la Race</p>
+        </div>
 
+        <div class="border-derivatedValue-swimmingSpeed"> 
+            <p class="swimmingSpeed">Vitesse de nage</p>
+            <p class="value-text"> {{swimmingSpeedInUI()}} mètres </p> 
+        <p class="detailText"> En fonction de la Race</p>
+        </div>
     </div>
 
 </div>
@@ -49,6 +61,7 @@
 <div class="border-PV" >
 <p class="PV">PV (Dés)</p>
 <p class="value-text">{{updatedPV()}}</p>
+
 </div>
 
 <div class="border-PV" >

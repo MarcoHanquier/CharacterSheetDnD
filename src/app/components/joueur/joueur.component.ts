@@ -1,16 +1,12 @@
 import { NgIf, NgSwitch } from '@angular/common';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { race } from 'rxjs';
 import { RacesService } from 'src/app/services/races.service';
 import { ClassesService } from 'src/app/services/classes.service';
-import { ClassdetailsComponent } from '../classdetails/classdetails.component';
-import { ArmorComponent } from '../armor/armor.component';
 import { SpellsService } from 'src/app/services/spells.service';
 import { ArmorsService } from 'src/app/services/armors.service';
 import { CaracteristicsService } from 'src/app/services/caracteristics.service';
 import { SpellsComponent } from '../spells/spells.component';
 import { ClassFeaturesService } from 'src/app/services/class-features.service';
-import { CaracteristicsComponent } from '../caracteristics/caracteristics.component';
 import { BackgroundsService } from 'src/app/services/backgrounds.service';
 import { MatDialog } from '@angular/material/dialog';
 import { RandomizerService } from 'src/app/services/randomizer.service';
@@ -51,7 +47,6 @@ export class JoueurComponent implements OnInit, AfterViewInit {
 public selectedArchetype = 0;;
 public selectedArchetypeName = "Voie du Berserker";
   public selectedArmor = 14;
-  // public UpdatedArmorClass = 9;
   public currentProficiency = 2;
   public characterName = '';
   public selectedPlayerClass = 0;
@@ -231,17 +226,10 @@ updateClassName() {
   return this._classesService.selectedClassName
 }
 
-// updateName(e: any){
-// this._caracteristicsService.characterName = this.characterName;
-// }
-
 reset() {
 
   this.selectedClass = 0;
 
-  // this.updateSubClassFeatures();
-
-    // this.selectedClass = Math.floor(Math.random() * 12) ;
     this._classesService.selectedClass = this.selectedClass;
   
     this._classesService.selectedClassName =  this.classes[this.selectedClass].name;
@@ -285,64 +273,6 @@ reset() {
   this._spellsService.updateSpellLevelTable();
   
 this.updateDwarfArmorMasteries();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // this._classesService.selectedClassName =
-  //   this.classes[this.selectedClass].name;
-  // this._classesService.selectedClassBasePv =
-  //   this.classes[this.selectedClass].pvBase;
-  // this._classesService.selectedClassBonusSkill1 =
-  //   this.classes[this.selectedClass].bonusSkill1;
-  // this._classesService.selectedClassBonusSkill2 =
-  //   this.classes[this.selectedClass].bonusSkill2;
-  // this._classesService.selectedClassBonusSkill3 =
-  //   this.classes[this.selectedClass].bonusSkill3;
-  // this._classesService.selectedClassType =
-  //   this.classes[this.selectedClass].classType;
-
-  // this._classesService.selectedCantripGroup =
-  //   this.classes[this.selectedClass].cantripGroup;
-
-  // this._classesService.selectedClass = this.classes[this.selectedClass].id;
-
-  // this.classWeaponMasteries =
-  //   this.classes[this.selectedClass].classWeaponMasteries;
-  // this.classToolMasteries =
-  //   this.classes[this.selectedClass].classToolMasteries;
-  // this.classSkillMasteries =
-  //   this.classes[this.selectedClass].classSkillMasteries;
-
-  // this.updateSpellsInUI;
-
-  // this._caracteristicsService.level = 1;
-  // this.currentProficiency = 2;
-  // this._caracteristicsService.proficiency = 2;
-  // this.selectedClassName = "Barbare";
-
-  // this.updateClass();
-  // this.updateLevel();
-  // this.selectedArchetype = 0;
-
-  // this.updateSubClassFeatures();
 
   this.selectedRace = 0;
   this._racesService.selectedRace = this.races[this.selectedRace].name;
@@ -391,7 +321,6 @@ this.characterName = this._randomizerService.randomizedCharacterName;
 randomizeClass() {
   if (this.classLock == false) {
 
-    // this.selectedClass = Math.floor(Math.random() * 12) ;
     this._randomizerService.randomizeClass();
     this.selectedClass = this._randomizerService.randomizedClass;
     this._classesService.selectedClass = this.selectedClass;
@@ -428,7 +357,6 @@ randomizeClass() {
   this.updateClass();
   // Maitrises et sauvegardes
   
-  
   this.updateLevel();
 
   this._spellsService.selectedClassName = this.classes[this.selectedClass].name;
@@ -440,9 +368,6 @@ this.updateDwarfArmorMasteries();
 
   }
 
-
-
-
 }
 
 randomizeRace() {
@@ -450,7 +375,7 @@ randomizeRace() {
   if (this.raceLock == false) {
     this._randomizerService.randomizeRace();
     this.selectedRace = this._randomizerService.randomizedRace;
-    this._racesService.selectedRace = this.races[this.selectedRace].name;
+    this._racesService.selectedRaceName = this.races[this.selectedRace].name;
     this._racesService.selectedRaceSpeed = this.races[this.selectedRace].speed;
     this._racesService.selectedRaceFeatures =
       this.races[this.selectedRace].raceFeatures;
@@ -465,13 +390,6 @@ randomizeRace() {
     this.updateDwarfPV();
   }
 }
-
-
-
-// notify(){
-//   dlg = null;
-//   dlg = $dialogs.notify('Something Happened!','Something happened that I need to tell you.');
-// }
 
 
 lockClass() {
@@ -540,41 +458,18 @@ if (this.subClassLock == false) {
   this._randomizerService.selectedClassName = this.selectedClassName;
   this._randomizerService.randomizeSubClass();
   this.selectedArchetype = this._randomizerService.randomizedSubClass;
-  // if (this.selectedClassName == 'Clerc') {
-  //   this.selectedArchetype = Math.floor(Math.random() * 14) ;
-  // } else if (this.selectedClassName == 'Magicien') {
-  //   this.selectedArchetype = Math.floor(Math.random() * 13) ;
-  // } else if (this.selectedClassName == 'Artificier') {
-  //   this.selectedArchetype = Math.floor(Math.random() * 4) ;
-  // } else if (this.selectedClassName == 'Barbare' || this.selectedClassName == 'Barde' || this.selectedClassName == 'Rôdeur' ) {
-  //   this.selectedArchetype = Math.floor(Math.random() * 8) ;
-  // } else if (this.selectedClassName == 'Paladin' || this.selectedClassName == 'Roublard' || this.selectedClassName == 'Sorcier' ) {
-  //   this.selectedArchetype = Math.floor(Math.random() * 9) ;
-  // } else if (this.selectedClassName == 'Druide' || this.selectedClassName == 'Ensorceleur' ) {
-  //   this.selectedArchetype = Math.floor(Math.random() * 7) ;
-  // } else if (this.selectedClassName == 'Guerrier' || this.selectedClassName == 'Moine' ) {
-  //   this.selectedArchetype = Math.floor(Math.random() * 10) ;
-  // }
 
   this.updateSubClassFeatures();
+  this._classFeaturesService.selectedArchetypeName = this.selectedArchetypeName;
   this._spellsService.selectedArchetypeName = this.selectedArchetypeName;
   this._spellsService.level = this._caracteristicsService.level;
   this._spellsService.updateSpellLevelTable();
   this.updateDwarfArmorMasteries();
 }
 
-
- 
-
 }
 
 
-  // public randomize(): void {
-   
-
-    
-
-  // }
 
   updateRace(e: any) {
     this.raceWeaponMasteries = "";
@@ -594,12 +489,6 @@ if (this.subClassLock == false) {
     this.raceSource = this.races[this.selectedRace].source;
     this.raceWeaponMasteries = this.races[this.selectedRace].raceWeaponMasteries;
     this.raceToolMasteries = this.races[this.selectedRace].raceToolMasteries;
-    // if (this.selectedRaceName == "Nain des montagnes") {
-    //   this.lightArmorMastery = true;
-    //   this.mediumArmorMastery = true;
-    // } else
-    // this.lightArmorMastery = false;
-    // this.mediumArmorMastery = false;
     this.updateClass();
     this.updateSubClassFeatures();
 
@@ -634,8 +523,6 @@ if (this.subClassLock == false) {
   }
 
   constructor(
-    // private _caracteristicsComponent : SpellsComponent,
-
     private _racesService: RacesService,
     private _classesService: ClassesService,
     private _armorsService: ArmorsService,
@@ -646,16 +533,11 @@ if (this.subClassLock == false) {
     private _randomizerService: RandomizerService,
     public dialog: MatDialog
   ) {
-    // this.level = 1;
-
     this.pv = 8;
 
     this.level = 1;
     this.classPv = 2;
     this.levelFeatures = '';
-    // this.armorClass = this.selectedArmor;
-
-    // this.currentProficiency = 5;
   }
 
 
@@ -674,19 +556,11 @@ if (this.subClassLock == false) {
     this._caracteristicsService.currentPV =
       this._caracteristicsService.currentPV + pvRoll;
       
-        // this._spellsService.buttonClickEventTrack.next(event);
-        
-    // console.log(this.selectedPlayerClass);
-    // this.updateClass();
-    // this.updateArmorClass();
-    // this._caracteristicsService.currentPV = pv;
-
     this.updateProficiency();
     this.currentProficiency = this._caracteristicsService.proficiency;
     this.updateLevel();
     this.updateClass();
     this.updateSubClassFeatures();
-    this.sendMessage();
 
     this._spellsService.level = this._caracteristicsService.level;
 
@@ -694,26 +568,16 @@ if (this.subClassLock == false) {
 
   };
 
-  refresh(){
-
-  }
-
-  sendMessage(): void {
-    // send message to subscribers via observable subject
-    this._spellsService.sendUpdate('Message from Sender Component to Receiver Component!');
-}
 
   levelDown = () => {
     this._caracteristicsService.level--;
     this._caracteristicsService.currentPV =
       this._caracteristicsService.currentPV - pvRoll;
-    // this.updateClass();
 
     if (this._caracteristicsService.level === 1) {
       this._caracteristicsService.currentPV =
         this._classesService.selectedClassBasePv;
     }
-    // this._caracteristicsService.currentPV = pv;
     this.updateProficiency();
     this.currentProficiency = this._caracteristicsService.proficiency;
     this.updateLevel();
@@ -749,7 +613,6 @@ if (this.subClassLock == false) {
       this._caracteristicsService.constitutionModifier *
         this._caracteristicsService.level
     );
-    // return pv + this._caracteristicsService.constitutionModifier * this._caracteristicsService.level;
   };
 
   getRandomInt(max: number) {
@@ -839,7 +702,6 @@ if (this.subClassLock == false) {
         break;
     }
     this._armorsService.selectedArmor = this.updatedArmorClass;
-    // this._armorsService.selectedArmor = actualArmorClass;
     return this._armorsService.selectedArmor;
   };
 
@@ -858,18 +720,6 @@ if (this.subClassLock == false) {
   updatedProficiency = function () {
     return currentProficiency;
   };
-
-  // updateClassWeaponMasteries = function () {
-  //   return this.classWeaponMasteries;
-  // };
-
-  // updateClassToolMasteries = function () {
-  //   return currentProficiency;
-  // };
-
-  // updateClassSkillMasteries = function () {
-  //   return currentProficiency;
-  // };
 
   onFileChanged(event: any) {
     const file = event.target.files[0];
@@ -894,7 +744,6 @@ if (this.subClassLock == false) {
       this.msg = 'Only images are supported';
       return;
     }
-    // this.url = "https://i.pinimg.com/474x/72/33/9d/72339d38def6cf7d7210b43787a781ed.jpg";
     var reader = new FileReader();
     reader.readAsDataURL(event.target.files[0]);
 
@@ -904,52 +753,7 @@ if (this.subClassLock == false) {
     };
   }
 
-  // public source: string;
-  // changeImage(path: string) {
-  //     this.url = path;
-  // }
 
-  // showPreview(event:any) {
-
-  //   if (event.target.files.length > 0) {
-  //     let src = URL.createObjectURL(event.target.files[0]);
-  //     let preview = document.getElementById("file-ip-" + "-preview");
-  //   }
-
-  //     let src = URL.createObjectURL(event.target.files[0]);
-  //     let preview = document.getElementById("file-ip-");
-  //     var reader = new FileReader();
-  //   reader.readAsDataURL(event.target.files[0]);
-  //     this.url = reader.result;
-
-  // }
-
-  // updateMasteries = () => {
-  // this.masteries = this._classesService.masteries.filter(function(mastery){
-  //     return mastery.isMastered === true;
-  //   }).map (function(mastery){
-  //     return mastery.text;
-  //   })
-
-  // };
-
-  // updateSubClass = () => {
-  //   switch (this._classFeaturesService.selectedArchetypeName) {
-  //     case 'Voie du Berserker':
-  //      this._classFeaturesService.archetypeFeatureLevel3 = "Frénésie";
-  //      this._classFeaturesService.archetypeFeatureLevel6 = "Rage aveugle";
-  //      this._classFeaturesService.archetypeFeatureLevel10 = "Présence intimidante";
-  //      this._classFeaturesService.archetypeFeatureLevel14 = "Représailles";
-  //       break;
-  //       case 'Voie des esprits':
-  //      this._classFeaturesService.archetypeFeatureLevel3 = "Né dans la nature, Initiation";
-  //      this._classFeaturesService.archetypeFeatureLevel6 = "Incarnation";
-  //      this._classFeaturesService.archetypeFeatureLevel10 = "Communion";
-  //      this._classFeaturesService.archetypeFeatureLevel14 = "Élévation";
-  //       break;
-
-  //   }
-  // }
 
 updateClassFeatures = () => {
 
@@ -1342,7 +1146,6 @@ bardSkills = () => {
         this._caracteristicsService.charismaCheck = false;
         break;
       case 'Barde':
-        // this.bardSkills();
         this.commonWeaponsMastery = true;
         this.warWeaponsMastery = false;
         this.lightArmorMastery = true;
@@ -1542,88 +1345,29 @@ bardSkills = () => {
     }
   };
 
-//   updateSpellLevelTable(){
-
-// }
-
-
-
-
-  // updateClassFeature = () => {
-  //   return this._classFeaturesService.classFeature;
-  // };
-
   updateBonusSkill = () => {
-    // return this._classFeaturesService.archetypeFeatureLevel10;
     return this._classFeaturesService.bonusSkill;
   };
 
   public classFeaturesList = [] as any[];
-  // this._classFeaturesService.classFeature = this.classFeaturesList[this.level-1];
 
   updateLevel = () => {
-    // const ul = document.querySelector('#featureListd') as HTMLElement;
-    // const ul2 = document.querySelector('#featureList2d') as HTMLElement;
-    // let affichage = '<ul>';
-    // let affichage2 = '<ul>';
-    // this._classFeaturesService.bonusSkill = this.classFeatures[this._classesService.selectedId].bonusSkillLevel[this.level];
 
     switch (this._caracteristicsService.level) {
       case 1:
         this._classFeaturesService.bonusSkill =          this.classFeatures[this._classesService.selectedClass].bonusSkillLevel1;
-        // affichage = `<ul> <li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel1
-        // } </li> `;
-        // affichage = ` ${this.classFeatures[this._classesService.selectedId].classFeatureLevel1} ` + "\n";
         break;
       case 2:
         this._classFeaturesService.bonusSkill =
           this.classFeatures[
             this._classesService.selectedClass
           ].bonusSkillLevel2;
-        // affichage += ` ${this.classFeatures[this._classesService.selectedId].classFeatureLevel1} ` + "\n";
-        // affichage2 += ` ${this.classFeatures[this._classesService.selectedId].classFeatureLevel2} ` + "\n";
-
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel1
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel2
-        // } </li> `;
         break;
       case 3:
         this._classFeaturesService.bonusSkill =
           this.classFeatures[
             this._classesService.selectedClass
           ].bonusSkillLevel3;
-        // affichage += ` ${this.classFeatures[this._classesService.selectedId].classFeatureLevel1} ` + "\n";
-        // affichage2 += ` ${this.classFeatures[this._classesService.selectedId].classFeatureLevel2} ` + "\n";
-        // affichage += ` ${this.classFeatures[this._classesService.selectedId].classFeatureLevel3} ` + "\n";
-        // affichage += `<li> ${
-        //   this.barbareArchetypes[this._classFeaturesService.selectedArchetype]
-        //     .archetypeFeatureLevel3
-        // } </li> `;
-        // this._classFeaturesService.archetypeFeatureLevel3
-        
-
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel1
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel2
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel3
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this._classFeaturesService.archetypeFeatureLevel3
-        // } </li> `;
         break;
       case 4:
         this._classFeaturesService.bonusSkill =
@@ -1631,49 +1375,12 @@ bardSkills = () => {
             this._classesService.selectedClass
           ].bonusSkillLevel4;
 
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel1
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel2
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel3
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel4
-        // } </li> `;
         break;
       case 5:
         this._classFeaturesService.bonusSkill =
           this.classFeatures[
             this._classesService.selectedClass
           ].bonusSkillLevel5;
-
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel1
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel2
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel3
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel4
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel5
-        // } </li> `;
         break;
       case 6:
         this._classFeaturesService.bonusSkill =
@@ -1681,30 +1388,6 @@ bardSkills = () => {
             this._classesService.selectedClass
           ].bonusSkillLevel6;
 
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel1
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel2
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel3
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel4
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel5
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel6
-        // } </li> `;
         break;
       case 7:
         this._classFeaturesService.bonusSkill =
@@ -1712,34 +1395,6 @@ bardSkills = () => {
             this._classesService.selectedClass
           ].bonusSkillLevel7;
 
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel1
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel2
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel3
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel4
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel5
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel6
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel7
-        // } </li> `;
         break;
       case 8:
         this._classFeaturesService.bonusSkill =
@@ -1747,38 +1402,6 @@ bardSkills = () => {
             this._classesService.selectedClass
           ].bonusSkillLevel8;
 
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel1
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel2
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel3
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel4
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel5
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel6
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel7
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel8
-        // } </li> `;
         break;
       case 9:
         this._classFeaturesService.bonusSkill =
@@ -1786,42 +1409,6 @@ bardSkills = () => {
             this._classesService.selectedClass
           ].bonusSkillLevel9;
 
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel1
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel2
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel3
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel4
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel5
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel6
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel7
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel8
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel9
-        // } </li> `;
         break;
       case 10:
         this._classFeaturesService.bonusSkill =
@@ -1829,274 +1416,30 @@ bardSkills = () => {
             this._classesService.selectedClass
           ].bonusSkillLevel10;
 
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel1
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel2
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel3
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel4
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel5
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel6
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel7
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel8
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel9
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel10
-        // } </li> `;
         break;
       case 11:
         this._classFeaturesService.bonusSkill =
           this.classFeatures[
             this._classesService.selectedClass
           ].bonusSkillLevel11;
-
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel1
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel2
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel3
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel4
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel5
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel6
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel7
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel8
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel9
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel10
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel11
-        // } </li> `;
         break;
       case 12:
         this._classFeaturesService.bonusSkill =
           this.classFeatures[
             this._classesService.selectedClass
           ].bonusSkillLevel12;
-
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel1
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel2
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel3
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel4
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel5
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel6
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel7
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel8
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel9
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel10
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel11
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel12
-        // } </li> `;
         break;
       case 13:
         this._classFeaturesService.bonusSkill =
           this.classFeatures[
             this._classesService.selectedClass
           ].bonusSkillLevel13;
-
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel1
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel2
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel3
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel4
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel5
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel6
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel7
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel8
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel9
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel10
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel11
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel12
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel13
-        // } </li> `;
         break;
       case 14:
         this._classFeaturesService.bonusSkill =
           this.classFeatures[
             this._classesService.selectedClass
           ].bonusSkillLevel14;
-
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel1
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel2
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel3
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel4
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel5
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel6
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel7
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel8
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel9
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel10
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel11
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel12
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel13
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel14
-        // } </li> `;
         break;
       case 15:
         this._classFeaturesService.bonusSkill =
@@ -2104,66 +1447,6 @@ bardSkills = () => {
             this._classesService.selectedClass
           ].bonusSkillLevel15;
 
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel1
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel2
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel3
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel4
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel5
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel6
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel7
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel8
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel9
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel10
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel11
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel12
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel13
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel14
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel15
-        // } </li> `;
         break;
       case 16:
         this._classFeaturesService.bonusSkill =
@@ -2171,70 +1454,6 @@ bardSkills = () => {
             this._classesService.selectedClass
           ].bonusSkillLevel16;
 
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel1
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel2
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel3
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel4
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel5
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel6
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel7
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel8
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel9
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel10
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel11
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel12
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel13
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel14
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel15
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel16
-        // } </li> `;
         break;
       case 17:
         this._classFeaturesService.bonusSkill =
@@ -2242,74 +1461,6 @@ bardSkills = () => {
             this._classesService.selectedClass
           ].bonusSkillLevel17;
 
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel1
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel2
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel3
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel4
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel5
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel6
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel7
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel8
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel9
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel10
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel11
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel12
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel13
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel14
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel15
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel16
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel17
-        // } </li> `;
         break;
       case 18:
         this._classFeaturesService.bonusSkill =
@@ -2317,78 +1468,6 @@ bardSkills = () => {
             this._classesService.selectedClass
           ].bonusSkillLevel18;
 
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel1
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel2
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel3
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel4
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel5
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel6
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel7
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel8
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel9
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel10
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel11
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel12
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel13
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel14
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel15
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel16
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel17
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel18
-        // } </li> `;
         break;
       case 19:
         this._classFeaturesService.bonusSkill =
@@ -2396,82 +1475,6 @@ bardSkills = () => {
             this._classesService.selectedClass
           ].bonusSkillLevel19;
 
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel1
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel2
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel3
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel4
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel5
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel6
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel7
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel8
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel9
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel10
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel11
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel12
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel13
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel14
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel15
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel16
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel17
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel18
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel19
-        // } </li> `;
         break;
       case 20:
         this._classFeaturesService.bonusSkill =
@@ -2479,92 +1482,8 @@ bardSkills = () => {
             this._classesService.selectedClass
           ].bonusSkillLevel20;
 
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel1
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel2
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel3
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel4
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel5
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel6
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel7
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel8
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel9
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel10
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel11
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel12
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel13
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel14
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel15
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel16
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel17
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel18
-        // } </li> `;
-        // affichage += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel19
-        // } </li> `;
-        // affichage2 += `<li> ${
-        //   this.classFeatures[this._classesService.selectedClass]
-        //     .classFeatureLevel20
-        // } </li> `;
         break;
     }
-    // affichage += '</ul>';
-    // affichage2 += '</ul>';
-    // ul.innerHTML = affichage;
-    // ul2.innerHTML = affichage2;
   };
 
   public races = [] as any[];
@@ -2601,46 +1520,28 @@ bardSkills = () => {
     this.updateClass();
     this._randomizerService.getNames().subscribe((data) => (this._randomizerService.names = data));
 
-    // this.updateLevel();
     this.updatedArmorClass = 9;
     this._classesService.selectedClassType = 'Fighter';
     this._classesService.selectedCantripGroup = 'A';
     this._classesService.selectedClassName = 'Barbare';
     this.selectedArchetype = 0;
-    // this.updateSubClass();
     this.updateClassFeatures();
     this.updateSubClassFeatures();
-    // this.selectedRace = 0;
-    // this.selectedClass = 0;
-    // this.selectedBackground = 0;
-    // this._backgroundsService.selectedBackground = 0;
-    // this.updateBackground();
     this._spellsService.level1SpellsKnown = '0';
     this.updateSpellsKnown;
     this.reset();
-    // this.selectedRace = 0
   }
 
   ngAfterViewInit(): void {
     this.updateSpellsKnown = this.child.updateSpellsKnown();
-    // this.updateSpellLevelTable = this.child.updateSpellLevelTable();
-    // this.updateSpellsKnown = this.child.updateSpellsKnown()
     this.updateSpellLevel = this.child.updateSpellLevel();
-    // this.calculatePreparedSpells = this.child.calculatePreparedSpells();
-    // this.updatedSpellsSlots = this.child.updatedSpellsSlots();
     this.updateSpellsInUI = this.child.updateSpellsInUI();
-    // this.refresh = this.child.refresh();
   }
 }
 
 let pvRoll = 1;
-let pv = 1;
-let level = 1;
-let basePV = 1;
 let currentProficiency = 2;
-let currentPv = 5;
 let levelFeatures = '';
-let updatedArmorClass = 1;
 
 
 @Component({
