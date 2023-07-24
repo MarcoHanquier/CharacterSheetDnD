@@ -19,6 +19,7 @@ export class OtherValuesComponent implements OnInit {
   public malusArmureLourde = 0;
   public warforgedACBonus = 0;
   public speedBonus = 0;
+  public currentPV = 0;
 
   constructor(
     private _caracteristicsService: CaracteristicsService,

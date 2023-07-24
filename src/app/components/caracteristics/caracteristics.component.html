@@ -283,6 +283,13 @@
             </ng-container>{{checkIntimidation(charisma)}}</span></span>
         </div>
         <div> 
+            <input type="checkbox" name="isActive" (change)="checkWisdom(wisdom)" [(ngModel)]="perspicaciteCheck1">
+            <input type="checkbox" name="isActive" (change)="checkWisdom(wisdom)" [(ngModel)]="perspicaciteCheck2"> Intuition  <span class="right"><span class="sag">SAG </span> <span class="stat">
+                <ng-container *ngIf="checkPerspicacite(wisdom) > 0">
+                +
+            </ng-container>{{checkPerspicacite(wisdom)}}</span></span>
+        </div>
+        <div> 
             <input type="checkbox" name="isActive" (change)="checkIntelligence(intelligence)" [(ngModel)]="investigationCheck1">
             <input type="checkbox" name="isActive" (change)="checkIntelligence(intelligence)" [(ngModel)]="investigationCheck2"> Investigation  <span class="right"><span class="int">INT </span> <span class="stat">
                 <ng-container *ngIf="checkInvestigation(intelligence) > 0">
@@ -311,13 +318,6 @@
             </ng-container>{{checkPerception(wisdom)}}</span></span>
         </div>
         <div> 
-            <input type="checkbox" name="isActive" (change)="checkWisdom(wisdom)" [(ngModel)]="perspicaciteCheck1">
-            <input type="checkbox" name="isActive" (change)="checkWisdom(wisdom)" [(ngModel)]="perspicaciteCheck2"> Perspicacité  <span class="right"><span class="sag">SAG </span> <span class="stat">
-                <ng-container *ngIf="checkPerspicacite(wisdom) > 0">
-                +
-            </ng-container>{{checkPerspicacite(wisdom)}}</span></span>
-        </div>
-        <div> 
             <input type="checkbox" name="isActive" (change)="checkCharisma(charisma)" [(ngModel)]="persuasionCheck1">
             <input type="checkbox" name="isActive" (change)="checkCharisma(charisma)" [(ngModel)]="persuasionCheck2"> Persuasion  <span class="right"><span class="cha">CHA </span> <span class="stat">
                 <ng-container *ngIf="checkPersuasion(charisma) > 0">
@@ -339,18 +339,18 @@
             </ng-container>{{checkRepresentation(charisma)}}</span></span>
         </div>
         <div> 
-            <input type="checkbox" name="isActive" (change)="checkCharisma(charisma)" [(ngModel)]="supercherieCheck1">
-            <input type="checkbox" name="isActive" (change)="checkCharisma(charisma)" [(ngModel)]="supercherieCheck2"> Supercherie  <span class="right"><span class="cha">CHA </span> <span class="stat">
-                <ng-container *ngIf="checkSupercherie(charisma) > 0">
-                +
-            </ng-container>{{checkSupercherie(charisma)}}</span></span>
-        </div>
-        <div> 
             <input type="checkbox" name="isActive" (change)="checkWisdom(wisdom)" [(ngModel)]="survieCheck1">
             <input type="checkbox" name="isActive" (change)="checkWisdom(wisdom)" [(ngModel)]="survieCheck2"> Survie <span class="right"> <span class="sag">SAG </span> <span class="stat">
                 <ng-container *ngIf="checkSurvie(wisdom) > 0">
                 +
             </ng-container>{{checkSurvie(wisdom)}}</span></span>
+        </div>
+        <div> 
+            <input type="checkbox" name="isActive" (change)="checkCharisma(charisma)" [(ngModel)]="supercherieCheck1">
+            <input type="checkbox" name="isActive" (change)="checkCharisma(charisma)" [(ngModel)]="supercherieCheck2"> Tromperie  <span class="right"><span class="cha">CHA </span> <span class="stat">
+                <ng-container *ngIf="checkSupercherie(charisma) > 0">
+                +
+            </ng-container>{{checkSupercherie(charisma)}}</span></span>
         </div>
     </div>
     

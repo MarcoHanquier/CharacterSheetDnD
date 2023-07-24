@@ -12,7 +12,7 @@ export class ClassFeaturesService {
   private _url:string = "/assets/data/classFeatures.json";
 
   public classFeature = "";
-  public bonusSkill = "Rages : 2, Dégâts de rage : +2";
+  public bonusSkill = "";
   public paladinCanalisationDivine = "";
   public subClassToolMasteries = "";
   public subClassSkillMasteries = "";
@@ -23,19 +23,19 @@ public selectedArchetypeName = "";
 
 public archetypeFeatureLevel1 = "";
 public archetypeFeatureLevel2 = "";
-public archetypeFeatureLevel3 = "Frénésie";
+public archetypeFeatureLevel3 = "Maîtrise d'outils, Sorts d'Alchimiste, Élixir expérimental";
 // public archetypeFeatureLevel4 = "";
-// public archetypeFeatureLevel5 = "";
-public archetypeFeatureLevel6 = "Rage aveugle";
+public archetypeFeatureLevel5 = "Érudit alchimique";
+public archetypeFeatureLevel6 = "";
 public archetypeFeatureLevel7 = "";
 public archetypeFeatureLevel8 = "";
-public archetypeFeatureLevel9 = "";
-public archetypeFeatureLevel10 = "Présence intimidante";
+public archetypeFeatureLevel9 = "Ingrédients revigorants";
+public archetypeFeatureLevel10 = "";
 public archetypeFeatureLevel11 = "";
 // public archetypeFeatureLevel12 = "";
 public archetypeFeatureLevel13 = "";
-public archetypeFeatureLevel14 = "Représailles";
-public archetypeFeatureLevel15 = "";
+public archetypeFeatureLevel14 = "";
+public archetypeFeatureLevel15 = "Maîtrise chimique";
 // public archetypeFeatureLevel16 = "";
 public archetypeFeatureLevel17 = "";
 public archetypeFeatureLevel18 = "";
@@ -93,6 +93,15 @@ getClassFeatures(): Observable<IclassFeatures[]> {
 
 // Met à jour les aptitudes en fonction de l'archétype choisi
 
+getArtificierArchetypes() {
+  return [
+    {id: 0, source:"Le Chaudron des Merveilles de Tasha", name:"Alchimiste", archetypeFeatureLevel3: "Maîtrise d'outils, Sorts d'Alchimiste, Élixir expérimental", archetypeFeatureLevel5: "Érudit alchimique", archetypeFeatureLevel9: "Ingrédients revigorants", archetypeFeatureLevel15: "Maîtrise chimique"},
+    {id: 1, source:"Le Chaudron des Merveilles de Tasha", name:"Armurier", archetypeFeatureLevel3: "Techniques du métier, Sorts d'Armurier, Armure arcanique, Modèle d'armure (Gardien, Infiltré)", archetypeFeatureLevel5: "Attaque supplémentaire", archetypeFeatureLevel9: "Modifications d'armure", archetypeFeatureLevel15: "Armure parachevée"},
+    {id: 2, source:"Le Chaudron des Merveilles de Tasha", name:"Artilleur", archetypeFeatureLevel3: "Maîtrise d'outils, Sorts d'Artilleur, Canon occulte", archetypeFeatureLevel5: "Arme à feu arcanique", archetypeFeatureLevel9: "Canon explosif", archetypeFeatureLevel15: "Position fortifiée"},
+    {id: 3, source:"Le Chaudron des Merveilles de Tasha", name:"Forgeron de guerre", archetypeFeatureLevel3: "Maîtrise d'outils, Sorts de Forgeron de guerre, Apte au combat, Défenseur d'acier", archetypeFeatureLevel5: "Attaque supplémentaire", archetypeFeatureLevel9: "Décharge arcanique", archetypeFeatureLevel15: "Défenseur amélioré"},
+  ]
+}
+
 getBarbareArchetypes() {
   return [
     {id: 0, source:"Manuel des Joueurs", name:"Berserker", archetypeFeatureLevel3: "Frénésie", archetypeFeatureLevel6: "Rage aveugle", archetypeFeatureLevel10: "Présence intimidante", archetypeFeatureLevel14: "Représailles"},
@@ -101,7 +110,7 @@ getBarbareArchetypes() {
     {id: 3, source:"Le Guide Complet de Xanathar", name:"Héraut des tempêtes", archetypeFeatureLevel3: "Aura de tempête", archetypeFeatureLevel6: "Âme des tempêtes", archetypeFeatureLevel10: "Tempête protectrice", archetypeFeatureLevel14: "Tempête déchainée"},
     {id: 4, source:"Le Guide Complet de Xanathar", name:"Zélote", archetypeFeatureLevel3: "Fureur divine, Guerrier des dieux", archetypeFeatureLevel6: "Obstination fanatique", archetypeFeatureLevel10: "Présence zélatrice", archetypeFeatureLevel14: "Enragé par-delà la mort"},
     {id: 5, source:"Le Chaudron des Merveilles de Tasha", name:"Bête", archetypeFeatureLevel3: "Forme de la bête", archetypeFeatureLevel6: "Âme bestiale", archetypeFeatureLevel10: "Fureur contagieuse", archetypeFeatureLevel14: "Hallali"},
-    {id: 6, source:"Le Chaudron des Merveilles de Tasha", name:"Magie Sauvage", archetypeFeatureLevel3: "Conscience magique, Accès sauvage", archetypeFeatureLevel6: "Magie galvanisante", archetypeFeatureLevel10: "Riposte capricieuse", archetypeFeatureLevel14: "Sauvagerie controlée"},
+    {id: 6, source:"Le Chaudron des Merveilles de Tasha", name:"Magie Sauvage", archetypeFeatureLevel3: "Conscience magique, Accès sauvage", archetypeFeatureLevel6: "Magie galvanisante", archetypeFeatureLevel10: "Riposte capricieuse", archetypeFeatureLevel14: "Sauvagerie contrôlée"},
     {id: 7, source:"La Côte des Épées", name:"Fou de guerre", archetypeFeatureLevel3: "Armure du Fou de guerre", archetypeFeatureLevel6: "Insouciance", archetypeFeatureLevel10: "Charge du Fou de guerre", archetypeFeatureLevel14: "Représailles pointues"}
   ]
 }
@@ -115,7 +124,7 @@ getBardeArchetypes() {
     {id: 4, source:"Le Guide Complet de Xanathar", name:"Séduction", archetypeFeatureLevel3: "Apparence inspirante, Représentation envoutante", archetypeFeatureLevel6: "Apparence majestueuse", archetypeFeatureLevel14: "Majesté inébranlable"},
     {id: 5, source:"Le Guide Complet de Xanathar", name:"Épées", archetypeFeatureLevel3: "Maîtrise supplémentaire, Style de combat, Moulinet", archetypeFeatureLevel6: "Attaque supplémentaire",archetypeFeatureLevel14: "Moulinet de maître"},
     {id: 6, source:"Le Guide Complet de Xanathar", name:"Murmures", archetypeFeatureLevel3: "Lames psychiques, Mots de terreur", archetypeFeatureLevel6: "Voile de murmures", archetypeFeatureLevel14: "Savoir des ombres"},
-    {id: 7, source:"Le guide de Van Richten sur Ravenloft", name:"Esprits", archetypeFeatureLevel3: "Murmures de guidance, Focaliseur spirituel, Histoires de l'Au-delà", archetypeFeatureLevel6: "Session de spiritisme", archetypeFeatureLevel14: "Connexion mystique"}
+    {id: 7, source:"Le guide de Van Richten sur Ravenloft", name:"Esprits", archetypeFeatureLevel3: "Murmures diligents, Focaliseur spirituel, Contes de l'Au-delà", archetypeFeatureLevel6: "Séance de spiritisme", archetypeFeatureLevel14: "Lien mystique"}
 
   ]
 }
@@ -199,16 +208,16 @@ getMagicienArchetypes() {
 
 getMoineArchetypes() {
   return [
-    {id: 0, source:"Manuel des Joueurs", name:"Main ouverte",        archetypeFeatureLevel2: "Technique de la main ouverte", archetypeFeatureLevel6: "Intégrité physique", archetypeFeatureLevel11: "Tranquilité", archetypeFeatureLevel17: "Paume frémissante"},
-    {id: 1, source:"Manuel des Joueurs", name:"Ombre",               archetypeFeatureLevel2: "Arts de l'ombre", archetypeFeatureLevel6: "Pas de l'ombre", archetypeFeatureLevel11: "Linceul d'ombre", archetypeFeatureLevel17: "Opportuniste"},
-    {id: 2, source:"Manuel des Joueurs", name:"Quatre éléments",     archetypeFeatureLevel2: "Disciple des éléments", archetypeFeatureLevel6: "Discipline élémentaire", archetypeFeatureLevel11: "Discipline élémentaire", archetypeFeatureLevel17: "Discipline élémentaire"},
-    {id: 3, source:"Le Chaudron des Merveilles de Tasha", name:"Astre intérieur",   archetypeFeatureLevel2: "Bras astraux", archetypeFeatureLevel6: "Visage astral", archetypeFeatureLevel11: "Corps de l'astre intérieur", archetypeFeatureLevel17: "Astre intérieur accompli"},
-    {id: 4, source:"Le Chaudron des Merveilles de Tasha", name:"Miséricorde",       archetypeFeatureLevel2: "Instruments de charité", archetypeFeatureLevel6: "Main guérisseuse, Main meurtrissante", archetypeFeatureLevel11: "Caresse médicale, Déluge de soins et de meurtrissures", archetypeFeatureLevel17: "Main de l'ultime miséricorde"},
-    {id: 5, source:"Le Guide Complet de Xanathar", name:"Âme solaire",    archetypeFeatureLevel2: "Rayon de soleil radiant", archetypeFeatureLevel6: "Vague brulante", archetypeFeatureLevel11: "Éruption solaire ardente", archetypeFeatureLevel17: "Bouclier solaire"},
-    {id: 6, source:"Le Guide Complet de Xanathar", name:"Kensei",         archetypeFeatureLevel2: "Voie du kensei (2 armes)", archetypeFeatureLevel6: "Uni avec la lame, Voie du kensei (3 armes)", archetypeFeatureLevel11: "Lame affutée, Voie du kensei (4 armes)", archetypeFeatureLevel17: "Précision infaillible, Voie du kensei (5 armes)"},
-    {id: 7, source:"Le Guide Complet de Xanathar", name:"Maître Ivre",    archetypeFeatureLevel2: "Maîtrises supplémentaires, Technique de l'homme ivre", archetypeFeatureLevel6: "Chancellements éméchés", archetypeFeatureLevel11: "Chance de l'ivrogne", archetypeFeatureLevel17: "Frénésie alcoolisée"},
-    {id: 8, source:"La Côte des Épées", name:"Longue Mort", archetypeFeatureLevel2: "Caresse de la mort", archetypeFeatureLevel6: "L'heure de la moisson", archetypeFeatureLevel11: "Maîtrise de la mort", archetypeFeatureLevel17: "Caresse de la longue mort"},
-    {id: 9, source:"Le trésor draconique de Fizban", name:"Dragon Ascendant", archetypeFeatureLevel2: "Draconic disciple, Breath of the dragon", archetypeFeatureLevel6: "Wings unfurled", archetypeFeatureLevel11: "Aspect of the Wyrm", archetypeFeatureLevel17: "Ascendant aspect"}
+    {id: 0, source:"Manuel des Joueurs", name:"Main ouverte",        archetypeFeatureLevel3: "Technique de la main ouverte", archetypeFeatureLevel6: "Intégrité physique", archetypeFeatureLevel11: "Tranquilité", archetypeFeatureLevel17: "Paume frémissante"},
+    {id: 1, source:"Manuel des Joueurs", name:"Ombre",               archetypeFeatureLevel3: "Arts de l'ombre", archetypeFeatureLevel6: "Pas de l'ombre", archetypeFeatureLevel11: "Linceul d'ombre", archetypeFeatureLevel17: "Opportuniste"},
+    {id: 2, source:"Manuel des Joueurs", name:"Quatre éléments",     archetypeFeatureLevel3: "Disciple des éléments", archetypeFeatureLevel6: "Discipline élémentaire", archetypeFeatureLevel11: "Discipline élémentaire", archetypeFeatureLevel17: "Discipline élémentaire"},
+    {id: 3, source:"Le Chaudron des Merveilles de Tasha", name:"Astre intérieur",   archetypeFeatureLevel3: "Bras astraux", archetypeFeatureLevel6: "Visage astral", archetypeFeatureLevel11: "Corps de l'astre intérieur", archetypeFeatureLevel17: "Astre intérieur accompli"},
+    {id: 4, source:"Le Chaudron des Merveilles de Tasha", name:"Miséricorde",       archetypeFeatureLevel3: "Instruments de charité", archetypeFeatureLevel6: "Main guérisseuse, Main meurtrissante", archetypeFeatureLevel11: "Caresse médicale, Déluge de soins et de meurtrissures", archetypeFeatureLevel17: "Main de l'ultime miséricorde"},
+    {id: 5, source:"Le Guide Complet de Xanathar", name:"Âme solaire",    archetypeFeatureLevel3: "Rayon de soleil radiant", archetypeFeatureLevel6: "Vague brulante", archetypeFeatureLevel11: "Éruption solaire ardente", archetypeFeatureLevel17: "Bouclier solaire"},
+    {id: 6, source:"Le Guide Complet de Xanathar", name:"Kensei",         archetypeFeatureLevel3: "Voie du kensei (2 armes)", archetypeFeatureLevel6: "Uni avec la lame, Voie du kensei (3 armes)", archetypeFeatureLevel11: "Lame affutée, Voie du kensei (4 armes)", archetypeFeatureLevel17: "Précision infaillible, Voie du kensei (5 armes)"},
+    {id: 7, source:"Le Guide Complet de Xanathar", name:"Maître Ivre",    archetypeFeatureLevel3: "Maîtrises supplémentaires, Technique de l'homme ivre", archetypeFeatureLevel6: "Chancellements éméchés", archetypeFeatureLevel11: "Chance de l'ivrogne", archetypeFeatureLevel17: "Frénésie alcoolisée"},
+    {id: 8, source:"La Côte des Épées", name:"Longue Mort", archetypeFeatureLevel3: "Caresse de la mort", archetypeFeatureLevel6: "L'heure de la moisson", archetypeFeatureLevel11: "Maîtrise de la mort", archetypeFeatureLevel17: "Caresse de la longue mort"},
+    {id: 9, source:"Le trésor draconique de Fizban", name:"Dragon Ascendant", archetypeFeatureLevel3: "Disciple draconique, Souffle draconique", archetypeFeatureLevel6: "Ailes déployées", archetypeFeatureLevel11: "Aspect du dragon", archetypeFeatureLevel17: "Aspect ascendant"}
   ]
 }
 
@@ -231,11 +240,11 @@ getRodeurArchetypes() {
     {id: 0, source:"Manuel des Joueurs", name:"Chasseur",                   archetypeFeatureLevel3: "Proie du chasseur", archetypeFeatureLevel7: "Tactiques défensives", archetypeFeatureLevel11: "Attaques multiples", archetypeFeatureLevel15: "Défense de chasseur supérieure"},
     {id: 1, source:"Manuel des Joueurs", name:"Maître des bêtes",           archetypeFeatureLevel3: "Compagnon du rôdeur", archetypeFeatureLevel7: "Entraînement exceptionnel", archetypeFeatureLevel11: "Fureur bestiale", archetypeFeatureLevel15: "Partage des sorts"},
     {id: 2, source:"Le Guide Complet de Xanathar", name:"Arpenteur de l'horizon",archetypeFeatureLevel3: "Magie de l'Arpenteur de l'horizon, Détection de portail, Guerrier planaire (1d8)", archetypeFeatureLevel7: "Pas éthéré", archetypeFeatureLevel11: "Frappe distante, Guerrier planaire (2d8)", archetypeFeatureLevel15: "Défense spectrale"},
-    {id: 3, source:"Le Guide Complet de Xanathar", name:"Tueur de monstres",     archetypeFeatureLevel3: "magie de Tueur de monstres, Sens du chasseur, Proie du tueur", archetypeFeatureLevel7: "Défense surnaturelle", archetypeFeatureLevel11: "Némésis des utilisateurs de magien", archetypeFeatureLevel15: "Contre-attaque du tueur"},
-    {id: 4, source:"Le Guide Complet de Xanathar", name:"Traqueur des ténèbres", archetypeFeatureLevel3: "magie de Traqueur des ténèbres, Embuscade effrayante, Vision des ombres", archetypeFeatureLevel7: "Mental d'acier", archetypeFeatureLevel11: "Rafale du traqueur", archetypeFeatureLevel15: "Esquive des ombres"},
+    {id: 3, source:"Le Guide Complet de Xanathar", name:"Tueur de monstres",     archetypeFeatureLevel3: "Magie de Tueur de monstres, Sens du chasseur, Proie du tueur", archetypeFeatureLevel7: "Défense surnaturelle", archetypeFeatureLevel11: "Némésis des utilisateurs de magien", archetypeFeatureLevel15: "Contre-attaque du tueur"},
+    {id: 4, source:"Le Guide Complet de Xanathar", name:"Traqueur des ténèbres", archetypeFeatureLevel3: "Magie de Traqueur des ténèbres, Embuscade effrayante, Vision des ombres", archetypeFeatureLevel7: "Mental d'acier", archetypeFeatureLevel11: "Rafale du traqueur", archetypeFeatureLevel15: "Esquive des ombres"},
     {id: 5, source:"Le Chaudron des Merveilles de Tasha", name:"Gardien des nuées",        archetypeFeatureLevel3: "Nuée spirituelle, Magie du Gardien des nuées", archetypeFeatureLevel7: "Marée frémissante", archetypeFeatureLevel11: "Nuée souveraine", archetypeFeatureLevel15: "Dispersion de la nuée"},
     {id: 6, source:"Le Chaudron des Merveilles de Tasha", name:"Vagabond féérique",        archetypeFeatureLevel3: "Coups effroyables, Magie du Vagabond féérique, Charme mystique", archetypeFeatureLevel7: "Fascination détournée", archetypeFeatureLevel11: "Renforts féériques", archetypeFeatureLevel15: "Vagabonds des brumes"},
-    {id: 7, source:"Le trésor draconique de Fizban", name:"Drakewarden",             archetypeFeatureLevel3: "Draconic gift, Drake compagnon", archetypeFeatureLevel7: "Bond of Fang and Scale", archetypeFeatureLevel11: "Drake's breath", archetypeFeatureLevel15: "Perfected bond"}
+    {id: 7, source:"Le trésor draconique de Fizban", name:"Maître-guivre",             archetypeFeatureLevel3: "Présent draconique, Compagne guivre", archetypeFeatureLevel7: "Lien de croc et d'écaille", archetypeFeatureLevel11: "Souffle de la guivre", archetypeFeatureLevel15: "Lien parachevé"}
   ]
 }
 
@@ -265,7 +274,7 @@ getSorcierArchetypes() {
     {id: 5, source:"Le Chaudron des Merveilles de Tasha", name:"Insondable",     archetypeFeatureLevel1: "Liste de sort étendue, Tentacule abyssal, Faveur de la mer", archetypeFeatureLevel6: "Âme océane, Tentacule gardien", archetypeFeatureLevel10: "Tentacules agrippants", archetypeFeatureLevel14: "Plongeon abyssal"},
     {id: 6, source:"Le Chaudron des Merveilles de Tasha", name:"Génie",           archetypeFeatureLevel1: "Liste de sort étendue, Conduit du génie", archetypeFeatureLevel6: "Présent élémentaire", archetypeFeatureLevel10: "Sanctuaire du génie", archetypeFeatureLevel14: "Souhait limité"},
     {id: 7, source:"La Côte des Épées", name:"Immortel",        archetypeFeatureLevel1: "Liste de sort étendue, Au sein des morts", archetypeFeatureLevel6: "Défier la mort", archetypeFeatureLevel10: "De nature immortelle", archetypeFeatureLevel14: "Vie indestructible"},
-    {id: 8, source:"Le guide de Van Richten sur Ravenloft", name:"Mort-vivant", archetypeFeatureLevel1: "Liste de sort étendue, Form of dread", archetypeFeatureLevel6: "Grave touched", archetypeFeatureLevel10: "Necrotic Husk", archetypeFeatureLevel14: "Spirit Projection"}
+    {id: 8, source:"Le guide de Van Richten sur Ravenloft", name:"Mort-vivant", archetypeFeatureLevel1: "Liste de sort étendue, Forme d'effroi", archetypeFeatureLevel6: "Enfant de nécropole", archetypeFeatureLevel10: "Carapace nécrotique", archetypeFeatureLevel14: "Projection spirituelle"}
 
   ]
 }

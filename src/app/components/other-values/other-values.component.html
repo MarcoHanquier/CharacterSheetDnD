@@ -60,7 +60,9 @@
 <div id="PV-Grid">
 <div class="border-PV" >
 <p class="PV">PV (Dés)</p>
-<p class="value-text">{{updatedPV()}}</p>
+<p class="value-text">
+    <!-- <input [(ngModel)]="this.currentPV" matInput> -->
+    {{updatedPV()}}</p>
 
 </div>
 
@@ -68,6 +70,10 @@
 <p class="PV">PV (Fixes)</p>
 <p class="value-text">{{pvFixe()}}</p>
 </div>
+
+    
+
+
 
 <div class="border-PV" >
 <p class="PV">PV minimum</p>

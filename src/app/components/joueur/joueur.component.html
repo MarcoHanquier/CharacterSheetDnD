@@ -1,11 +1,11 @@
 <div id="playerInfos">
     <h1 id="SheetTitle" > Fiche de personnage<ng-container *ngIf=" this.characterName != '' " > - </ng-container> {{this.characterName}}  </h1>
 
-    <div id="playerButtons"><button (click)="reset()">Réinitialiser</button><button (click)="randomize()">Perso aléatoire</button>  
+    <div id="playerButtons"><button (click)="reset()">Réinitialiser</button><button (click)="randomize()" >Perso aléatoire</button>  
         <button mat-button (click)="openDialog()" >À propos</button>  </div>
 
 
-    <button (click)="randomizeName()" class="randomizerNameButton">🎲</button>
+    <button (click)="randomizeName()" class="randomizerNameButton" matTooltip="Nom aléatoire" matTooltipPosition="above">🎲</button>
     <mat-form-field appearance="fill" id="nom">
         <mat-label for="name" >Nom</mat-label>
         <textarea [(ngModel)]="this.characterName" maxlength="40" subscriptSizing="dynamic"   matInput style="resize: none;"></textarea>
@@ -25,24 +25,28 @@
 
 <div class="col archétype">
     <p id="archétype"> 
-        <p> <button class="lockBtn" *ngIf=" this.subClassLock == false" (click)="lockSubClass()"> <span >🔓</span></button> 
-            <button class="lockBtn" *ngIf=" this.subClassLock == true" (click)="lockSubClass()"> <span >🔒</span></button> 
-             <button (click)="randomizeSubClass()" class="randomizerButton">🎲</button> 
-            <span class="bold" *ngIf=" this.selectedClassName == 'Barbare' "  matTooltip="Info about the action" matTooltipPosition="above">Voie Primitive : </span> 
+        <p> <button class="lockBtn" *ngIf=" this.subClassLock == false" (click)="lockSubClass()" matTooltip="Verrouiller l'archétype" matTooltipPosition="above"> <span >🔓</span></button> 
+            <button class="lockBtn" *ngIf=" this.subClassLock == true" (click)="lockSubClass()" matTooltip="Déverrouiller l'archétype" matTooltipPosition="above"> <span >🔒</span></button> 
+             <button (click)="randomizeSubClass()" class="randomizerButton" matTooltip="Archétype aléatoire" matTooltipPosition="above">🎲</button> 
+            <span class="bold" *ngIf=" this.selectedClassName == 'Artificier' ">Artificier spécialisé : </span> 
+            <span class="bold" *ngIf=" this.selectedClassName == 'Barbare' ">Voie Primitive : </span> 
             <span class="bold" *ngIf=" this.selectedClassName == 'Barde' " >Collège Bardique : </span> 
             <span class="bold" *ngIf=" this.selectedClassName == 'Clerc' " >Domaine Divin : </span> 
             <span class="bold" *ngIf=" this.selectedClassName == 'Druide' " >Cercle Druidique: </span> 
             <span class="bold" *ngIf=" this.selectedClassName == 'Ensorceleur' " >Origine Magique : </span> 
             <span class="bold" *ngIf=" this.selectedClassName == 'Guerrier' " >Archétype Martial : </span> 
             <span class="bold" *ngIf=" this.selectedClassName == 'Magicien' " >Tradition Arcanique : </span> 
-            <span class="bold" *ngIf=" this.selectedClassName == 'Moine' " >Tradition Monacale : </span> 
+            <span class="bold" *ngIf=" this.selectedClassName == 'Moine' " >Tradition Monastique : </span> 
             <span class="bold" *ngIf=" this.selectedClassName == 'Paladin' " >Serment Sacré : </span> 
             <span class="bold" *ngIf=" this.selectedClassName == 'Rôdeur' " >Archétype de Rôdeur : </span> 
             <span class="bold" *ngIf=" this.selectedClassName == 'Roublard' " >Archétype de Roublard : </span> 
-            <span class="bold" *ngIf=" this.selectedClassName == 'Sorcier' " >Protecteur d'outre-monde : </span>         
+            <span class="bold" *ngIf=" this.selectedClassName == 'Occultiste' " >Protecteur d'outre-monde : </span>         
         
             
          <select (change)="updateArchetype($event)" [(ngModel)]="this.selectedArchetype" >
+            <ng-container *ngIf=" this.selectedClassName == 'Artificier' ">
+                <option *ngFor="let archetype of artificierArchetypes" [ngValue]="archetype.id">{{archetype.name}}</option>
+            </ng-container>
             <ng-container *ngIf=" this.selectedClassName == 'Barbare' ">
                 <option *ngFor="let archetype of barbareArchetypes" [ngValue]="archetype.id">{{archetype.name}}</option>
             </ng-container>
@@ -76,7 +80,7 @@
             <ng-container *ngIf=" this.selectedClassName == 'Roublard' ">
                 <option *ngFor="let archetype of roublardArchetypes" [ngValue]="archetype.id">{{archetype.name}}</option>
             </ng-container>
-            <ng-container *ngIf=" this.selectedClassName == 'Sorcier' ">
+            <ng-container *ngIf=" this.selectedClassName == 'Occultiste' ">
                 <option *ngFor="let archetype of sorcierArchetypes" [ngValue]="archetype.id">{{archetype.name}}</option>
             </ng-container>
         </select>  
@@ -88,9 +92,9 @@
 
         <div class="col historique">
             <p id="historique">  
-                <button class="lockBtn" *ngIf=" this.backgroundLock == false" (click)="lockBackground()"> <span >🔓</span></button> 
-                <button class="lockBtn" *ngIf=" this.backgroundLock == true" (click)="lockBackground()"> <span >🔒</span></button>  
-                <button (click)="randomizeBackground()" class="randomizerButton" matTooltip="Info about the action" matTooltipPosition="above">🎲</button><span class="bold">Historique : </span>
+                <button class="lockBtn" *ngIf=" this.backgroundLock == false" (click)="lockBackground()" matTooltip="Verrouiller l'historique" matTooltipPosition="above"> <span >🔓</span></button> 
+                <button class="lockBtn" *ngIf=" this.backgroundLock == true" (click)="lockBackground()" matTooltip="Déverrouiller l'historique" matTooltipPosition="above"> <span >🔒</span></button>  
+                <button (click)="randomizeBackground()" class="randomizerButton" matTooltip="Historique aléatoire" matTooltipPosition="above">🎲</button><span class="bold">Historique : </span>
                 <select (change)="updateBackground($event)" [(ngModel)]="this.selectedBackground" >
                     <option *ngFor="let background of backgrounds" [ngValue]="background.id">{{background.name}}</option>
                 </select>  </p>
@@ -100,9 +104,9 @@
 
 <div class="col playerClass">
     <p id="playerClass"> 
-        <button class="lockBtn" *ngIf=" this.classLock == false" (click)="lockClass()"> <span >🔓</span></button> 
-        <button class="lockBtn" *ngIf=" this.classLock == true" (click)="lockClass()"> <span >🔒</span></button> 
-        <button (click)="randomizeClass()" class="randomizerButton">🎲</button><span class="bold">Classe : </span>  
+        <button class="lockBtn" *ngIf=" this.classLock == false" (click)="lockClass()" matTooltip="Verrouiller la classe" matTooltipPosition="above"> <span >🔓</span></button> 
+        <button class="lockBtn" *ngIf=" this.classLock == true" (click)="lockClass()" matTooltip="Déverrouiller la classe" matTooltipPosition="above"> <span >🔒</span></button> 
+        <button (click)="randomizeClass()" class="randomizerButton" matTooltip="Classe aléatoire" matTooltipPosition="above">🎲</button><span class="bold">Classe : </span>  
         <select  (change)="update($event)" [(ngModel)]="this.selectedClass" >
             <option *ngFor="let classe of classes" [ngValue]="classe.id">{{classe.name}}</option>
         </select>  </p>
@@ -112,9 +116,9 @@
     
 <div class="col race">
     <p id="race">        
-        <button class="lockBtn" *ngIf=" this.raceLock == false" (click)="lockRace()"> <span >🔓</span></button> 
-        <button class="lockBtn" *ngIf=" this.raceLock == true" (click)="lockRace()"> <span >🔒</span></button>  
-        <button (click)="randomizeRace()" class="randomizerButton">🎲</button><span class="bold">Race : </span> 
+        <button class="lockBtn" *ngIf=" this.raceLock == false" (click)="lockRace()" matTooltip="Verrouiller la race" matTooltipPosition="above"> <span >🔓</span></button> 
+        <button class="lockBtn" *ngIf=" this.raceLock == true" (click)="lockRace()" matTooltip="Déverrouiller la race" matTooltipPosition="above"> <span >🔒</span></button>  
+        <button (click)="randomizeRace()" class="randomizerButton" matTooltip="Race aléatoire" matTooltipPosition="above">🎲</button><span class="bold">Race : </span> 
         <select (change)="updateRace($event)" [(ngModel)]="this.selectedRace" >
             <option *ngFor="let race of races" [ngValue]="race.id">{{race.name}} </option>
         </select>  </p>
@@ -126,11 +130,11 @@
 <div class="col alignement">
     <p id="alignement"><span class="bold">Alignement : </span> 
         <select #alignment (change)="onSelected(alignment.value)">
-            <option default>Neutre</option>
             <option>Loyal Bon</option>
             <option>Neutre Bon</option>
             <option>Chaotique Bon</option>
             <option>Loyal Neutre</option>
+            <option default selected>Neutre</option>
             <option>Chaotique Neutre</option>
             <option>Loyal Mauvais</option>
             <option>Neutre Mauvais</option>
@@ -217,20 +221,20 @@
         
         <div id="aptitudes" >
 
-            <h2 class="title"> &#9998; Aptitudes</h2>
+            <h2 class="title"> Aptitudes</h2>
 <div class="bold featureTitle">Aptitudes de Classe et d'Archétype</div>
            
             <div id="features">
 <div id="featureList"> 
     <div *ngIf=" this.selectedArchetypeName == 'Fou de guerre' " style="color:rgb(189, 20, 8); font-weight: 700;" > Réservé aux Nains</div>
     <div *ngIf=" this.selectedClassName == 'Barbare'  ||  this.selectedClassName == 'Ensorceleur' ||  this.selectedClassName == 'Moine' 
-    ||  this.selectedClassName == 'Roublard' ||  this.selectedClassName == 'Sorcier'"> {{updateBonusSkill()}}</div>
-    <div *ngIf=" this.selectedClassName == 'Clerc' && this.updatedLevel()>1 " > <span class="bold">Canalisations d'énergie divine :</span>
+    ||  this.selectedClassName == 'Roublard' ||  this.selectedClassName == 'Occultiste' ||  this.selectedClassName == 'Artificier'"> {{updateBonusSkill()}}</div>
+    <div *ngIf=" this.selectedClassName == 'Clerc' && this.updatedLevel()>1 " > <span class="bold">Conduits divin :</span>
          Renvoi des morts-vivants<ng-container *ngIf=" this.clercCanalisationDivine  != '' && this.updatedLevel()>1">,  <span style="color:rgb(226, 96, 87)">{{this.clercCanalisationDivine}}</span> </ng-container>
         <ng-container *ngIf=" this.clercCanalisationDivine2  != '' && this.updatedLevel()>5">,  <span style="color:rgb(226, 96, 87)">{{this.clercCanalisationDivine2}}</span> </ng-container> </div>
     <!-- <div *ngIf=" this.selectedClassName == 'Clerc' "> Sorts de domaine : {{updateBonusSkill()}}</div> -->
 
-    <div *ngIf=" this.selectedClassName == 'Paladin' && this.updatedLevel()>2 " > <span class="bold">Canalisations d'énergie divine : </span> 
+    <div *ngIf=" this.selectedClassName == 'Paladin' && this.updatedLevel()>2 " > <span class="bold">Conduits divin : </span> 
         <span style="color:rgb(226, 96, 87)">{{this.paladinCanalisationDivine}}</span> </div>
 
     <div class="oddFeature" *ngIf="this.updatedLevel()>0">   {{this.classFeatureLevel1}}<ng-container *ngIf=" this.archetypeFeatureLevel1  != ''  && this.classFeatureLevel1 != '' ">, </ng-container> <span style="color:rgb(226, 96, 87)">{{this.archetypeFeatureLevel1}} </span>  </div>

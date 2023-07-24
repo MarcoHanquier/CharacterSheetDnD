@@ -4,7 +4,7 @@
     { "id": 2, "name": "Armure en cuir", "armorValue": 11, "armorType": "Armure légère", "minStrength" : 0},
     { "id": 3, "name": "Armure en cuir clouté", "armorValue": 12, "armorType": "Armure légère", "minStrength" : 0},
 
-    { "id": 4, "name": "Armure en peau", "armorValue": 12, "armorType": "Armure intermédiaire", "minStrength" : 0},
+    { "id": 4, "name": "Armure de peaux", "armorValue": 12, "armorType": "Armure intermédiaire", "minStrength" : 0},
     { "id": 5, "name": "Chemise de mailles", "armorValue": 13, "armorType": "Armure intermédiaire", "minStrength" : 0},
     { "id": 6, "name": "Armure en écailles", "armorValue": 14, "armorType": "Armure intermédiaire", "minStrength" : 0},
     { "id": 7, "name": "Cuirasse", "armorValue": 14, "armorType": "Armure intermédiaire", "minStrength" : 0},

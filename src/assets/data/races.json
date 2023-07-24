@@ -4,20 +4,20 @@
 "languages": "Commun et une au choix",
 "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
-{ "id": 1, "source": "Les Monstres du Multivers", "name": "Aarakocra", "speed": 9, "flyingSpeed": 9, "raceFeatures" : "Vol, Serres, Wind Caller", "caracteristics": "Dextérité +2, Sagesse +1", "languages": "Aarakocra, Auran et Commun", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 1, "source": "Les Monstres du Multivers", "name": "Aarakocre", "speed": 9, "flyingSpeed": 9, "raceFeatures" : "Vol, Serres, Messager du vent", "caracteristics": "Dextérité +2, Sagesse +1", "languages": "Aarakocre, Aérien et Commun", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
-{ "id": 2, "source": "Les Monstres du Multivers", "name": "Aasimar (D&D)", "speed": 9, "raceFeatures" : "Résistance céleste, Vision dans le noir, Mains guérisseuses, Porteur de lumière, Révélation céleste", "caracteristics": "Force +2, Charisme +1", "languages": "Commun, Céleste", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 2, "source": "Les Monstres du Multivers", "name": "Aasimar (D&D)", "speed": 9, "raceFeatures" : "Résistance céleste, Vision dans le noir, Mains guérisseuses, Porte-lumière, Révélation céleste", "caracteristics": "Force +2, Charisme +1", "languages": "Commun, Céleste", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
 { "id": 3, "source": "Héros & Dragons", "name": "Aasimar (H&D)", "speed": 9, "raceFeatures" : "Vision dans le noir, Aura céleste (caractéristique d'incantation : Charisme), Résistance céleste",  
 "caracteristics": "Charisme +2, Sagesse +1",
 "languages": "Commun, Céleste",
 "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
    
-{ "id": 4, "source": "Les Monstres du Multivers", "name": "Centaure", "speed": 12, "raceFeatures" : "Charge, Equine build, Hooves, Natural affinity", "caracteristics": "Force +2, Sagesse +1", "languages": "Commun et Sylvan", "raceSkillMasteries": "Dressage, Médecine, Nature ou Survie", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 4, "source": "Les Monstres du Multivers", "name": "Centaure", "speed": 9, "raceFeatures" : "Charge, Carrure chevaline, Sabots, Affinité avec la nature", "caracteristics": "Force +2, Sagesse +1", "languages": "Commun et Sylvestre", "raceSkillMasteries": "Dressage, Médecine, Nature ou Survie", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
-{ "id": 5, "source": "Les Monstres du Multivers", "name": "Changeling", "speed": 9, "raceFeatures" : "Changeling instincts, Shapechanger", "caracteristics": "", "languages": "Commun et deux au choix", "raceSkillMasteries": "Deux parmi Perspicacité, Intimidation, Représentation, Persuasion et Supercherie", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 5, "source": "Les Monstres du Multivers", "name": "Changelin", "speed": 9, "raceFeatures" : "Instinct changelin, Métamorphe", "caracteristics": "", "languages": "Commun et deux au choix", "raceSkillMasteries": "Deux parmi Intuition, Intimidation, Représentation, Persuasion et Tromperie", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
-{ "id": 6, "source": "Les Monstres du Multivers", "name": "Conil", "speed": 9, "raceFeatures" : "Hare-trigger, Leporine senses, Lucky footwork, Rabbit hop", "caracteristics": "", "languages": "Commun et Sylvan", "raceSkillMasteries": "Perception", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 6, "source": "Les Monstres du Multivers", "name": "Conil", "speed": 9, "raceFeatures" : "Comme un lièvre, Gambades heureuses, Saut de lapin, Sens léoporides", "caracteristics": "", "languages": "Commun et Sylvestre", "raceSkillMasteries": "Perception", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
     { "id": 7, "source": "Manuel des Joueurs", "name": "Demi-elfe", "speed": 9,"raceFeatures" : "Vision dans le noir, Ascendance féerique, Polyvalence", 
     "caracteristics": "Charisme +2, deux autres caractéristiques +1",
@@ -39,142 +39,164 @@
 "languages": "Orc",
 "raceSkillMasteries": "Intimidation", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
-{ "id": 11, "source": "Le guide de Van Richten sur Ravenloft", "name": "Dhampire", "speed": 10, "raceFeatures" : "Ancestral legacy, Vision dans le noir, Deathless nature, Spider climb, Vampiric bite", "caracteristics": "", "languages": "Commun et une au choix, ou conservez vos langues si vous remplacez une race", "raceSkillMasteries": "Si vous remplacez une race avec ce lignage, vous gardez vos maîtrises et vitesses. Sinon, 2 compétences de votre choix.", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 11, "source": "Le guide de Van Richten sur Ravenloft", "name": "Dhampire", "speed": 10.5, "raceFeatures" : "Affinité avec le trépas, Héritage ancestral, Morsure vampirique, Pattes d'araignée, Vision dans le noir", "caracteristics": "", "languages": "Commun et une au choix, ou conservez vos langues si vous remplacez une race", "raceSkillMasteries": "Si vous remplacez une race avec ce lignage, vous gardez vos maîtrises et vitesses. Sinon, 2 compétences de votre choix.", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
+{ "id": 12, "source": "Manuel des Joueurs", "name": "Drakéide", "speed": 9, "raceFeatures" : "Ascendance, Souffle, Résistance aux dégâts (selon l'Ascendance)",  
+"caracteristics": "Force +2, Charisme +1",
+"languages": "Commun, Draconique",
+"raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
-{ "id": 12, "source": "Manuel des Joueurs", "name": "Drow", "speed": 9, "raceFeatures" : "Vision dans le noir supérieure, Sensibilité à la lumière du soleil, Magie drow, Sens aiguisés, Ascendance féerique, Transe",  
+{ "id": 13, "source": "Manuel des Joueurs", "name": "Drakéide chromatique", "speed": 9, "raceFeatures" : "Ascendance chromatique, Souffle, Résistance du dragon (selon l'Ascendance), Egide chromatique",  
+"caracteristics": "Force +2, Charisme +1",
+"languages": "Commun et une au choix",
+"raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+
+{ "id": 14, "source": "Manuel des Joueurs", "name": "Drakéide diamantin", "speed": 9, "raceFeatures" : "Ascendance diamantine, Souffle, Résistance du dragon (selon l'Ascendance), Esprit psionique, Vol diamantin",  
+"caracteristics": "Force +2, Charisme +1",
+"languages": "Commun et une au choix",
+"raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+
+{ "id": 15, "source": "Manuel des Joueurs", "name": "Drakéide métallique", "speed": 9, "raceFeatures" : "Ascendance métallique, Souffle, Résistance du dragon (selon l'Ascendance), Souffle métallique (Souffle neutralisant, Souffle répulsif)",  
+"caracteristics": "Force +2, Charisme +1",
+"languages": "Commun et une au choix",
+"raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+
+{ "id": 16, "source": "Manuel des Joueurs", "name": "Drow", "speed": 9, "raceFeatures" : "Vision dans le noir supérieure, Sensibilité au soleil, Magie drow, Sens aiguisés, Ascendance féerique, Transe",  
 "caracteristics": "Dextérité +2, Charisme +1",
 "languages": "Elfe",
 "raceSkillMasteries": "Perception", "raceWeaponMasteries": "Rapières, épées courtes et arbalètes de poing", "raceToolMasteries" : ""},
 
-{ "id": 13, "source": "Les Monstres du Multivers", "name": "Duergar", "speed": 9, "raceFeatures" : "Vision dans le noir, Duergar magic, Dwarven resistance, Psionic fortitude", "caracteristics": "Constitution +2, Force +1", "languages": "Commun, Nain, Commun des profondeurs", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 17, "source": "Les Monstres du Multivers", "name": "Duergar", "speed": 9, "raceFeatures" : "Vision dans le noir, Magie duergar, Résistance naine, Vigueur psioniques", "caracteristics": "Constitution +2, Force +1", "languages": "Commun, Nain, Commun des profondeurs", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
     
-{ "id": 14, "source": "Les Monstres du Multivers", "name": "Eladrin", "speed": 9, "raceFeatures" : "Fey ancestry, Fey step (Automne, Hiver, Printemps ou Eté), Keen senses, Trance", "caracteristics": "Dextérité +2, Charisme +1", "languages": "Elfe", "raceSkillMasteries": "Perception", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
-{ "id": 15, "source": "Les Monstres du Multivers", "name": "Elfe des mers", "speed": 9, "swimmingSpeed": 9, "raceFeatures" : "Child of the sea, Vision dans le noir, Fey ancestry, Friend of the sea, Keen senses, Trance", "caracteristics": "Dextérité +2, Constitution +1", "languages": "Aquan", "raceSkillMasteries": "Perception", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 18, "source": "Les Monstres du Multivers", "name": "Éladrin", "speed": 9, "raceFeatures" : "Ascendance féerique, Foulée féérique (Automne, Hiver, Printemps ou Eté), Sens aiguisés, Transe", "caracteristics": "Dextérité +2, Charisme +1", "languages": "Elfe", "raceSkillMasteries": "Perception", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 19, "source": "Les Monstres du Multivers", "name": "Elfe des mers", "speed": 9, "swimmingSpeed": 9, "raceFeatures" : "Allié des mers, Ascendance féérique, Enfant des mers, Sens aiguisés, Transe, Vision dans le noir", "caracteristics": "Dextérité +2, Constitution +1", "languages": "Elfe", "raceSkillMasteries": "Perception", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
 
-{ "id": 16, "source": "Manuel des Joueurs", "name": "Elfe Sylvestre", "speed": 9, "raceFeatures" : "Vision dans le noir, Sens aiguisés, Ascendance féerique, Transe, Pied léger, Cachette naturelle",  
+{ "id": 20, "source": "Manuel des Joueurs", "name": "Elfe Sylvestre", "speed": 9, "raceFeatures" : "Vision dans le noir, Sens aiguisés, Ascendance féerique, Transe, Foulée légère, Cachette naturelle",  
 "caracteristics": "Dextérité +2, Sagesse +1",
 "languages": "Elfe",
 "raceSkillMasteries": "Perception", "raceWeaponMasteries": "Epées courtes, épées longues, arcs courts et arcs longs", "raceToolMasteries" : ""},
 
-{ "id": 17, "source": "Les Monstres du Multivers", "name": "Fadette", "speed": 9, "flyingSpeed": 9, "raceFeatures" : "Fairy magic, Vol", "caracteristics": "", "languages": "Commun et une au choix", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 21, "source": "Les Monstres du Multivers", "name": "Fadette", "speed": 9, "flyingSpeed": 9, "raceFeatures" : "Magie des fadettes, Vol", "caracteristics": "", "languages": "Commun et une au choix", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
 
-{ "id": 18, "source": "Héros & Dragons", "name": "Félys", "speed": 12, "raceFeatures" : "Vision dans le noir, Sixième sens, Agilité féline, Griffes du fauve, Toujours sur ses pattes, Difficile à croire",  
+{ "id": 22, "source": "Héros & Dragons", "name": "Félys", "speed": 12, "raceFeatures" : "Vision dans le noir, Sixième sens, Agilité féline, Griffes du fauve, Toujours sur ses pattes, Difficile à croire",  
 "caracteristics": "Dextérité +2, Sagesse +1",
 "languages": "Commun et une au choix",
 "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
     
-{ "id": 19, "source": "Les Monstres du Multivers", "name": "Féral", "speed": 9, "raceFeatures" : "Bestial instincts, Vision dans le noir, Shifting (Beasthide, Longtooth, Swiftstride, Wildhunt)", "caracteristics": "", "languages": "Commun", "raceSkillMasteries": "Acrobatie, Athlétisme, Intimidation ou Survie", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
-{ "id": 20, "source": "Les Monstres du Multivers", "name": "Firbolg", "speed": 9, "raceFeatures" : "Firbolg magic, Hidden step, Powerful build, Speech of beast and leaf", "caracteristics": "Sagesse +2, Force +1", "languages": "Commun, Elfe et Géant", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 23, "source": "Les Monstres du Multivers", "name": "Féral", "speed": 9, "raceFeatures" : "Férocité (Foulée vive, Longues dents, Peau de bête, Traque sauvage), Instinct bestial, Vision dans le noir", "caracteristics": "", "languages": "Commun", "raceSkillMasteries": "Acrobatie, Athlétisme, Intimidation ou Survie", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
-{ "id": 21, "source": "Eberron: Rising from the Last War", "name": "Forgelier", "speed": 9, "raceFeatures" : "Constructed Resilience, Sentry's rest, Integrated Protection, Specialized design", "caracteristics": "Constitution +2, une autre +1", "languages": "Commun et une au choix", "raceSkillMasteries": "Une compétence de votre choix, un outil de votre choix", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 24, "source": "Le guide de Van Richten sur Ravenloft", "name": "Fielsang", "speed": 9, "raceFeatures" : "Gage irréel (Message télépathique, Observation à distance), Héritage ancestral, Magie de fielsang, Vision dans le noir", "caracteristics": "", "languages": "Commun et une au choix, ou conservez vos langues si vous remplacez une race", "raceSkillMasteries": "Si vous remplacez une race avec ce lignage, vous gardez vos maîtrises et vitesses. Sinon, 2 compétences de votre choix.", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
-{ "id": 22, "source": "Les Monstres du Multivers", "name": "Génasi de l'air", "speed": 10, "raceFeatures" : "Vision dans le noir, Unending breath, Lightning resistance, Mingle with the wind", "caracteristics": "Constitution +2, Dextérité +1", "languages": "Commun et primordial", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
-{ "id": 23, "source": "Les Monstres du Multivers", "name": "Génasi de l'eau", "speed": 9, "raceFeatures" : "Acid resistance, Amphibious, Call to the wave, Vision dans le noir", "caracteristics": "Constitution +2, Sagesse +1", "languages": "Commun et primordial", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
-{ "id": 24, "source": "Les Monstres du Multivers", "name": "Génasi de la terre", "speed": 9, "raceFeatures" : "Vision dans le noir, Earth walk, Merge with stone", "caracteristics": "Constitution +2, Force +1", "languages": "Commun et primordial", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
-{ "id": 25, "source": "Les Monstres du Multivers", "name": "Génasi du feu", "speed": 9, "raceFeatures" : "Vision dans le noir, Fire resistance, Reach to the blaze", "caracteristics": "Constitution +2, Intelligence +1", "languages": "Commun et primordial", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 25, "source": "Les Monstres du Multivers", "name": "Firbolg", "speed": 9, "raceFeatures" : "Forte carrure, Foulée cachée, Langage des bêtes et des feuilles, Magie firbolg", "caracteristics": "Sagesse +2, Force +1", "languages": "Commun, Elfe et Géant", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
-{ "id": 26, "source": "Les Monstres du Multivers", "name": "Githyanki", "speed": 9, "raceFeatures" : "Astral knowledge, Githyanki psionics, Psychic resilience", "caracteristics": "Force +2, Intelligence +1", "languages": "Commun et Gith", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
-{ "id": 27, "source": "Les Monstres du Multivers", "name": "Githzerai", "speed": 9, "raceFeatures" : "Githzerai psionics, Mental discipline, Psychic resilience", "caracteristics": "Sagesse +2, Intelligence +1", "languages": "Commun et Gith", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 26, "source": "Eberron: Rising from the Last War", "name": "Forgelier", "speed": 9, "raceFeatures" : "Constructed Resilience, Sentry's rest, Integrated Protection, Specialized design", "caracteristics": "Constitution +2, une autre +1", "languages": "Commun et une au choix", "raceSkillMasteries": "Une compétence de votre choix, un outil de votre choix", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
- { "id": 28, "source": "Manuel des Joueurs", "name": "Gnome des forêts", "speed": 7.5, "raceFeatures" : "Vision dans le noir, Ruse gnome, Illusioniste-né, Communication avec les petits animaux",  
-    "caracteristics": "Intelligence +2",
+{ "id": 27, "source": "Les Monstres du Multivers", "name": "Génasi d'air", "speed": 10.5, "raceFeatures" : "Danse avec les vents, Résistance à la foudre, Souffle intérieur, Vision dans le noir", "caracteristics": "Constitution +2, Dextérité +1", "languages": "Commun et primordial", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 28, "source": "Les Monstres du Multivers", "name": "Génasi d'eau", "speed": 9, "raceFeatures" : "Amphibie, Appel de la vague, Résistance à l'acide, Vision dans le noir", "caracteristics": "Constitution +2, Sagesse +1", "languages": "Commun et primordial", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 29, "source": "Les Monstres du Multivers", "name": "Génasi de terre", "speed": 9, "raceFeatures" : "Foulée tellurienne, Fusion avec la pierre, Vision dans le noir", "caracteristics": "Constitution +2, Force +1", "languages": "Commun et primordial", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 30, "source": "Les Monstres du Multivers", "name": "Génasi de feu", "speed": 9, "raceFeatures" : "Flambée innée, Résistance au feu, Vision dans le noir", "caracteristics": "Constitution +2, Intelligence +1", "languages": "Commun et primordial", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+
+{ "id": 31, "source": "Les Monstres du Multivers", "name": "Githyanki", "speed": 9, "raceFeatures" : "Psioniques githyanki, Résilience psychique, Savoir astral", "caracteristics": "Force +2, Intelligence +1", "languages": "Commun et Gith", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 32, "source": "Les Monstres du Multivers", "name": "Githzeraï", "speed": 9, "raceFeatures" : "Discipline mentale, Psioniques githzeraï, Résilience psychique", "caracteristics": "Sagesse +2, Intelligence +1", "languages": "Commun et Gith", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+
+ { "id": 33, "source": "Manuel des Joueurs", "name": "Gnome des forêts", "speed": 7.5, "raceFeatures" : "Vision dans le noir, Ruse gnome, Illusioniste-né, Communication avec les petits animaux",  
+    "caracteristics": "Intelligence +2, Dextérité +1",
 "languages": "Gnome",
 "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
-{ "id": 29, "source": "Les Monstres du Multivers", "name": "Gnome des profondeurs", "speed": 9, "raceFeatures" : "Vision dans le noir, Gift of the Svirfneblin, Gnomish magic resistance, Svirfneblin camouflage", "caracteristics": "Intelligence +2, Dextérité +1", "languages": "Gnome, Commun des profondeurs", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 34, "source": "Les Monstres du Multivers", "name": "Gnome des profondeurs", "speed": 9, "raceFeatures" : "Camouflage svirfneblin, Faveur svirfnebline, Résistance gnome à la magie, Vision dans le noir", "caracteristics": "Intelligence +2, Dextérité +1", "languages": "Gnome, Commun des profondeurs", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
 
-{ "id": 30, "source": "Manuel des Joueurs", "name": "Gnome des roches", "speed": 7.5, "raceFeatures" : "Vision dans le noir, Ruse gnome, Connaissances en ingénierie, Bricoleur",  
+{ "id": 35, "source": "Manuel des Joueurs", "name": "Gnome des roches", "speed": 7.5, "raceFeatures" : "Vision dans le noir, Ruse gnome, Connaissances en ingénierie, Bricoleur",  
 "caracteristics": "Intelligence +2, Constitution +1",
 "languages": "Gnome",
 "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : "Outils de bricoleur"},
     
 
-{ "id": 31, "source": "Les Monstres du Multivers", "name": "Gobelin", "speed": 9, "raceFeatures" : "Vision dans le noir, Fey ancestry, Fury of the small, Nimble escape", "caracteristics": "Dexérité +2, Constitution +1", "languages": "Commun et Gobelin", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
-{ "id": 32, "source": "Les Monstres du Multivers", "name": "Gobelours", "speed": 9, "raceFeatures" : "Vision dans le noir, Fey ancestry, Long-limbed, Powerful build, Sneaky, Surprise attack", "caracteristics": "Force +2, Dextérité +1", "languages": "Commun et Gobelin", "raceSkillMasteries": "Discrétion", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
-{ "id": 33, "source": "Les Monstres du Multivers", "name": "Goliath", "speed": 9, "raceFeatures" : "Little giant, Mountain born, Stone's endurance", "caracteristics": "Force +2, Constitution +1", "languages": "Commun et Géant", "raceSkillMasteries": "Athlétisme", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 36, "source": "Les Monstres du Multivers", "name": "Gobelin", "speed": 9, "raceFeatures" : "Ascendance féérique, Fuite agile, Vengeance des petits, Vision dans le noir", "caracteristics": "Dexérité +2, Constitution +1", "languages": "Commun et Gobelin", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 37, "source": "Les Monstres du Multivers", "name": "Gobelours", "speed": 9, "raceFeatures" : "Attaque surprise, Forte carrure, Furtif, Grands bras, Vision dans le noir", "caracteristics": "Force +2, Dextérité +1", "languages": "Commun et Gobelin", "raceSkillMasteries": "Discrétion", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 38, "source": "Les Monstres du Multivers", "name": "Goliath", "speed": 9, "raceFeatures" : "Endurance de la pierre, Montagnard, Petit géant", "caracteristics": "Force +2, Constitution +1", "languages": "Commun et Géant", "raceSkillMasteries": "Athlétisme", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
 
 
-    { "id": 34, "source": "Manuel des Joueurs", "name": "Halfelin Pied-Léger", "speed": 7.5, "raceFeatures" : "Chanceux, Brave, Agilité halfeline, Discrétion naturelle",  
+{ "id": 39, "source": "Manuel des Joueurs", "name": "Halfelin Pied-Léger", "speed": 7.5, "raceFeatures" : "Chanceux, Brave, Agilité halfeline, Discrétion naturelle",  
     "caracteristics": "Dextérité +2, Charisme +1",
 "languages": "Halfelin",
 "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
     
-{ "id": 35, "source": "Manuel des Joueurs", "name": "Halfelin Robuste", "speed": 7.5, "raceFeatures" : "Chanceux, Brave, Agilité halfeline, Résilience des robustes",  
+{ "id": 40, "source": "Manuel des Joueurs", "name": "Halfelin Robuste", "speed": 7.5, "raceFeatures" : "Chanceux, Brave, Agilité halfeline, Résilience des robustes",  
 "caracteristics": "Dextérité +2, Constitution +1",
 "languages": "Halfelin",
 "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
-{ "id": 36, "source": "Manuel des Joueurs", "name": "Haut-Elfe", "speed": 9, "raceFeatures" : "Vision dans le noir, Sens aiguisés, Ascendance féerique, Transe, Tour de magie",  
+{ "id": 41, "source": "Manuel des Joueurs", "name": "Haut-Elfe", "speed": 9, "raceFeatures" : "Vision dans le noir, Sens aiguisés, Ascendance féerique, Transe, Sort mineur",  
 "caracteristics": "Dextérité +2, Intelligence +1",
 "languages": "Elfe et une au choix",
 "raceSkillMasteries": "Perception", "raceWeaponMasteries": "Epées courtes, épées longues, arcs courts et arcs longs", "raceToolMasteries" : ""},
 
-{ "id": 37, "source": "Strixhaven", "name": "Hiboulin", "speed": 9, "flyingSpeed": 9, "raceFeatures" : "Vision dans le noir, Vol, Silent Feathers", "caracteristics": "", "languages": "Commun et une au choix", "raceSkillMasteries": "Discrétion", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 42, "source": "Strixhaven", "name": "Hiboulin", "speed": 9, "flyingSpeed": 9, "raceFeatures" : "Vision dans le noir, Vol, Silent Feathers", "caracteristics": "", "languages": "Commun et une au choix", "raceSkillMasteries": "Discrétion", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
 
-{ "id": 38, "source": "Les Monstres du Multivers", "name": "Hobgobelin", "speed": 9, "raceFeatures" : "Vision dans le noir, Fey ancestry, Fey gift", "caracteristics": "Constitution +2, Intelligence +1", "languages": "Commun et Gobelin", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 43, "source": "Les Monstres du Multivers", "name": "Hobgobelin", "speed": 9, "raceFeatures" : "Ascendance féerique, Faveur féerique (Hargne, Hospitalité, Passage), Fortune du nombre, Vision dans le noir", "caracteristics": "Constitution +2, Intelligence +1", "languages": "Commun et Gobelin", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
 
-{ "id": 39, "source": "Les Monstres du Multivers", "name": "Homme-Lézard", "speed": 9, "swimmingSpeed": 9, "raceFeatures" : "Bite, Hold breath, Hungry jaws, Natural armor, Nature's intuition", "caracteristics": "Constitution +2, Sagesse +1", "languages": "Commun et Draconique", "raceSkillMasteries": "Deux parmi Dressage, Médecine, Nature, Perception, Discrétion et Survie", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
 
-{ "id": 40, "source": "Héros & Dragons", "name": "Homme-serpent", "speed": 9, "raceFeatures" : "Vision dans le noir, Métamorphe, Hypnose, Regard dérangeant, Sang froid",  
+{ "id": 44, "source": "Héros & Dragons", "name": "Homme-serpent", "speed": 9, "raceFeatures" : "Vision dans le noir, Métamorphe, Hypnose, Regard dérangeant, Sang froid",  
 "caracteristics": "Sagesse +2, Charisme +1",
 "languages": "Commun, Sseslish",
 "raceSkillMasteries": "Intimidation ou Persuasion", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
 
 
-{ "id": 41, "source": "Les Monstres du Multivers", "name": "Kenku", "speed": 9, "raceFeatures" : "Expert duplication, Kenku recall, Mimicry", "caracteristics": "Dextérité +2, Sagesse +1", "languages": "Aauran et Commun", "raceSkillMasteries": "Deux compétences de votre choix", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
-{ "id": 42, "source": "Les Monstres du Multivers", "name": "Kobold", "speed": 9, "raceFeatures" : "Vision dans le noir, Draconic cry, Kobold legacy (Craftiness, Defiance, Draconic sorcery)", "caracteristics": "Dextérité +2, Force -2", "languages": "Commun et Draconique", "raceSkillMasteries": "Si Craftiness : Arcane, Investigation, Médecine, Survie ou Escamotage", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
-{ "id": 43, "source": "Les Monstres du Multivers", "name": "Minotaure", "speed": 9, "raceFeatures" : "Horns, Goring rush, Hammering horns, Labyrinthine recall", "caracteristics": "Force +2, Constitution +1", "languages": "Commun et Minotaure", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 45, "source": "Les Monstres du Multivers", "name": "Kenku", "speed": 9, "raceFeatures" : "Imitation, Maitre copiste, Mémoire kenku", "caracteristics": "Dextérité +2, Sagesse +1", "languages": "Aauran et Commun", "raceSkillMasteries": "Deux compétences de votre choix", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 46, "source": "Les Monstres du Multivers", "name": "Kobold", "speed": 9, "raceFeatures" : "Cri draconique, Héritage kobold (Bravade, Habileté, Sorcellerie draconique), Vision dans le noir", "caracteristics": "Dextérité +2, Force -2", "languages": "Commun et Draconique", "raceSkillMasteries": "Si Craftiness : Arcane, Investigation, Médecine, Survie ou Escamotage", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 47, "source": "Les Monstres du Multivers", "name": "Minotaure", "speed": 9, "raceFeatures" : "Boutoir, Cornes, Encornade, Mémoire des labyrinthes", "caracteristics": "Force +2, Constitution +1", "languages": "Commun et Minotaure", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
 
 
-    { "id": 44, "source": "Manuel des Joueurs", "name": "Nain des collines", "speed": 7.5, "raceFeatures" : "Vision dans le noir, Résistance naine, Connaissance de la pierre, Ténacité naine(+1pv/niveau)",  
+{ "id": 48, "source": "Manuel des Joueurs", "name": "Nain des collines", "speed": 7.5, "raceFeatures" : "Vision dans le noir, Résistance naine, Connaissance de la pierre, Ténacité naine(+1pv/niveau)",  
     "caracteristics": "Constitution +2, Sagesse +1",
 "languages": "Commun, Nain",
 "raceSkillMasteries": "", "raceWeaponMasteries": "Haches de guerre, hachettes, marteaux légers et marteaux de guerre", "raceToolMasteries" : "outils d'un artisanat de votre choix parmi : outils de forgeron, matériel de brasseur, outils de maçon"},
 
-{ "id": 45, "source": "Manuel des Joueurs", "name": "Nain des montagnes", "speed": 7.5, "raceFeatures" : "Vision dans le noir, Résistance naine, Connaissance de la pierre, Formation au port des armures naines (maîtrise armures légères et intermédiaires)",  
+{ "id": 49, "source": "Manuel des Joueurs", "name": "Nain des montagnes", "speed": 7.5, "raceFeatures" : "Vision dans le noir, Résistance naine, Connaissance de la pierre, Formation au port des armures naines (maîtrise armures légères et intermédiaires)",  
 "caracteristics": "Constitution +2, Force +2",
 "languages": "Commun, Nain",
 "raceSkillMasteries": "", "raceWeaponMasteries": "Haches de guerre, hachettes, marteaux légers et marteaux de guerre", "raceToolMasteries" : "Maîtrise des armures légères et intermédiaires, outils d'un artisanat de votre choix parmi : outils de forgeron, matériel de brasseur, outils de maçon"},
 
     
-{ "id": 46, "source": "Les Monstres du Multivers", "name": "Orc", "speed": 9, "raceFeatures" : "Adrenaline rush, Vision dans le noir, Powerful build, Relentless endurance", "caracteristics": "Force +2, Constitution +1", "languages": "Commun et Orc", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 50, "source": "Les Monstres du Multivers", "name": "Orc", "speed": 9, "raceFeatures" : "Acharnement, Forte carrure, Poussée d'adrénaline, Vision dans le noir", "caracteristics": "Force +2, Constitution +1", "languages": "Commun et Orc", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
-{ "id": 47, "source": "Le guide de Van Richten sur Ravenloft", "name": "Ressuscité", "speed": 9, "raceFeatures" : "Ancestral legacy, Deathless nature, Knowledge from a past life", "caracteristics": "", "languages": "Commun et une au choix, ou conservez vos langues si vous remplacez une race", "raceSkillMasteries": "Si vous remplacez une race avec ce lignage, vous gardez vos maîtrises et vitesses. Sinon, 2 compétences de votre choix."},
-{ "id": 48, "source": "Le guide de Van Richten sur Ravenloft", "name": "Sang Maudit", "speed": 9, "raceFeatures" : "Ancestral legacy, Vision dans le noir, Eerie Token (Telepathic message, Remote viewing, Hex magic)", "caracteristics": "", "languages": "Commun et une au choix, ou conservez vos langues si vous remplacez une race", "raceSkillMasteries": "Si vous remplacez une race avec ce lignage, vous gardez vos maîtrises et vitesses. Sinon, 2 compétences de votre choix.", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
-    
-{ "id": 49, "source": "Manuel des Joueurs", "name": "Sangdragon", "speed": 9, "raceFeatures" : "Ascendance, Souffle, Résistance aux dégâts (selon l'Ascendance)",  
-"caracteristics": "Force +2, Charisme +1",
-"languages": "Commun, Draconique",
-"raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
-    
-{ "id": 50, "source": "Les Monstres du Multivers", "name": "Satyre", "speed": 10, "raceFeatures" : "Ram, Magic resistance, Mirthful leaps, Reveler", "caracteristics": "Charisme +2, Dextérité +1", "languages": "Commun et Sylvan", "raceSkillMasteries": "Performance et Persuasion", "raceWeaponMasteries": "", "raceToolMasteries" : "Un instrument au choix"},
+{ "id": 51, "source": "Le guide de Van Richten sur Ravenloft", "name": "Ressuscité", "speed": 9, "raceFeatures" : "Affinité avec le trépas, Héritage ancestral, Savoir d'une vie antérieure", "caracteristics": "", "languages": "Commun et une au choix, ou conservez vos langues si vous remplacez une race", "raceSkillMasteries": "Si vous remplacez une race avec ce lignage, vous gardez vos maîtrises et vitesses. Sinon, 2 compétences de votre choix."},
 
-{ "id": 51, "source": "Les Monstres du Multivers", "name": "Shadar Kai", "speed": 9, "raceFeatures" : "Blessing of the Raven Queen, Vision dans le noir, Fey ancestry, Keen senses, Necrotic resistance, Trance", "caracteristics": "Dextérité +2, Constitution +1", "languages": "Elfe", "raceSkillMasteries": "Perception", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
-    
 
-{ "id": 52, "source": "Les Monstres du Multivers", "name": "Tabaxi", "speed": 9,"climbingSpeed": 9, "raceFeatures" : "Cat's claws, Cat's talent, Vision dans le noir, Feline agility", "caracteristics": "Dextérité +2, Charisme +1", "languages": "Commun et une au choix", "raceSkillMasteries": "Perception, Discrétion", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
-    
 
     
-    { "id": 53, "source": "Manuel des Joueurs", "name": "Tieffelin", "speed": 9, "raceFeatures" : "Vision dans le noir, Résistance infernale, Ascendance infernale (caractéristique d'incantation : Charisme)",  
+{ "id": 52, "source": "Les Monstres du Multivers", "name": "Satyre", "speed": 10.5, "raceFeatures" : "Cabrioles, Coup de bélier, Noceur, Résistance à la magie", "caracteristics": "Charisme +2, Dextérité +1", "languages": "Commun et Sylvestre", "raceSkillMasteries": "Performance et Persuasion", "raceWeaponMasteries": "", "raceToolMasteries" : "Un instrument au choix"},
+
+{ "id": 53, "source": "Les Monstres du Multivers", "name": "Saurial", "speed": 9, "swimmingSpeed": 9, "raceFeatures" : "Armure naturelle, Intuition de la nature, Mâchoires avides, Morsure", "caracteristics": "Constitution +2, Sagesse +1", "languages": "Commun et Draconique", "raceSkillMasteries": "Deux parmi Dressage, Médecine, Nature, Perception, Discrétion et Survie", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+
+
+
+{ "id": 54, "source": "Les Monstres du Multivers", "name": "Shadar-Kaï", "speed": 9, "raceFeatures" : "Ascendance féerique, Faveur de la Reine Corbeau, Résistance nécrotique, Sens aiguisés, Transe, Vision dans le noir", "caracteristics": "Dextérité +2, Constitution +1", "languages": "Elfe", "raceSkillMasteries": "Perception", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+    
+
+{ "id": 55, "source": "Les Monstres du Multivers", "name": "Tabaxi", "speed": 9,"climbingSpeed": 9, "raceFeatures" : "Agilité féline, Griffes félines, Talent du félin, Vision dans le noir", "caracteristics": "Dextérité +2, Charisme +1", "languages": "Commun et une au choix", "raceSkillMasteries": "Perception, Discrétion", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+    
+
+    
+    { "id": 56, "source": "Manuel des Joueurs", "name": "Tieffelin", "speed": 9, "raceFeatures" : "Vision dans le noir, Résistance infernale, Ascendance infernale (caractéristique d'incantation : Charisme)",  
     "caracteristics": "Charisme +2, Intelligence +1",
 "languages": "Commun, Infernal",
 "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
 
-{ "id": 54, "source": "Les Monstres du Multivers", "name": "Tortle", "speed": 9, "raceFeatures" : "Claws, Hold breath, Natural Armor, Nature's intuition, Shell defense", "caracteristics": "Force +2, Sagesse +1", "languages": "Aquan et Commun", "raceSkillMasteries": "Dressage, Médecine, Nature, Perception, Discrétion ou Survie", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
-{ "id": 55, "source": "Les Monstres du Multivers", "name": "Triton", "speed": 9, "swimmingSpeed": 9, "raceFeatures" : "Amphibious, Control air and water, Vision dans le noir, Emissary of the sea, Guardian of the Depths", "caracteristics": "Force +1, Constitution +1, Charisme +1", "languages": "Commun et Primordial", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
-{ "id": 56, "source": "Les Monstres du Multivers", "name": "Yuan-ti", "speed": 9, "raceFeatures" : "Vision dans le noir, Magic resistance, Poison resilience, Serpentine Spellcasting", "caracteristics": "Charisme +2, Intelligence +1", "languages": "Commun, Abyssal et Draconique", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""}
+{ "id": 57, "source": "Les Monstres du Multivers", "name": "Torte", "speed": 9, "raceFeatures" : "Apnée, Armure naturelle, Carapace défensive, Griffes, Intuition de la nature", "caracteristics": "Force +2, Sagesse +1", "languages": "Aquan et Commun", "raceSkillMasteries": "Dressage, Médecine, Nature, Perception, Discrétion ou Survie", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 58, "source": "Les Monstres du Multivers", "name": "Triton", "speed": 9, "swimmingSpeed": 9, "raceFeatures" : "Amphibie, Contrôle de l'air et de l'eau, Émissaire des mers, Gardien des profondeurs, Vision dans le noir", "caracteristics": "Force +1, Constitution +1, Charisme +1", "languages": "Commun et Primordial", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""},
+{ "id": 59, "source": "Les Monstres du Multivers", "name": "Yuan-ti", "speed": 9, "raceFeatures" : "Magie ophidienne, Résilience au poison, Résistance à la magie, Vision dans le noir", "caracteristics": "Charisme +2, Intelligence +1", "languages": "Commun, Abyssal et Draconique", "raceSkillMasteries": "", "raceWeaponMasteries": "", "raceToolMasteries" : ""}
 
 
 ]

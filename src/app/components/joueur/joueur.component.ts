@@ -26,6 +26,7 @@ export class JoueurComponent implements OnInit, AfterViewInit {
   public masteries = [] as any[];
 
   public classes = [] as any[];
+  public artificierArchetypes = [] as any[];
   public barbareArchetypes = [] as any[];
   public bardeArchetypes = [] as any[];
   public clercArchetypes = [] as any[];
@@ -45,7 +46,7 @@ export class JoueurComponent implements OnInit, AfterViewInit {
 
 
 public selectedArchetype = 0;;
-public selectedArchetypeName = "Voie du Berserker";
+public selectedArchetypeName = "Alchimiste";
   public selectedArmor = 14;
   public currentProficiency = 2;
   public characterName = '';
@@ -59,7 +60,7 @@ public selectedArchetypeName = "Voie du Berserker";
   public bonusSkill = '';
 
   public commonWeaponsMastery = true;
-  public warWeaponsMastery = true;
+  public warWeaponsMastery = false;
   public lightArmorMastery = true;
   public mediumArmorMastery = true;
   public heavyArmorMastery = false;
@@ -67,57 +68,58 @@ public selectedArchetypeName = "Voie du Berserker";
   public classWeaponMasteries = '';
   public subClassWeaponMasteries = '';
   public raceWeaponMasteries = '';
-  public classToolMasteries = '';
+  public classToolMasteries = "Outils de bricoleur, outils de voleur, un type d'outils d'artisan de votre choix";
   public raceToolMasteries = '';
 
   public raceSource = 'Manuel des Joueurs';
-  public classSource = 'Manuel des Joueurs';
-  public subClassSource = 'Manuel des Joueurs';
+  public classSource = 'Le Chaudron des Merveilles de Tasha';
+  public subClassSource = 'Le Chaudron des Merveilles de Tasha';
   public backgroundSource = 'La Côte des Épées';
 
-  public classFeatureLevel1 = "Rage, Défense sans armure";
-  public classFeatureLevel2 = "Témérité, Sens du danger";
-  public classFeatureLevel3 = "Voie primitive";
+  public classFeatureLevel1 = "Bricolage magique";
+  public classFeatureLevel2 = "Influx d'objet";
+  public classFeatureLevel3 = "Artificier spécialisé, L'outil de circonstance";
   public classFeatureLevel4 = "Amélioration de caractéristiques";
-  public classFeatureLevel5 = "Attaque supplémentaire, Déplacement rapide";
-  public classFeatureLevel6 = "";
-  public classFeatureLevel7 = "Instinct sauvage";
+  public classFeatureLevel5 = "";
+  public classFeatureLevel6 = "Expertise de l'outillage";
+  public classFeatureLevel7 = "Trait de génie";
   public classFeatureLevel8 = "Amélioration de caractéristiques";
-  public classFeatureLevel9 = "Critique brutal (1 dé)";
-  public classFeatureLevel10 = "";
-  public classFeatureLevel11 = "Rage implacable";
+  public classFeatureLevel9 = "";
+  public classFeatureLevel10 = "Adepte des objets magiques";
+  public classFeatureLevel11 = "Objet de stockage de sort";
   public classFeatureLevel12 = "Amélioration de caractéristiques";
-  public classFeatureLevel13 = "Critique brutal (2 dés)";
-  public classFeatureLevel14 = "";
-  public classFeatureLevel15 = "Rage ininterrompue";
+  public classFeatureLevel13 = "";
+  public classFeatureLevel14 = "Érudit des objets magiques";
+  public classFeatureLevel15 = "";
   public classFeatureLevel16 = "Amélioration de caractéristiques";
-  public classFeatureLevel17 = "Critique brutal (3 dés)";
-  public classFeatureLevel18 = "Puissance indomptable";
+  public classFeatureLevel17 = "";
+  public classFeatureLevel18 = "Maître des objets magiques";
   public classFeatureLevel19 = "Amélioration de caractéristiques";
-  public classFeatureLevel20 = "Champion primitif";
+  public classFeatureLevel20 = "Âme de l'artifice";
 
 
 
   public archetypeFeatureLevel1 = "";
   public archetypeFeatureLevel2 = "";
-  public archetypeFeatureLevel3 = "Frénésie";
+  public archetypeFeatureLevel3 = "Maîtrise d'outils, Sorts d'Alchimiste, Élixir expérimental";
   public archetypeFeatureLevel4 = "";
-  public archetypeFeatureLevel5 = "";
-  public archetypeFeatureLevel6 = "Rage aveugle";
+  public archetypeFeatureLevel5 = "Érudit alchimique";
+  public archetypeFeatureLevel6 = "";
   public archetypeFeatureLevel7 = "";
   public archetypeFeatureLevel8 = "";
-  public archetypeFeatureLevel9 = "";
-  public archetypeFeatureLevel10 = "Présence intimidante";
+  public archetypeFeatureLevel9 = "Ingrédients revigorants";
+  public archetypeFeatureLevel10 = "";
   public archetypeFeatureLevel11 = "";
   public archetypeFeatureLevel12 = "";
   public archetypeFeatureLevel13 = "";
-  public archetypeFeatureLevel14 = "Représailles";
-  public archetypeFeatureLevel15 = "";
+  public archetypeFeatureLevel14 = "";
+  public archetypeFeatureLevel15 = "Maîtrise chimique";
   public archetypeFeatureLevel16 = "";
   public archetypeFeatureLevel17 = "";
   public archetypeFeatureLevel18 = "";
   public archetypeFeatureLevel19 = "";
   public archetypeFeatureLevel20 = "";
+
 
   public clercCanalisationDivine = "";
   public clercCanalisationDivine2 = "";
@@ -125,7 +127,7 @@ public selectedArchetypeName = "Voie du Berserker";
 
 
   public classSkillMasteries =
-    'Deux parmi Athlétisme, Dressage, Intimidation, Nature, Perception et Survie';
+    'Deux au choix parmi Arcanes, Escamotage, Histoire, Investigation, Médecine, Nature et Perception';
   public raceSkillMasteries = '';
   public subClassSkillMasteries = '';
 
@@ -145,7 +147,7 @@ public classLangages = "";
   public selectedRaceName = "Humain";
   public selectedBackground = 0;
   public selectedClass = 0;
-  public selectedClassName = "Barbare";
+  public selectedClassName = "Artificier";
 
   public randomizedRace = 0;
   public randomizedBackground = 0;
@@ -801,12 +803,50 @@ updateSubClassFeatures = () => {
   this.subClassToolMasteries = "";
   this.subClassWeaponMasteries = "";
   switch (this.selectedClassName) {
+    case 'Artificier':
+      this.selectedArchetypeName   =  this.artificierArchetypes[this.selectedArchetype].name;   
+      this.subClassSource = this.artificierArchetypes[this.selectedArchetype].source; 
+      this.archetypeFeatureLevel1  =  "";
+      this.archetypeFeatureLevel2  =  "";
+      this.archetypeFeatureLevel3  =  this.artificierArchetypes[this.selectedArchetype].archetypeFeatureLevel3;
+      this.archetypeFeatureLevel5  =  this.artificierArchetypes[this.selectedArchetype].archetypeFeatureLevel5;
+      this.archetypeFeatureLevel6  =  "";
+      this.archetypeFeatureLevel7  =  "";
+      this.archetypeFeatureLevel8  =  "";
+      this.archetypeFeatureLevel9  = this.artificierArchetypes[this.selectedArchetype].archetypeFeatureLevel9;
+      this.archetypeFeatureLevel10 =  "";
+      this.archetypeFeatureLevel11 =  "";
+      this.archetypeFeatureLevel13 = this.artificierArchetypes[this.selectedArchetype].archetypeFeatureLevel13;
+      this.archetypeFeatureLevel14 =  "";
+      this.archetypeFeatureLevel15 =  "";
+      this.archetypeFeatureLevel17 =  "";
+      this.archetypeFeatureLevel18 =  "";
+      this.archetypeFeatureLevel20 =  "";
+      if (this.selectedArchetypeName == "Alchimiste" && this._caracteristicsService.level>2) {
+        this.subClassToolMasteries = "Matériel d'alchimiste ou un autre type d'outils d'artisan de votre choix";
+        this.heavyArmorMastery = false;
+        this.warWeaponsMastery = false;
+      } else if (this.selectedArchetypeName == "Armurier" && this._caracteristicsService.level>2) {
+        this.subClassToolMasteries = "Outils de forgeron ou un autre type d'outils d'artisan de votre choix";
+        this.heavyArmorMastery = true;
+        this.warWeaponsMastery = false;
+      } else if (this.selectedArchetypeName == "Artilleur" && this._caracteristicsService.level>2) {
+        this.subClassToolMasteries = "Outils de menuisier ou un autre type d'outils d'artisan de votre choix";
+        this.heavyArmorMastery = false;
+        this.warWeaponsMastery = false;
+      } if (this.selectedArchetypeName == "Forgeron de guerre" && this._caracteristicsService.level>2) {
+        this.subClassToolMasteries = "Outils de forgeron ou un autre type d'outils d'artisan de votre choix";
+        this.heavyArmorMastery = false;
+        this.warWeaponsMastery = true;
+      }
+      break;
     case 'Barbare':
       this.selectedArchetypeName   =  this.barbareArchetypes[this.selectedArchetype].name;   
       this.subClassSource = this.barbareArchetypes[this.selectedArchetype].source; 
       this.archetypeFeatureLevel1  =  "";
       this.archetypeFeatureLevel2  =  "";
       this.archetypeFeatureLevel3  =  this.barbareArchetypes[this.selectedArchetype].archetypeFeatureLevel3;
+      this.archetypeFeatureLevel5  =  "";
       this.archetypeFeatureLevel6  =  this.barbareArchetypes[this.selectedArchetype].archetypeFeatureLevel6;
       this.archetypeFeatureLevel7  =  "";
       this.archetypeFeatureLevel8  =  "";
@@ -826,6 +866,7 @@ updateSubClassFeatures = () => {
       this.archetypeFeatureLevel1  =  "";
       this.archetypeFeatureLevel2  =  "";
       this.archetypeFeatureLevel3  =  this.bardeArchetypes[this.selectedArchetype].archetypeFeatureLevel3;
+      this.archetypeFeatureLevel5  =  "";
       this.archetypeFeatureLevel6  =  this.bardeArchetypes[this.selectedArchetype].archetypeFeatureLevel6;
       this.archetypeFeatureLevel7  =  "";
       this.archetypeFeatureLevel8  =  "";
@@ -862,6 +903,7 @@ updateSubClassFeatures = () => {
       this.archetypeFeatureLevel1  =  this.clercArchetypes[this.selectedArchetype].archetypeFeatureLevel1;
       this.archetypeFeatureLevel2  =  this.clercArchetypes[this.selectedArchetype].archetypeFeatureLevel2;
       this.archetypeFeatureLevel3  =  "";
+      this.archetypeFeatureLevel5  =  "";
       this.archetypeFeatureLevel6  =  this.clercArchetypes[this.selectedArchetype].archetypeFeatureLevel6;
       this.archetypeFeatureLevel7  =  "";
       this.archetypeFeatureLevel8  =  this.clercArchetypes[this.selectedArchetype].archetypeFeatureLevel8;
@@ -916,6 +958,7 @@ updateSubClassFeatures = () => {
         this.archetypeFeatureLevel1  = "";
         this.archetypeFeatureLevel2  = this.druideArchetypes[this.selectedArchetype].archetypeFeatureLevel2;
         this.archetypeFeatureLevel3  = "";
+        this.archetypeFeatureLevel5  =  "";
         this.archetypeFeatureLevel6  = this.druideArchetypes[this.selectedArchetype].archetypeFeatureLevel6;
         this.archetypeFeatureLevel7  = "";
         this.archetypeFeatureLevel8  = "";
@@ -935,6 +978,7 @@ updateSubClassFeatures = () => {
           this.archetypeFeatureLevel1  = this.ensorceleurArchetypes[this.selectedArchetype].archetypeFeatureLevel1;
           this.archetypeFeatureLevel2  = "";
           this.archetypeFeatureLevel3  = "";
+          this.archetypeFeatureLevel5  =  "";
           this.archetypeFeatureLevel6  = this.ensorceleurArchetypes[this.selectedArchetype].archetypeFeatureLevel6;
           this.archetypeFeatureLevel7  = "";
           this.archetypeFeatureLevel8  = "";
@@ -956,6 +1000,7 @@ updateSubClassFeatures = () => {
             this.archetypeFeatureLevel1  = "";
             this.archetypeFeatureLevel2  = "";
             this.archetypeFeatureLevel3  = this.guerrierArchetypes[this.selectedArchetype].archetypeFeatureLevel3;
+            this.archetypeFeatureLevel5  =  "";
             this.archetypeFeatureLevel6  = "";
             this.archetypeFeatureLevel7  = this.guerrierArchetypes[this.selectedArchetype].archetypeFeatureLevel7;
             this.archetypeFeatureLevel8  = "";
@@ -969,9 +1014,16 @@ updateSubClassFeatures = () => {
             this.archetypeFeatureLevel18 = this.guerrierArchetypes[this.selectedArchetype].archetypeFeatureLevel18;
             this.archetypeFeatureLevel20 = "";
             if (this.selectedArchetypeName == "Chevalier du dragon pourpre" && this._caracteristicsService.level>6) {
-              this.subClassSkillMasteries = "Persuasion, ou une parmi Dressage, Intimidation, Perspicacité et Représentation si vous l'avez déjà; Expertise dans Persuasion";
+              this.subClassSkillMasteries = "Persuasion, ou une parmi Dressage, Intimidation, Intuition et Représentation si vous l'avez déjà; Expertise dans Persuasion";
             } else if (this.selectedArchetypeName == "Maître de guerre" && this._caracteristicsService.level>2) {
               this.subClassToolMasteries = "Un outil d'artisan de votre choix";
+            } else if (this.selectedArchetypeName == "Samurai" && this._caracteristicsService.level>2) {
+              this.subClassSkillMasteries = "Histoire, Intuition, Représentation, Persuasion ou une langue de votre choix";
+            } else if (this.selectedArchetypeName == "Chevalier runique" && this._caracteristicsService.level>2) {
+              this.subClassToolMasteries = "Outils de forgeron";
+              this.subClassLangages = "Géant";
+
+
             } 
             break;
             case 'Magicien':
@@ -983,6 +1035,7 @@ updateSubClassFeatures = () => {
               this.archetypeFeatureLevel1  = "";
               this.archetypeFeatureLevel2  = this.magicienArchetypes[this.selectedArchetype].archetypeFeatureLevel2;
               this.archetypeFeatureLevel3  = "";
+              this.archetypeFeatureLevel5  =  "";
               this.archetypeFeatureLevel6  = this.magicienArchetypes[this.selectedArchetype].archetypeFeatureLevel6;
               this.archetypeFeatureLevel7  = "";
               this.archetypeFeatureLevel8  = "";
@@ -1007,8 +1060,9 @@ updateSubClassFeatures = () => {
                 this.selectedArchetypeName =   this.moineArchetypes[this.selectedArchetype].name;
                 this.subClassSource = this.moineArchetypes[this.selectedArchetype].source; 
                 this.archetypeFeatureLevel1  = "";
-                this.archetypeFeatureLevel2  = this.moineArchetypes[this.selectedArchetype].archetypeFeatureLevel2;
-                this.archetypeFeatureLevel3  = "";
+                this.archetypeFeatureLevel2  = "";
+                this.archetypeFeatureLevel3  = this.moineArchetypes[this.selectedArchetype].archetypeFeatureLevel3;
+                this.archetypeFeatureLevel5  =  "";
                 this.archetypeFeatureLevel6  = this.moineArchetypes[this.selectedArchetype].archetypeFeatureLevel6;
                 this.archetypeFeatureLevel7  = "";
                 this.archetypeFeatureLevel8  = "";
@@ -1033,6 +1087,7 @@ updateSubClassFeatures = () => {
                   this.archetypeFeatureLevel1  = "";
                   this.archetypeFeatureLevel2  = "";
                   this.archetypeFeatureLevel3  = this.paladinArchetypes[this.selectedArchetype].archetypeFeatureLevel3;
+                  this.archetypeFeatureLevel5  =  "";
                   this.archetypeFeatureLevel6  = "";
                   this.archetypeFeatureLevel7  = this.paladinArchetypes[this.selectedArchetype].archetypeFeatureLevel7;
                   this.archetypeFeatureLevel8  = "";
@@ -1054,6 +1109,7 @@ updateSubClassFeatures = () => {
                     this.archetypeFeatureLevel1  = "";
                     this.archetypeFeatureLevel2  = "";
                     this.archetypeFeatureLevel3  = this.rodeurArchetypes[this.selectedArchetype].archetypeFeatureLevel3;
+                    this.archetypeFeatureLevel5  =  "";
                     this.archetypeFeatureLevel6  = "";
                     this.archetypeFeatureLevel7  = this.rodeurArchetypes[this.selectedArchetype].archetypeFeatureLevel7;
                     this.archetypeFeatureLevel8  = "";
@@ -1076,6 +1132,7 @@ updateSubClassFeatures = () => {
                         this.archetypeFeatureLevel1  = "";
                         this.archetypeFeatureLevel2  = "";
                         this.archetypeFeatureLevel3  = this.roublardArchetypes[this.selectedArchetype].archetypeFeatureLevel3;
+                        this.archetypeFeatureLevel5  =  "";
                         this.archetypeFeatureLevel6  = "";
                         this.archetypeFeatureLevel7  = "";
                         this.archetypeFeatureLevel8  = "";
@@ -1094,12 +1151,13 @@ updateSubClassFeatures = () => {
                         this.subClassToolMasteries = "";
 
                         break;
-                        case 'Sorcier':
+                        case 'Occultiste':
                           this.selectedArchetypeName =   this.sorcierArchetypes[this.selectedArchetype].name;
                           this.subClassSource = this.sorcierArchetypes[this.selectedArchetype].source; 
                           this.archetypeFeatureLevel1  = this.sorcierArchetypes[this.selectedArchetype].archetypeFeatureLevel1;
                           this.archetypeFeatureLevel2  = "";
                           this.archetypeFeatureLevel3  = "";
+                          this.archetypeFeatureLevel5  =  "";
                           this.archetypeFeatureLevel6  = this.sorcierArchetypes[this.selectedArchetype].archetypeFeatureLevel6;
                           this.archetypeFeatureLevel7  = "";
                           this.archetypeFeatureLevel8  = "";
@@ -1131,6 +1189,20 @@ bardSkills = () => {
   updateClass = () => {
     this.classLangages ="";
     switch (this.selectedClassName) {
+      case 'Artificier':
+        this.commonWeaponsMastery = true;
+        this.warWeaponsMastery = false;
+        this.lightArmorMastery = true;
+        this.mediumArmorMastery = true;
+        this.heavyArmorMastery = false;
+        this.shieldMastery = true;
+        this._caracteristicsService.forceCheck = false;
+        this._caracteristicsService.dexterityCheck = false;
+        this._caracteristicsService.constitutionCheck = true;
+        this._caracteristicsService.intelligenceCheck = true;
+        this._caracteristicsService.wisdomCheck = false;
+        this._caracteristicsService.charismaCheck = false;
+        break;
       case 'Barbare':
         this.commonWeaponsMastery = true;
         this.warWeaponsMastery = true;
@@ -1328,7 +1400,7 @@ bardSkills = () => {
 
 
         break;
-      case 'Sorcier':
+      case 'Occultiste':
         this.commonWeaponsMastery = true;
         this.warWeaponsMastery = false;
         this.lightArmorMastery = true;
@@ -1505,6 +1577,7 @@ bardSkills = () => {
     this._backgroundsService
       .getBackgrounds()
       .subscribe((data) => (this.backgrounds = data));
+      this.artificierArchetypes = this._classFeaturesService.getArtificierArchetypes();
       this.barbareArchetypes = this._classFeaturesService.getBarbareArchetypes();
       this.bardeArchetypes = this._classFeaturesService.getBardeArchetypes();
       this.clercArchetypes = this._classFeaturesService.getClercArchetypes();
@@ -1522,12 +1595,13 @@ bardSkills = () => {
 
     this.updatedArmorClass = 9;
     this._classesService.selectedClassType = 'Fighter';
-    this._classesService.selectedCantripGroup = 'A';
-    this._classesService.selectedClassName = 'Barbare';
+    this._classesService.selectedCantripGroup = 'E';
+    this._classesService.selectedClassName = 'Artificier';
     this.selectedArchetype = 0;
     this.updateClassFeatures();
     this.updateSubClassFeatures();
-    this._spellsService.level1SpellsKnown = '0';
+    // this._spellsService.updateSpellLevelTable();
+    this._spellsService.level1SpellsKnown = '1';
     this.updateSpellsKnown;
     this.reset();
   }

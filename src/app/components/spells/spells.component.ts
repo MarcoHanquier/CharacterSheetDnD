@@ -26,16 +26,25 @@ export class SpellsComponent implements OnInit {
   public spellsPrepared = 0;
   public selectedClass = '';
 
-
-  displayedColumns: string[] = ['position', 'slot1', 'slot2', 'slot3', 'slot4', 'slot5', 'slot6', 'slot7', 'slot8', 'slot9'];
+  displayedColumns: string[] = [
+    'position',
+    'slot1',
+    'slot2',
+    'slot3',
+    'slot4',
+    'slot5',
+    'slot6',
+    'slot7',
+    'slot8',
+    'slot9',
+  ];
   dataSourceSpellSlots = new MatTableDataSource(this._spellsService.SpellSlots);
-
 
   constructor(
     private _spellsService: SpellsService,
     private _classesService: ClassesService,
     private _caracteristicsService: CaracteristicsService
-  ) {  }
+  ) {}
 
   public spells = [] as any[];
   public classes = [] as any[];
@@ -48,6 +57,7 @@ export class SpellsComponent implements OnInit {
       this._classesService.selectedClassName == 'Druide' ||
       this._classesService.selectedClassName == 'Clerc' ||
       this._classesService.selectedClassName == 'Magicien' ||
+      this._classesService.selectedClassName == 'Artificier' ||
       this._classesService.selectedClassName == 'Paladin'
     ) {
       this.calculatePreparedSpells();
@@ -73,6 +83,20 @@ export class SpellsComponent implements OnInit {
       if (this.spellsPrepared < 1) {
         this.spellsPrepared = 1;
       } else this.spellsPrepared = this.spellsPrepared;
+    } else if (this._classesService.selectedClassName == 'Artificier') {
+      if (this._caracteristicsService.level == 1) {
+        this.spellsPrepared =
+          this._caracteristicsService.intelligenceModifier +
+          this._caracteristicsService.level;
+      } else {
+        this.spellsPrepared =
+          this._caracteristicsService.intelligenceModifier +
+          Math.floor(this._caracteristicsService.level / 2);
+      }
+
+      if (this.spellsPrepared < 1) {
+        this.spellsPrepared = 1;
+      } else this.spellsPrepared = this.spellsPrepared;
     } else if (
       this._classesService.selectedClassName == 'Druide' ||
       this._classesService.selectedClassName == 'Clerc'
@@ -92,39 +116,56 @@ export class SpellsComponent implements OnInit {
       this._classesService.selectedClassName == 'Barde' ||
       this._classesService.selectedClassName == 'Ensorceleur' ||
       this._classesService.selectedClassName == 'Paladin' ||
-      this._classesService.selectedClassName == 'Sorcier'
+      this._classesService.selectedClassName == 'Occultiste'
     ) {
-      this.spellSavingMod =  8 + this._caracteristicsService.proficiency + this._caracteristicsService.charismaModifier;
-      this.spellAttackMod =  this._caracteristicsService.proficiency + this._caracteristicsService.charismaModifier;
-  
-    } else if (this._classesService.selectedClassName == 'Magicien') {
-      this.spellSavingMod =  8 + this._caracteristicsService.proficiency + this._caracteristicsService.intelligenceModifier;
-      this.spellAttackMod =  this._caracteristicsService.proficiency + this._caracteristicsService.intelligenceModifier;
-  
-    } else if (    this._classesService.selectedClassName == 'Clerc' ||
+      this.spellSavingMod =
+        8 +
+        this._caracteristicsService.proficiency +
+        this._caracteristicsService.charismaModifier;
+      this.spellAttackMod =
+        this._caracteristicsService.proficiency +
+        this._caracteristicsService.charismaModifier;
+    } else if (this._classesService.selectedClassName == 'Magicien' || this._classesService.selectedClassName == 'Artificier') {
+      this.spellSavingMod =
+        8 +
+        this._caracteristicsService.proficiency +
+        this._caracteristicsService.intelligenceModifier;
+      this.spellAttackMod =
+        this._caracteristicsService.proficiency +
+        this._caracteristicsService.intelligenceModifier;
+    } else if (
+      this._classesService.selectedClassName == 'Clerc' ||
       this._classesService.selectedClassName == 'Druide' ||
-      this._classesService.selectedClassName == 'Rôdeur') {
-        this.spellSavingMod =  8 + this._caracteristicsService.proficiency + this._caracteristicsService.wisdomModifier;
-        this.spellAttackMod =  this._caracteristicsService.proficiency + this._caracteristicsService.wisdomModifier;
-    } else if (    this._classesService.selectedClassName == 'Moine') {
-      this.spellSavingMod =  8 + this._caracteristicsService.proficiency + this._caracteristicsService.wisdomModifier;
-      this.spellAttackMod =  0;
-  } else  {
-      this.spellSavingMod =  0;
-      this.spellAttackMod =  0;
+      this._classesService.selectedClassName == 'Rôdeur'
+    ) {
+      this.spellSavingMod =
+        8 +
+        this._caracteristicsService.proficiency +
+        this._caracteristicsService.wisdomModifier;
+      this.spellAttackMod =
+        this._caracteristicsService.proficiency +
+        this._caracteristicsService.wisdomModifier;
+    } else if (this._classesService.selectedClassName == 'Moine') {
+      this.spellSavingMod =
+        8 +
+        this._caracteristicsService.proficiency +
+        this._caracteristicsService.wisdomModifier;
+      this.spellAttackMod = 0;
+    } else {
+      this.spellSavingMod = 0;
+      this.spellAttackMod = 0;
     }
-    };
+  };
 
+  updateSpellSaveModInUI() {
+    this.updateSpellMod();
+    return this.spellSavingMod;
+  }
 
-    updateSpellSaveModInUI() {
-      this.updateSpellMod();
-      return this.spellSavingMod
-    }
-
-    updateSpellAttackModInUI() {
-      this.updateSpellMod();
-      return this.spellAttackMod
-    }
+  updateSpellAttackModInUI() {
+    this.updateSpellMod();
+    return this.spellAttackMod;
+  }
 
   // Sorts connus selon la classe
   updateSpellsKnown = () => {
@@ -175,7 +216,7 @@ export class SpellsComponent implements OnInit {
       this._spellsService.level18SpellsKnown = '10';
       this._spellsService.level19SpellsKnown = '11';
       this._spellsService.level20SpellsKnown = '11';
-    } else if (this._classesService.selectedClassName == 'Sorcier') {
+    } else if (this._classesService.selectedClassName == 'Occultiste') {
       this._spellsService.level1SpellsKnown = '2';
       this._spellsService.level2SpellsKnown = '3';
       this._spellsService.level3SpellsKnown = '4';
@@ -268,7 +309,7 @@ export class SpellsComponent implements OnInit {
         this._spellsService.cantrips20 = '0';
         break;
       case 'B':
-        // Sorcier, Druide, Barde
+        // Occultiste, Druide, Barde
         this._spellsService.cantrips1 = '2';
         this._spellsService.cantrips2 = '2';
         this._spellsService.cantrips3 = '2';
@@ -336,6 +377,29 @@ export class SpellsComponent implements OnInit {
         this._spellsService.cantrips18 = '6';
         this._spellsService.cantrips19 = '6';
         this._spellsService.cantrips20 = '6';
+        break;
+      case 'E':
+        // Artificier
+        this._spellsService.cantrips1 = '2';
+        this._spellsService.cantrips2 = '2';
+        this._spellsService.cantrips3 = '2';
+        this._spellsService.cantrips4 = '2';
+        this._spellsService.cantrips5 = '2';
+        this._spellsService.cantrips6 = '2';
+        this._spellsService.cantrips7 = '2';
+        this._spellsService.cantrips8 = '2';
+        this._spellsService.cantrips9 = '2';
+        this._spellsService.cantrips10 = '3';
+        this._spellsService.cantrips11 = '3';
+        this._spellsService.cantrips12 = '3';
+        this._spellsService.cantrips13 = '3';
+        this._spellsService.cantrips14 = '4';
+        this._spellsService.cantrips15 = '4';
+        this._spellsService.cantrips16 = '4';
+        this._spellsService.cantrips17 = '4';
+        this._spellsService.cantrips18 = '4';
+        this._spellsService.cantrips19 = '4';
+        this._spellsService.cantrips20 = '4';
         break;
     }
   };
@@ -428,10 +492,11 @@ export class SpellsComponent implements OnInit {
   };
 
   // Rafraichit le tableau d'emplacements de sorts
-refresh() {
-    this.dataSourceSpellSlots = new MatTableDataSource(this._spellsService.dataSourceSpellSlots)
-    };
-
+  refresh() {
+    this.dataSourceSpellSlots = new MatTableDataSource(
+      this._spellsService.dataSourceSpellSlots
+    );
+  }
 
   ngOnInit(): void {
     this._spellsService.getSpells().subscribe((data) => (this.spells = data));
@@ -439,12 +504,14 @@ refresh() {
       .getClasses()
       .subscribe((data) => (this.classes = data));
     this.updateSpellsByLevel();
-    this.dataSourceSpellSlots = new MatTableDataSource(this._spellsService.dataSourceSpellSlots)
+    this.dataSourceSpellSlots = new MatTableDataSource(
+      this._spellsService.dataSourceSpellSlots
+    );
   }
 
   ngAfterViewInit(): void {
-    this.dataSourceSpellSlots = new MatTableDataSource(this._spellsService.dataSourceSpellSlots)
+    this.dataSourceSpellSlots = new MatTableDataSource(
+      this._spellsService.dataSourceSpellSlots
+    );
   }
-
-
 }

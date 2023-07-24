@@ -68,7 +68,7 @@ export class RandomizerService {
     this.randomizedCharacterID = Math.floor(Math.random() * 100);
     this.randomizedCharacterID2 = Math.floor(Math.random() * 100);
 
-    if (this.playerRace == "Humain" || this.playerRace == "Sang Maudit" || this.playerRace == "Ressuscité") {
+    if (this.playerRace == "Humain" || this.playerRace == "Fielsang" || this.playerRace == "Ressuscité") {
       this.randomizedCharacterNamePart1 =  this.names[this.randomizedCharacterID].humanName;
       this.randomizedCharacterNamePart2 =  this.names[this.randomizedCharacterID2].humanName2;
 
@@ -88,7 +88,7 @@ export class RandomizerService {
       this.randomizedCharacterNamePart1 =  this.names[this.randomizedCharacterID].nainName;
       this.randomizedCharacterNamePart2 =  this.names[this.randomizedCharacterID2].nainName2;
 
-    }   else if (this.playerRace == "Sangdragon") {
+    }   else if (this.playerRace == "Drakéide" || this.playerRace == "Drakéide chromatique" || this.playerRace == "Drakéide métallique" || this.playerRace == "Drakéide diamantin") {
       this.randomizedCharacterNamePart1 =   this.names[this.randomizedCharacterID].sangdragonName;
       this.randomizedCharacterNamePart2 =  this.names[this.randomizedCharacterID2].sangdragonName2;
 
@@ -100,7 +100,7 @@ export class RandomizerService {
       this.randomizedCharacterNamePart1 =   this.names[this.randomizedCharacterID].orcName;
       this.randomizedCharacterNamePart2 =  this.names[this.randomizedCharacterID2].orcName2;
 
-    } else if (this.playerRace == "Githyanki" || this.playerRace == "Githzerai") {
+    } else if (this.playerRace == "Githyanki" || this.playerRace == "Githzeraï") {
       this.randomizedCharacterNamePart1 =  this.names[this.randomizedCharacterID].githName;
       this.randomizedCharacterNamePart2 = "";
 
@@ -112,11 +112,11 @@ export class RandomizerService {
       this.randomizedCharacterNamePart1 =   this.names[this.randomizedCharacterID].kenkuName;
       this.randomizedCharacterNamePart2 = "";
 
-    }   else if (this.playerRace == "Homme-Lézard") {
+    }   else if (this.playerRace == "Saurial") {
       this.randomizedCharacterNamePart1 =   this.names[this.randomizedCharacterID].lizardfolkName;
       this.randomizedCharacterNamePart2 = "";
 
-    }   else if (this.playerRace == "Tortle") {
+    }   else if (this.playerRace == "Torte") {
       this.randomizedCharacterNamePart1 =   this.names[this.randomizedCharacterID].tortleName;
       this.randomizedCharacterNamePart2 = "";
 
@@ -124,7 +124,7 @@ export class RandomizerService {
       this.randomizedCharacterNamePart1 =   this.names[this.randomizedCharacterID].koboldName;
       this.randomizedCharacterNamePart2 = "";
 
-    }   else if (this.playerRace == "Aarakocra") {
+    }   else if (this.playerRace == "Aarakocre") {
       this.randomizedCharacterNamePart1 =   this.names[this.randomizedCharacterID].aaracokraName;
       this.randomizedCharacterNamePart2 = "";
 
@@ -144,19 +144,19 @@ export class RandomizerService {
       this.randomizedCharacterNamePart1 =   this.names[this.randomizedCharacterID].dhampirName;
       this.randomizedCharacterNamePart2 =  this.names[this.randomizedCharacterID2].dhampirName2;
 
-    }  else if (this.playerRace == "Génasi de l'air") {
+    }  else if (this.playerRace == "Génasi d'air") {
       this.randomizedCharacterNamePart1 =  this.names[this.randomizedCharacterID].airGenasiName;
       this.randomizedCharacterNamePart2 =  this.names[this.randomizedCharacterID2].airGenasiName2;
 
-    } else if (this.playerRace == "Génasi de l'eau") {
+    } else if (this.playerRace == "Génasi d'eau") {
       this.randomizedCharacterNamePart1 =  this.names[this.randomizedCharacterID].waterGenasiName;
       this.randomizedCharacterNamePart2 =  this.names[this.randomizedCharacterID2].waterGenasiName2;
 
-    } else if (this.playerRace == "Génasi de la terre") {
+    } else if (this.playerRace == "Génasi de terre") {
       this.randomizedCharacterNamePart1 =  this.names[this.randomizedCharacterID].earthGenasiName;
       this.randomizedCharacterNamePart2 =  this.names[this.randomizedCharacterID2].earthGenasiName2;
 
-    } else if (this.playerRace == "Génasi du feu") {
+    } else if (this.playerRace == "Génasi de feu") {
       this.randomizedCharacterNamePart1 =  this.names[this.randomizedCharacterID].fireGenasiName;
       this.randomizedCharacterNamePart2 =  this.names[this.randomizedCharacterID2].fireGenasiName2;
 
@@ -172,7 +172,7 @@ export class RandomizerService {
       this.randomizedCharacterNamePart1 =   this.names[this.randomizedCharacterID].centaurName;
       this.randomizedCharacterNamePart2 = "";
 
-    }  else if (this.playerRace == "Changeling") {
+    }  else if (this.playerRace == "Changelin") {
       this.randomizedCharacterNamePart1 =   this.names[this.randomizedCharacterID].changelingName;
       this.randomizedCharacterNamePart2 = "";
 
@@ -212,7 +212,7 @@ export class RandomizerService {
       this.randomizedCharacterNamePart1 =   this.names[this.randomizedCharacterID].minotaurName;
       this.randomizedCharacterNamePart2 = "";
 
-    }  else if (this.playerRace == "Shadar Kai") {
+    }  else if (this.playerRace == "Shadar-Kaï") {
       this.randomizedCharacterNamePart1 =   this.names[this.randomizedCharacterID].shadarKaiName;
       this.randomizedCharacterNamePart2 =  this.names[this.randomizedCharacterID2].shadarKaiName2;
 
@@ -220,7 +220,7 @@ export class RandomizerService {
       this.randomizedCharacterNamePart1 =   this.names[this.randomizedCharacterID].drowName;
       this.randomizedCharacterNamePart2 =  this.names[this.randomizedCharacterID2].drowName2;
 
-    }  else if (this.playerRace == "Eladrin") {
+    }  else if (this.playerRace == "Éladrin") {
       this.randomizedCharacterNamePart1 =   this.names[this.randomizedCharacterID].eladrinName;
       this.randomizedCharacterNamePart2 =  this.names[this.randomizedCharacterID2].eladrinName2;
 

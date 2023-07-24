@@ -7,16 +7,16 @@
     <div id="spells-known">
         <div class="border-spells-known" >
             <p class="spells-known" *ngIf=" this.selectedClass == 'Druide' || this.selectedClass == 'Clerc' || 
-            this.selectedClass == 'Magicien' || this.selectedClass == 'Paladin' ; else elseBlock">Sorts préparés</p>
+            this.selectedClass == 'Magicien' || this.selectedClass == 'Paladin' || this.selectedClass == 'Artificier' ; else elseBlock">Sorts préparés</p>
               <ng-template #elseBlock><p class="spells-known" > Sorts connus</p></ng-template>
             <p class="value-text">{{updateSpellsInUI()}} </p>
             </div>
     </div>
 
-    <!-- Tours de magie -->
+    <!-- Sorts mineurs -->
     <div id="cantrips">
         <div class="border-cantrips" >
-            <p class="cantrips">Tours de magie</p>
+            <p class="cantrips">Sorts mineurs</p>
             <p class="value-text">{{cantripsKnown}} </p>
             </div>
     </div>
