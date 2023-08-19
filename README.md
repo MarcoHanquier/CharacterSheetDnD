@@ -1,27 +1,20 @@
-# AngularCharasheet2
+Bienvenue dans ce projet personnel, un simulateur de fiche de personnage Donjons & Dragons.  
+Marre de devoir tout calculer et de parcourir une pile de manuels afin d'avoir une idée précise d'un personnage ? Ne cherchez pas plus loin :)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+>Ce projet est avant tout à but éducatif afin de me former sur Angular, je continue de l'améliorer de temps en temps
 
-## Development server
+Lien vers le site : charasheetdnd.web.app/
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Installation : 
 
-## Code scaffolding
+Taper `git clone git@github.com:MarcoHanquier/CharacterSheetDnD.git`  
+Puis `npm install`  
+Et enfin `ng serve --open`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Technos utilisées : 
+- Angular
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Gallerie
+![Résumé et aptitudes](https://i.imgur.com/LCvhhGS.png)
+![Caractéristiques](https://i.imgur.com/qMtD3DO.png)
